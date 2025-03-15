@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LenguaVivaCliente.Vistas.Menu
+namespace LenguaVivaCliente.Vistas.Registros
 {
     /// <summary>
-    /// Lógica de interacción para MenuPrincipal.xaml
+    /// Lógica de interacción para vtRegistroProfesor.xaml
     /// </summary>
-    public partial class MenuPrincipal : Page
+    public partial class vtRegistroProfesor : Page
     {
-        public MenuPrincipal()
+        public vtRegistroProfesor()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
