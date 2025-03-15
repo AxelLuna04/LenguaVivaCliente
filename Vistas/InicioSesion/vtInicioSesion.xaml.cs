@@ -28,10 +28,18 @@ namespace LenguaVivaCliente.Vistas.InicioSesion
             {
                 try
                 {
-            if (proxy.IniciarSesion(tbUsuario.Text, tpContraseña.Password))
-                MessageBox.Show("Inicio correcto");
-            else
-                MessageBox.Show("Inicio incorrecto");
+                    if (proxy.IniciarSesion(tbUsuario.Text, tpContraseña.Password))
+                    {
+                        MessageBox.Show("Inicio correcto");
+
+                        Vistas.MenuPrincipal.vtMenuPrincipal menuPrincipal = new Vistas.MenuPrincipal.vtMenuPrincipal();
+                        menuPrincipal.Show();
+
+                        Window.GetWindow(this)?.Close();
+
+                    }
+                    else
+                        MessageBox.Show("Inicio incorrecto");
         }
                 catch (Exception ex)
                 {
