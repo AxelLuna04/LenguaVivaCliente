@@ -20,6 +20,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/IniciarSesion", ReplyAction="http://tempuri.org/IGestionUsuarios/IniciarSesionResponse")]
         System.Threading.Tasks.Task<bool> IniciarSesionAsync(string usuario, string contrasenia);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarAdministrador", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarAdministradorResponse")]
+        bool RegistrarAdministrador(string nombreUsuario, string contrasenia, string nombre, string apellidos, string direccion, string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarAdministrador", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarAdministradorResponse")]
+        System.Threading.Tasks.Task<bool> RegistrarAdministradorAsync(string nombreUsuario, string contrasenia, string nombre, string apellidos, string direccion, string email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> IniciarSesionAsync(string usuario, string contrasenia) {
             return base.Channel.IniciarSesionAsync(usuario, contrasenia);
+        }
+        
+        public bool RegistrarAdministrador(string nombreUsuario, string contrasenia, string nombre, string apellidos, string direccion, string email) {
+            return base.Channel.RegistrarAdministrador(nombreUsuario, contrasenia, nombre, apellidos, direccion, email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarAdministradorAsync(string nombreUsuario, string contrasenia, string nombre, string apellidos, string direccion, string email) {
+            return base.Channel.RegistrarAdministradorAsync(nombreUsuario, contrasenia, nombre, apellidos, direccion, email);
         }
     }
 }
