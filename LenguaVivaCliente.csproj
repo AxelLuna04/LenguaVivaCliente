@@ -68,6 +68,18 @@
     <Compile Include="Vistas\Menu\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Registros\vtRegistroAdministrador.xaml.cs">
+      <DependentUpon>vtRegistroAdministrador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registros\vtRegistroAlumno.xaml.cs">
+      <DependentUpon>vtRegistroAlumno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registros\vtRegistroProfesor.xaml.cs">
+      <DependentUpon>vtRegistroProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Registros\vtRegistros.xaml.cs">
+      <DependentUpon>vtRegistros.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +97,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Menu\MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Registros\vtRegistroAdministrador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Registros\vtRegistroAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Registros\vtRegistroProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Registros\vtRegistros.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
