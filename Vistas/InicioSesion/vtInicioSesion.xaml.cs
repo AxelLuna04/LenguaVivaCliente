@@ -31,12 +31,8 @@ namespace LenguaVivaCliente.Vistas.InicioSesion
                     if (proxy.IniciarSesion(tbUsuario.Text, tpContraseña.Password))
                     {
                         MessageBox.Show("Inicio correcto");
-
-                        
-
-                        Window.GetWindow(this)?.Close();
-
-                    }
+                        NavigationService?.Navigate(new Vistas.Menu.MenuPrincipal());
+                                            }
                     else
                         MessageBox.Show("Inicio incorrecto");
         }

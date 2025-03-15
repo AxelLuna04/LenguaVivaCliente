@@ -24,5 +24,10 @@ namespace LenguaVivaCliente.Vistas.Menu
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
