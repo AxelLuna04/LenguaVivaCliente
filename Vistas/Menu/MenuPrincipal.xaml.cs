@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LenguaVivaCliente.Vistas.MenuPrincipal
+namespace LenguaVivaCliente.Vistas.Menu
 {
     /// <summary>
-    /// Lógica de interacción para vtMenuPrincipal.xaml
+    /// Lógica de interacción para MenuPrincipal.xaml
     /// </summary>
-    public partial class vtMenuPrincipal : Window
+    public partial class MenuPrincipal : Page
     {
-        public vtMenuPrincipal()
+        public MenuPrincipal()
         {
             InitializeComponent();
         }

@@ -32,8 +32,7 @@ namespace LenguaVivaCliente.Vistas.InicioSesion
                     {
                         MessageBox.Show("Inicio correcto");
 
-                        Vistas.MenuPrincipal.vtMenuPrincipal menuPrincipal = new Vistas.MenuPrincipal.vtMenuPrincipal();
-                        menuPrincipal.Show();
+                        
 
                         Window.GetWindow(this)?.Close();
 
