@@ -32,6 +32,7 @@ namespace LenguaVivaCliente.Vistas.Registros
 
         private void BtnAdministrador_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService?.Navigate(new Vistas.Registros.vtRegistroAdministrador());
 
         }
 

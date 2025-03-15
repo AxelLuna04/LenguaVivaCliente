@@ -28,25 +28,25 @@
 
         <!-- Campos del formulario -->
         <Label Content="Nombre:" Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Width="250" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtNombre" Grid.Row="0" Grid.Column="1" Margin="5" Width="250"/>
 
         <Label Content="Apellidos:" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Width="250" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtApellidos" Grid.Row="1" Grid.Column="1" Margin="5" Width="250"/>
 
         <Label Content="Correo:" Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Width="250" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtCorreo" Grid.Row="2" Grid.Column="1" Margin="5" Width="250"/>
 
         <Label Content="Dirección:" Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Width="250" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtDireccion" Grid.Row="3" Grid.Column="1" Margin="5" Width="250"/>
 
         <Label Content="Teléfono:" Grid.Row="4" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="5" Width="250" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtTelefono" Grid.Row="4" Grid.Column="1" Margin="5" Width="250"/>
 
         <Label Content="Usuario:" Grid.Row="5" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="5" Width="250" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtUsuario" Grid.Row="5" Grid.Column="1" Margin="5" Width="250"/>
 
         <Label Content="Contraseña:" Grid.Row="6" Grid.Column="0" Margin="5" VerticalAlignment="Center"/>
-        <PasswordBox Grid.Row="6" Grid.Column="1" Margin="5" Width="250" HorizontalAlignment="Left"/>
+        <PasswordBox x:Name="txtContrasenia" Grid.Row="6" Grid.Column="1" Margin="5" Width="250"/>
 
         <!-- Botones -->
         <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
