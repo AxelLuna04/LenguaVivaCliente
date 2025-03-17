@@ -25,6 +25,7 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
         private class ResumenCurso
         {
+            public int idCurso { get; set; }
             public string nombre { get; set; }
             public string idioma { get; set; }
             public string nivel { get; set; }
@@ -33,7 +34,7 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
         }
 
-            public vtBuscarCurso()
+        public vtBuscarCurso()
         {
             InitializeComponent();
             actualizarTabla();
@@ -45,17 +46,20 @@ namespace LenguaVivaCliente.Vistas.Cursos
         {
             ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
             
-            Curso[] cursos = servicio.ObtenerCursos(tbNombre.Text);
-
+            CursoDTO[] cursos = servicio.ObtenerCursosPorNombre(tbNombre.Text);
 
             List<ResumenCurso> listaCursos = new List<ResumenCurso>();
+
             for (int i=0; i < cursos.Length; i++)
             {
+                
                 ResumenCurso resumenCurso = new ResumenCurso { 
+                    idCurso = cursos[i].idCurso,
                     nombre = cursos[i].nombreCurso,
-                    idioma = cursos[i].Idioma.nombreIdioma,
-                    estado = cursos[i].estado, 
-                    profesor = cursos[i].Profesor.nombre };
+                    estado = cursos[i].estado
+                };
+                resumenCurso.idioma = servicio.ObtenerIdiomaPorID(cursos[i].idIdioma).nombreIdioma;
+                resumenCurso.profesor = servicio.ObtenerProfesorPorID(cursos[i].idProfesor).nombre;
 
                 switch (cursos[i].nivel)
                 {
@@ -82,17 +86,33 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
         private void Click_VerInformacion(object sender, RoutedEventArgs e)
         {
+            if (dgCursos.SelectedItem == null)
+            {
+                System.Windows.MessageBox.Show("Seleccione un curso");
+                return;
+            } 
+            else
+            {
+                ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+                CursoDTO curso = servicio.ObtenerCursoPorID(((ResumenCurso)dgCursos.SelectedItem).idCurso);
 
+                if (curso != null)
+                {
+                    vtInformacionCurso vtInformacionCurso = new vtInformacionCurso(curso);
+                    NavigationService.Navigate(vtInformacionCurso);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Error al obtener la información del curso");
+                }
+
+
+            }
         }
 
         private void Click_Cancelar(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
-        }
-
-        private void Click_Confirmar(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void tbNombre_TextChanged(object sender, TextChangedEventArgs e)

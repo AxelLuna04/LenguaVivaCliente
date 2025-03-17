@@ -137,10 +137,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ServicioLenguaViva\AccesoDatos.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.Curso.datasource">
+    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.CursoDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.IdiomaDTO.datasource">

@@ -18,11 +18,11 @@
 
 
         <Label Content="Cursos:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <DataGrid x:Name="dgCursos" AutoGenerateColumns="True" Margin="44,127,44,70" IsReadOnly="True"/>
+        <DataGrid x:Name="dgCursos" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="44,127,44,70" IsReadOnly="True" SelectionMode="Single"/>
         
 
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="44,406,0,0" VerticalAlignment="Top" Click="Click_Cancelar"/>
-        <Button Content="Ver Información" HorizontalAlignment="Left" Margin="668,406,0,0" VerticalAlignment="Top" Click="Click_Confirmar"/>
+        <Button Content="Ver Información" HorizontalAlignment="Left" Margin="668,406,0,0" VerticalAlignment="Top" Click="Click_VerInformacion"/>
 
 
     </Grid>

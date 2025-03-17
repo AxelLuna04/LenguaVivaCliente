@@ -43,10 +43,5 @@ namespace LenguaVivaCliente.Vistas.Cursos
             NavigationService.Navigate(vtEditarCurso);
         }
 
-        private void Click_info(object sender, RoutedEventArgs e)
-        {
-            vtInformacionCurso vtInformacionCurso = new vtInformacionCurso();
-            NavigationService.Navigate(vtInformacionCurso);
-        }
     }
 }

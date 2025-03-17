@@ -36,7 +36,6 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AccesoDatos" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServicioContrato" />
     </xsd:schema>
   </wsdl:types>
@@ -46,11 +45,11 @@
   <wsdl:message name="IGestionUsuarios_IniciarSesion_OutputMessage">
     <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
   </wsdl:message>
-  <wsdl:message name="IGestionCursos_ObtenerCursos_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCursos" />
+  <wsdl:message name="IGestionCursos_ObtenerCursosPorNombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursosPorNombre" />
   </wsdl:message>
-  <wsdl:message name="IGestionCursos_ObtenerCursos_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCursosResponse" />
+  <wsdl:message name="IGestionCursos_ObtenerCursosPorNombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursosPorNombreResponse" />
   </wsdl:message>
   <wsdl:message name="IGestionCursos_RegistrarCurso_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarCurso" />
@@ -64,11 +63,29 @@
   <wsdl:message name="IGestionCursos_ObtenerProfesoresPorNombre_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerProfesoresPorNombreResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerProfesorPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProfesorPorID" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerProfesorPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProfesorPorIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionCursos_ObtenerIdiomas_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIdiomas" />
   </wsdl:message>
   <wsdl:message name="IGestionCursos_ObtenerIdiomas_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIdiomasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerIdiomaPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIdiomaPorID" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerIdiomaPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIdiomaPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerCursoPorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursoPorID" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerCursoPorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursoPorIDResponse" />
   </wsdl:message>
   <wsdl:portType name="IGestionUsuarios">
     <wsdl:operation name="IniciarSesion">
@@ -77,9 +94,9 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionCursos">
-    <wsdl:operation name="ObtenerCursos">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursos" message="tns:IGestionCursos_ObtenerCursos_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursosResponse" message="tns:IGestionCursos_ObtenerCursos_OutputMessage" />
+    <wsdl:operation name="ObtenerCursosPorNombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombre" message="tns:IGestionCursos_ObtenerCursosPorNombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreResponse" message="tns:IGestionCursos_ObtenerCursosPorNombre_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RegistrarCurso">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/RegistrarCurso" message="tns:IGestionCursos_RegistrarCurso_InputMessage" />
@@ -89,9 +106,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerProfesoresPorNombre" message="tns:IGestionCursos_ObtenerProfesoresPorNombre_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerProfesoresPorNombreResponse" message="tns:IGestionCursos_ObtenerProfesoresPorNombre_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerProfesorPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerProfesorPorID" message="tns:IGestionCursos_ObtenerProfesorPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerProfesorPorIDResponse" message="tns:IGestionCursos_ObtenerProfesorPorID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ObtenerIdiomas">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerIdiomas" message="tns:IGestionCursos_ObtenerIdiomas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerIdiomasResponse" message="tns:IGestionCursos_ObtenerIdiomas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdiomaPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerIdiomaPorID" message="tns:IGestionCursos_ObtenerIdiomaPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerIdiomaPorIDResponse" message="tns:IGestionCursos_ObtenerIdiomaPorID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCursoPorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursoPorID" message="tns:IGestionCursos_ObtenerCursoPorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursoPorIDResponse" message="tns:IGestionCursos_ObtenerCursoPorID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGestionUsuarios" type="tns:IGestionUsuarios">
@@ -112,8 +141,8 @@
     <wsp:PolicyReference URI="#NetTcpBinding_IGestionCursos_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="ObtenerCursos">
-      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerCursos" style="document" />
+    <wsdl:operation name="ObtenerCursosPorNombre">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombre" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -139,8 +168,35 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerProfesorPorID">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerProfesorPorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ObtenerIdiomas">
       <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerIdiomas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdiomaPorID">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerIdiomaPorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCursoPorID">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerCursoPorID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
