@@ -14,7 +14,7 @@
         </Grid.Background>
         
         <Label Content="Ingrese el nombre o idioma del curso:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="343" FontSize="15"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="343" FontSize="15" TextChanged="tbNombre_TextChanged"/>
 
 
         <Label Content="Cursos:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>

@@ -9,7 +9,1701 @@
 //------------------------------------------------------------------------------
 
 namespace LenguaVivaCliente.ServicioLenguaViva {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Curso", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Curso : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Horario[] HorarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Idioma IdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Inscripcion[] InscripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Profesor ProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> cupoMaximoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string estadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> fechaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> fechaTerminoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idIdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] listaAsistenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> nivelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreCursoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Horario[] Horario {
+            get {
+                return this.HorarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HorarioField, value) != true)) {
+                    this.HorarioField = value;
+                    this.RaisePropertyChanged("Horario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Idioma Idioma {
+            get {
+                return this.IdiomaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdiomaField, value) != true)) {
+                    this.IdiomaField = value;
+                    this.RaisePropertyChanged("Idioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Inscripcion[] Inscripcion {
+            get {
+                return this.InscripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InscripcionField, value) != true)) {
+                    this.InscripcionField = value;
+                    this.RaisePropertyChanged("Inscripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Profesor Profesor {
+            get {
+                return this.ProfesorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfesorField, value) != true)) {
+                    this.ProfesorField = value;
+                    this.RaisePropertyChanged("Profesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> cupoMaximo {
+            get {
+                return this.cupoMaximoField;
+            }
+            set {
+                if ((this.cupoMaximoField.Equals(value) != true)) {
+                    this.cupoMaximoField = value;
+                    this.RaisePropertyChanged("cupoMaximo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
+                    this.descripcionField = value;
+                    this.RaisePropertyChanged("descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.estadoField, value) != true)) {
+                    this.estadoField = value;
+                    this.RaisePropertyChanged("estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> fechaInicio {
+            get {
+                return this.fechaInicioField;
+            }
+            set {
+                if ((this.fechaInicioField.Equals(value) != true)) {
+                    this.fechaInicioField = value;
+                    this.RaisePropertyChanged("fechaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> fechaTermino {
+            get {
+                return this.fechaTerminoField;
+            }
+            set {
+                if ((this.fechaTerminoField.Equals(value) != true)) {
+                    this.fechaTerminoField = value;
+                    this.RaisePropertyChanged("fechaTermino");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCurso {
+            get {
+                return this.idCursoField;
+            }
+            set {
+                if ((this.idCursoField.Equals(value) != true)) {
+                    this.idCursoField = value;
+                    this.RaisePropertyChanged("idCurso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idIdioma {
+            get {
+                return this.idIdiomaField;
+            }
+            set {
+                if ((this.idIdiomaField.Equals(value) != true)) {
+                    this.idIdiomaField = value;
+                    this.RaisePropertyChanged("idIdioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProfesor {
+            get {
+                return this.idProfesorField;
+            }
+            set {
+                if ((this.idProfesorField.Equals(value) != true)) {
+                    this.idProfesorField = value;
+                    this.RaisePropertyChanged("idProfesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] listaAsistencia {
+            get {
+                return this.listaAsistenciaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.listaAsistenciaField, value) != true)) {
+                    this.listaAsistenciaField = value;
+                    this.RaisePropertyChanged("listaAsistencia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> nivel {
+            get {
+                return this.nivelField;
+            }
+            set {
+                if ((this.nivelField.Equals(value) != true)) {
+                    this.nivelField = value;
+                    this.RaisePropertyChanged("nivel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreCurso {
+            get {
+                return this.nombreCursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreCursoField, value) != true)) {
+                    this.nombreCursoField = value;
+                    this.RaisePropertyChanged("nombreCurso");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Idioma", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Idioma : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Curso[] CursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Idioma_Alumno[] Idioma_AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Idioma_Profesor[] Idioma_ProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idIdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreIdiomaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Curso[] Curso {
+            get {
+                return this.CursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CursoField, value) != true)) {
+                    this.CursoField = value;
+                    this.RaisePropertyChanged("Curso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Idioma_Alumno[] Idioma_Alumno {
+            get {
+                return this.Idioma_AlumnoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Idioma_AlumnoField, value) != true)) {
+                    this.Idioma_AlumnoField = value;
+                    this.RaisePropertyChanged("Idioma_Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Idioma_Profesor[] Idioma_Profesor {
+            get {
+                return this.Idioma_ProfesorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Idioma_ProfesorField, value) != true)) {
+                    this.Idioma_ProfesorField = value;
+                    this.RaisePropertyChanged("Idioma_Profesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idIdioma {
+            get {
+                return this.idIdiomaField;
+            }
+            set {
+                if ((this.idIdiomaField.Equals(value) != true)) {
+                    this.idIdiomaField = value;
+                    this.RaisePropertyChanged("idIdioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreIdioma {
+            get {
+                return this.nombreIdiomaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreIdiomaField, value) != true)) {
+                    this.nombreIdiomaField = value;
+                    this.RaisePropertyChanged("nombreIdioma");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profesor", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Profesor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Curso[] CursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Idioma_Profesor[] Idioma_ProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string apellidosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string contraseniaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string direccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreUsuarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Curso[] Curso {
+            get {
+                return this.CursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CursoField, value) != true)) {
+                    this.CursoField = value;
+                    this.RaisePropertyChanged("Curso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Idioma_Profesor[] Idioma_Profesor {
+            get {
+                return this.Idioma_ProfesorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Idioma_ProfesorField, value) != true)) {
+                    this.Idioma_ProfesorField = value;
+                    this.RaisePropertyChanged("Idioma_Profesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string apellidos {
+            get {
+                return this.apellidosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.apellidosField, value) != true)) {
+                    this.apellidosField = value;
+                    this.RaisePropertyChanged("apellidos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string contrasenia {
+            get {
+                return this.contraseniaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.contraseniaField, value) != true)) {
+                    this.contraseniaField = value;
+                    this.RaisePropertyChanged("contrasenia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.direccionField, value) != true)) {
+                    this.direccionField = value;
+                    this.RaisePropertyChanged("direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string email {
+            get {
+                return this.emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.emailField, value) != true)) {
+                    this.emailField = value;
+                    this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProfesor {
+            get {
+                return this.idProfesorField;
+            }
+            set {
+                if ((this.idProfesorField.Equals(value) != true)) {
+                    this.idProfesorField = value;
+                    this.RaisePropertyChanged("idProfesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
+                    this.nombreField = value;
+                    this.RaisePropertyChanged("nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreUsuario {
+            get {
+                return this.nombreUsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreUsuarioField, value) != true)) {
+                    this.nombreUsuarioField = value;
+                    this.RaisePropertyChanged("nombreUsuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Horario", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Horario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Curso CursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string diaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.TimeSpan> horaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.TimeSpan> horaSalidaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idHorarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Curso Curso {
+            get {
+                return this.CursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CursoField, value) != true)) {
+                    this.CursoField = value;
+                    this.RaisePropertyChanged("Curso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string dia {
+            get {
+                return this.diaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.diaField, value) != true)) {
+                    this.diaField = value;
+                    this.RaisePropertyChanged("dia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.TimeSpan> horaInicio {
+            get {
+                return this.horaInicioField;
+            }
+            set {
+                if ((this.horaInicioField.Equals(value) != true)) {
+                    this.horaInicioField = value;
+                    this.RaisePropertyChanged("horaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.TimeSpan> horaSalida {
+            get {
+                return this.horaSalidaField;
+            }
+            set {
+                if ((this.horaSalidaField.Equals(value) != true)) {
+                    this.horaSalidaField = value;
+                    this.RaisePropertyChanged("horaSalida");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCurso {
+            get {
+                return this.idCursoField;
+            }
+            set {
+                if ((this.idCursoField.Equals(value) != true)) {
+                    this.idCursoField = value;
+                    this.RaisePropertyChanged("idCurso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idHorario {
+            get {
+                return this.idHorarioField;
+            }
+            set {
+                if ((this.idHorarioField.Equals(value) != true)) {
+                    this.idHorarioField = value;
+                    this.RaisePropertyChanged("idHorario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Inscripcion", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Inscripcion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Alumno AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Curso CursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Pago[] PagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> fechaInscripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idAlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idInscripcionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Alumno Alumno {
+            get {
+                return this.AlumnoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlumnoField, value) != true)) {
+                    this.AlumnoField = value;
+                    this.RaisePropertyChanged("Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Curso Curso {
+            get {
+                return this.CursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CursoField, value) != true)) {
+                    this.CursoField = value;
+                    this.RaisePropertyChanged("Curso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Pago[] Pago {
+            get {
+                return this.PagoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PagoField, value) != true)) {
+                    this.PagoField = value;
+                    this.RaisePropertyChanged("Pago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> fechaInscripcion {
+            get {
+                return this.fechaInscripcionField;
+            }
+            set {
+                if ((this.fechaInscripcionField.Equals(value) != true)) {
+                    this.fechaInscripcionField = value;
+                    this.RaisePropertyChanged("fechaInscripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idAlumno {
+            get {
+                return this.idAlumnoField;
+            }
+            set {
+                if ((this.idAlumnoField.Equals(value) != true)) {
+                    this.idAlumnoField = value;
+                    this.RaisePropertyChanged("idAlumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCurso {
+            get {
+                return this.idCursoField;
+            }
+            set {
+                if ((this.idCursoField.Equals(value) != true)) {
+                    this.idCursoField = value;
+                    this.RaisePropertyChanged("idCurso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idInscripcion {
+            get {
+                return this.idInscripcionField;
+            }
+            set {
+                if ((this.idInscripcionField.Equals(value) != true)) {
+                    this.idInscripcionField = value;
+                    this.RaisePropertyChanged("idInscripcion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Idioma_Alumno", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Idioma_Alumno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Alumno AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Idioma IdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idAlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idIdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idRelacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int nivelField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Alumno Alumno {
+            get {
+                return this.AlumnoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlumnoField, value) != true)) {
+                    this.AlumnoField = value;
+                    this.RaisePropertyChanged("Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Idioma Idioma {
+            get {
+                return this.IdiomaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdiomaField, value) != true)) {
+                    this.IdiomaField = value;
+                    this.RaisePropertyChanged("Idioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idAlumno {
+            get {
+                return this.idAlumnoField;
+            }
+            set {
+                if ((this.idAlumnoField.Equals(value) != true)) {
+                    this.idAlumnoField = value;
+                    this.RaisePropertyChanged("idAlumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idIdioma {
+            get {
+                return this.idIdiomaField;
+            }
+            set {
+                if ((this.idIdiomaField.Equals(value) != true)) {
+                    this.idIdiomaField = value;
+                    this.RaisePropertyChanged("idIdioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idRelacion {
+            get {
+                return this.idRelacionField;
+            }
+            set {
+                if ((this.idRelacionField.Equals(value) != true)) {
+                    this.idRelacionField = value;
+                    this.RaisePropertyChanged("idRelacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int nivel {
+            get {
+                return this.nivelField;
+            }
+            set {
+                if ((this.nivelField.Equals(value) != true)) {
+                    this.nivelField = value;
+                    this.RaisePropertyChanged("nivel");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Idioma_Profesor", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Idioma_Profesor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Idioma IdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Profesor ProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idIdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idRelacionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Idioma Idioma {
+            get {
+                return this.IdiomaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdiomaField, value) != true)) {
+                    this.IdiomaField = value;
+                    this.RaisePropertyChanged("Idioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Profesor Profesor {
+            get {
+                return this.ProfesorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfesorField, value) != true)) {
+                    this.ProfesorField = value;
+                    this.RaisePropertyChanged("Profesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idIdioma {
+            get {
+                return this.idIdiomaField;
+            }
+            set {
+                if ((this.idIdiomaField.Equals(value) != true)) {
+                    this.idIdiomaField = value;
+                    this.RaisePropertyChanged("idIdioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProfesor {
+            get {
+                return this.idProfesorField;
+            }
+            set {
+                if ((this.idProfesorField.Equals(value) != true)) {
+                    this.idProfesorField = value;
+                    this.RaisePropertyChanged("idProfesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idRelacion {
+            get {
+                return this.idRelacionField;
+            }
+            set {
+                if ((this.idRelacionField.Equals(value) != true)) {
+                    this.idRelacionField = value;
+                    this.RaisePropertyChanged("idRelacion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Alumno", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Alumno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Idioma_Alumno[] Idioma_AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Inscripcion[] InscripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string apellidosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string direccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idAlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Idioma_Alumno[] Idioma_Alumno {
+            get {
+                return this.Idioma_AlumnoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Idioma_AlumnoField, value) != true)) {
+                    this.Idioma_AlumnoField = value;
+                    this.RaisePropertyChanged("Idioma_Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Inscripcion[] Inscripcion {
+            get {
+                return this.InscripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InscripcionField, value) != true)) {
+                    this.InscripcionField = value;
+                    this.RaisePropertyChanged("Inscripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string apellidos {
+            get {
+                return this.apellidosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.apellidosField, value) != true)) {
+                    this.apellidosField = value;
+                    this.RaisePropertyChanged("apellidos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.direccionField, value) != true)) {
+                    this.direccionField = value;
+                    this.RaisePropertyChanged("direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string email {
+            get {
+                return this.emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.emailField, value) != true)) {
+                    this.emailField = value;
+                    this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idAlumno {
+            get {
+                return this.idAlumnoField;
+            }
+            set {
+                if ((this.idAlumnoField.Equals(value) != true)) {
+                    this.idAlumnoField = value;
+                    this.RaisePropertyChanged("idAlumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
+                    this.nombreField = value;
+                    this.RaisePropertyChanged("nombre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pago", Namespace="http://schemas.datacontract.org/2004/07/AccesoDatos")]
+    [System.SerializableAttribute()]
+    public partial class Pago : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private LenguaVivaCliente.ServicioLenguaViva.Inscripcion InscripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> cantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> fechaPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idInscripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idPagoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LenguaVivaCliente.ServicioLenguaViva.Inscripcion Inscripcion {
+            get {
+                return this.InscripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InscripcionField, value) != true)) {
+                    this.InscripcionField = value;
+                    this.RaisePropertyChanged("Inscripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                if ((this.cantidadField.Equals(value) != true)) {
+                    this.cantidadField = value;
+                    this.RaisePropertyChanged("cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> fechaPago {
+            get {
+                return this.fechaPagoField;
+            }
+            set {
+                if ((this.fechaPagoField.Equals(value) != true)) {
+                    this.fechaPagoField = value;
+                    this.RaisePropertyChanged("fechaPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idInscripcion {
+            get {
+                return this.idInscripcionField;
+            }
+            set {
+                if ((this.idInscripcionField.Equals(value) != true)) {
+                    this.idInscripcionField = value;
+                    this.RaisePropertyChanged("idInscripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idPago {
+            get {
+                return this.idPagoField;
+            }
+            set {
+                if ((this.idPagoField.Equals(value) != true)) {
+                    this.idPagoField = value;
+                    this.RaisePropertyChanged("idPago");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CursoDTO", Namespace="http://schemas.datacontract.org/2004/07/ServicioContrato")]
+    [System.SerializableAttribute()]
+    public partial class CursoDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cupoMaximoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string estadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime fechaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime fechaTerminoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idIdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] listaAsistenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int nivelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreCursoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cupoMaximo {
+            get {
+                return this.cupoMaximoField;
+            }
+            set {
+                if ((this.cupoMaximoField.Equals(value) != true)) {
+                    this.cupoMaximoField = value;
+                    this.RaisePropertyChanged("cupoMaximo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
+                    this.descripcionField = value;
+                    this.RaisePropertyChanged("descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.estadoField, value) != true)) {
+                    this.estadoField = value;
+                    this.RaisePropertyChanged("estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime fechaInicio {
+            get {
+                return this.fechaInicioField;
+            }
+            set {
+                if ((this.fechaInicioField.Equals(value) != true)) {
+                    this.fechaInicioField = value;
+                    this.RaisePropertyChanged("fechaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime fechaTermino {
+            get {
+                return this.fechaTerminoField;
+            }
+            set {
+                if ((this.fechaTerminoField.Equals(value) != true)) {
+                    this.fechaTerminoField = value;
+                    this.RaisePropertyChanged("fechaTermino");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCurso {
+            get {
+                return this.idCursoField;
+            }
+            set {
+                if ((this.idCursoField.Equals(value) != true)) {
+                    this.idCursoField = value;
+                    this.RaisePropertyChanged("idCurso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idIdioma {
+            get {
+                return this.idIdiomaField;
+            }
+            set {
+                if ((this.idIdiomaField.Equals(value) != true)) {
+                    this.idIdiomaField = value;
+                    this.RaisePropertyChanged("idIdioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProfesor {
+            get {
+                return this.idProfesorField;
+            }
+            set {
+                if ((this.idProfesorField.Equals(value) != true)) {
+                    this.idProfesorField = value;
+                    this.RaisePropertyChanged("idProfesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] listaAsistencia {
+            get {
+                return this.listaAsistenciaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.listaAsistenciaField, value) != true)) {
+                    this.listaAsistenciaField = value;
+                    this.RaisePropertyChanged("listaAsistencia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int nivel {
+            get {
+                return this.nivelField;
+            }
+            set {
+                if ((this.nivelField.Equals(value) != true)) {
+                    this.nivelField = value;
+                    this.RaisePropertyChanged("nivel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreCurso {
+            get {
+                return this.nombreCursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreCursoField, value) != true)) {
+                    this.nombreCursoField = value;
+                    this.RaisePropertyChanged("nombreCurso");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfesorDTO", Namespace="http://schemas.datacontract.org/2004/07/ServicioContrato")]
+    [System.SerializableAttribute()]
+    public partial class ProfesorDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string apellidosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string direccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreUsuarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string apellidos {
+            get {
+                return this.apellidosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.apellidosField, value) != true)) {
+                    this.apellidosField = value;
+                    this.RaisePropertyChanged("apellidos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.direccionField, value) != true)) {
+                    this.direccionField = value;
+                    this.RaisePropertyChanged("direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string email {
+            get {
+                return this.emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.emailField, value) != true)) {
+                    this.emailField = value;
+                    this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProfesor {
+            get {
+                return this.idProfesorField;
+            }
+            set {
+                if ((this.idProfesorField.Equals(value) != true)) {
+                    this.idProfesorField = value;
+                    this.RaisePropertyChanged("idProfesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
+                    this.nombreField = value;
+                    this.RaisePropertyChanged("nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreUsuario {
+            get {
+                return this.nombreUsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreUsuarioField, value) != true)) {
+                    this.nombreUsuarioField = value;
+                    this.RaisePropertyChanged("nombreUsuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IdiomaDTO", Namespace="http://schemas.datacontract.org/2004/07/ServicioContrato")]
+    [System.SerializableAttribute()]
+    public partial class IdiomaDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idIdiomaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreIdiomaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idIdioma {
+            get {
+                return this.idIdiomaField;
+            }
+            set {
+                if ((this.idIdiomaField.Equals(value) != true)) {
+                    this.idIdiomaField = value;
+                    this.RaisePropertyChanged("idIdioma");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreIdioma {
+            get {
+                return this.nombreIdiomaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreIdiomaField, value) != true)) {
+                    this.nombreIdiomaField = value;
+                    this.RaisePropertyChanged("nombreIdioma");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionUsuarios")]
@@ -55,6 +1749,95 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> IniciarSesionAsync(string usuario, string contrasenia) {
             return base.Channel.IniciarSesionAsync(usuario, contrasenia);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionCursos")]
+    public interface IGestionCursos {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursos", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.Curso[] ObtenerCursos(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursos", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.Curso[]> ObtenerCursosAsync(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/RegistrarCurso", ReplyAction="http://tempuri.org/IGestionCursos/RegistrarCursoResponse")]
+        bool RegistrarCurso(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/RegistrarCurso", ReplyAction="http://tempuri.org/IGestionCursos/RegistrarCursoResponse")]
+        System.Threading.Tasks.Task<bool> RegistrarCursoAsync(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerProfesoresPorNombre", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerProfesoresPorNombreResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.ProfesorDTO[] ObtenerProfesoresPorNombre(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerProfesoresPorNombre", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerProfesoresPorNombreResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.ProfesorDTO[]> ObtenerProfesoresPorNombreAsync(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerIdiomas", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerIdiomasResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.IdiomaDTO[] ObtenerIdiomas();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerIdiomas", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerIdiomasResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.IdiomaDTO[]> ObtenerIdiomasAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGestionCursosChannel : LenguaVivaCliente.ServicioLenguaViva.IGestionCursos, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GestionCursosClient : System.ServiceModel.ClientBase<LenguaVivaCliente.ServicioLenguaViva.IGestionCursos>, LenguaVivaCliente.ServicioLenguaViva.IGestionCursos {
+        
+        public GestionCursosClient() {
+        }
+        
+        public GestionCursosClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public GestionCursosClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionCursosClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionCursosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.Curso[] ObtenerCursos(string nombre) {
+            return base.Channel.ObtenerCursos(nombre);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.Curso[]> ObtenerCursosAsync(string nombre) {
+            return base.Channel.ObtenerCursosAsync(nombre);
+        }
+        
+        public bool RegistrarCurso(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO) {
+            return base.Channel.RegistrarCurso(cursoDTO);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarCursoAsync(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO) {
+            return base.Channel.RegistrarCursoAsync(cursoDTO);
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.ProfesorDTO[] ObtenerProfesoresPorNombre(string nombre) {
+            return base.Channel.ObtenerProfesoresPorNombre(nombre);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.ProfesorDTO[]> ObtenerProfesoresPorNombreAsync(string nombre) {
+            return base.Channel.ObtenerProfesoresPorNombreAsync(nombre);
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.IdiomaDTO[] ObtenerIdiomas() {
+            return base.Channel.ObtenerIdiomas();
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.IdiomaDTO[]> ObtenerIdiomasAsync() {
+            return base.Channel.ObtenerIdiomasAsync();
         }
     }
 }

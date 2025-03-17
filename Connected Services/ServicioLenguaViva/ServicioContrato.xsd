@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicioContrato" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicioContrato" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CursoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cupoMaximo" type="xs:int" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaTermino" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="idIdioma" type="xs:int" />
+      <xs:element minOccurs="0" name="idProfesor" type="xs:int" />
+      <xs:element minOccurs="0" name="listaAsistencia" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="nivel" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreCurso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CursoDTO" nillable="true" type="tns:CursoDTO" />
+  <xs:complexType name="ArrayOfProfesorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfesorDTO" nillable="true" type="tns:ProfesorDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfesorDTO" nillable="true" type="tns:ArrayOfProfesorDTO" />
+  <xs:complexType name="ProfesorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idProfesor" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfesorDTO" nillable="true" type="tns:ProfesorDTO" />
+  <xs:complexType name="ArrayOfIdiomaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdiomaDTO" nillable="true" type="tns:IdiomaDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdiomaDTO" nillable="true" type="tns:ArrayOfIdiomaDTO" />
+  <xs:complexType name="IdiomaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idIdioma" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreIdioma" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdiomaDTO" nillable="true" type="tns:IdiomaDTO" />
+</xs:schema>
