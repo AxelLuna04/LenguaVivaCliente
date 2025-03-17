@@ -1,4 +1,5 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
+using LenguaVivaCliente.Vistas.Cursos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,11 @@ namespace LenguaVivaCliente.Vistas.InicioSesion
         {
             GestionUsuariosClient proxy = new GestionUsuariosClient();
             if (proxy.IniciarSesion(tbUsuario.Text, tpContraseña.Password))
+            {
                 MessageBox.Show("Inicio correcto");
+                vtMenuCursos vtMenuCursos= new vtMenuCursos();
+                NavigationService.Navigate(vtMenuCursos);
+            }
             else
                 MessageBox.Show("Inicio incorrecto");
         }

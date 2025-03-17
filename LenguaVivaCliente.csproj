@@ -62,6 +62,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Cursos\vtBuscarCurso.xaml.cs">
+      <DependentUpon>vtBuscarCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtEditarCurso.xaml.cs">
+      <DependentUpon>vtEditarCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtInformacionCurso.xaml.cs">
+      <DependentUpon>vtInformacionCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtMenuCursos.xaml.cs">
+      <DependentUpon>vtMenuCursos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtRegistrarCurso.xaml.cs">
+      <DependentUpon>vtRegistrarCurso.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\InicioSesion\vtInicioSesion.xaml.cs">
       <DependentUpon>vtInicioSesion.xaml</DependentUpon>
     </Compile>
@@ -77,6 +92,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\Cursos\vtBuscarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtEditarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtInformacionCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtMenuCursos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtRegistrarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\InicioSesion\vtInicioSesion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
