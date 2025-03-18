@@ -27,7 +27,8 @@ namespace LenguaVivaCliente.Vistas.Menu
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new Vistas.Registros.vtRegistros());
+            Vistas.Registros.vtRegistros registros = new Vistas.Registros.vtRegistros();
+            NavigationService.Navigate(registros);
 
         }
 

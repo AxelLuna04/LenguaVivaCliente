@@ -1,83 +1,71 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
+using ServicioContrato;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 
 namespace LenguaVivaCliente.Vistas.Registros
 {
-    /// <summary>
-    /// Lógica de interacción para vtRegistroAdministrador.xaml
-    /// </summary>
     public partial class vtRegistroAdministrador : Page
     {
-        private IGestionUsuarios _servicio;
-
         public vtRegistroAdministrador()
         {
             InitializeComponent();
-            ChannelFactory<IGestionUsuarios> factory = new ChannelFactory<IGestionUsuarios>("NetTcpBinding_IGestionUsuarios");
-            _servicio = factory.CreateChannel();
         }
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
-
-            string nombreUsuario = txtUsuario.Text;
-            string contrasenia = txtContrasenia.Password;
-            string nombre = txtNombre.Text;
-            string apellidos = txtApellidos.Text;
-            string direccion = txtDireccion.Text;
-            string email = txtCorreo.Text;
-
-            if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(contrasenia) ||
-                string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) ||
-                string.IsNullOrWhiteSpace(direccion) || string.IsNullOrWhiteSpace(email))
+            if (validarCampos() != true)
             {
-                MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            bool registrado = _servicio.RegistrarAdministrador(nombreUsuario, contrasenia, nombre, apellidos, direccion, email);
-
-            if (registrado == true)
+            AdministradorDTO administrador = new AdministradorDTO
             {
-                MessageBox.Show("Administrador registrado con éxito", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                LimpiarCampos();
+                nombre = txtNombre.Text,
+                apellidos = txtApellidos.Text,
+                email = txtCorreo.Text,
+                direccion = txtDireccion.Text,
+                nombreUsuario = txtUsuario.Text,
+                contrasenia = txtContrasenia.Password
+            };
+
+            ServicioLenguaViva.IGestionUsuarios servicio = new ServicioLenguaViva.GestionUsuariosClient();
+            bool registrado = servicio.RegistrarAdministrador(administrador);
+
+            if (registrado)
+            {
+                MessageBox.Show("Administrador registrado con éxito");
+                NavigationService.GoBack();
             }
             else
             {
-                MessageBox.Show("Error al registrar el administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error al registrar el administrador");
             }
-
         }
 
-        private void LimpiarCampos()
+        private bool validarCampos()
         {
-            txtUsuario.Clear();
-            txtContrasenia.Clear();
-            txtTelefono.Clear();
-            txtNombre.Clear();
-            txtApellidos.Clear();
-            txtDireccion.Clear();
-            txtCorreo.Clear();
+            int contadorCamposVacios = 0;
+
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                lbNombreVacio.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbNombreVacio.Visibility = Visibility.Hidden;
+            }
+
+            // Repetir para apellidos, correo, dirección, teléfono, usuario, contraseña...
+
+            return contadorCamposVacios == 0;
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
     }
 }

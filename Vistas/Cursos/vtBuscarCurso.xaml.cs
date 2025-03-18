@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LenguaVivaCliente.ServicioLenguaViva;
+using ServicioContrato;
 
 namespace LenguaVivaCliente.Vistas.Cursos
 {

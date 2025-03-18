@@ -175,15 +175,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.CursoDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.IdiomaDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.ProfesorDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServicioLenguaViva\service.wsdl" />
     <None Include="Connected Services\ServicioLenguaViva\service.xsd">
       <SubType>Designer</SubType>
@@ -194,6 +185,9 @@
     <None Include="Connected Services\ServicioLenguaViva\ServicioContrato.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\ServicioContrato.CursoDTO.datasource" />
+    <None Include="Properties\DataSources\ServicioContrato.IdiomaDTO.datasource" />
+    <None Include="Properties\DataSources\ServicioContrato.ProfesorDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

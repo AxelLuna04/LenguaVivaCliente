@@ -27,18 +27,20 @@ namespace LenguaVivaCliente.Vistas.Registros
 
         private void BtnAlumno_Click(object sender, RoutedEventArgs e)
         {
-
+            Vistas.Registros.vtRegistroAlumno registro = new Vistas.Registros.vtRegistroAlumno();
+            NavigationService.Navigate(registro);
         }
 
         private void BtnAdministrador_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new Vistas.Registros.vtRegistroAdministrador());
-
+            Vistas.Registros.vtRegistroAdministrador registro = new Vistas.Registros.vtRegistroAdministrador();
+            NavigationService.Navigate(registro);
         }
 
         private void BtnProfesor_Click(object sender, RoutedEventArgs e)
         {
-
+            Vistas.Registros.vtRegistroProfesor registro = new Vistas.Registros.vtRegistroProfesor();
+            NavigationService.Navigate(registro);
         }
     }
 }
