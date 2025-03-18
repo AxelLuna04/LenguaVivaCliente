@@ -26,7 +26,7 @@
 
 
         <Label Content="Profesor:" HorizontalAlignment="Left" Margin="44,199,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox x:Name="cbProfesores" HorizontalAlignment="Left" Margin="44,242,0,0" VerticalAlignment="Top" Width="154" IsEnabled="true">
+        <ComboBox x:Name="cbProfesores" HorizontalAlignment="Left" Margin="44,242,0,0" VerticalAlignment="Top" Width="154" IsEnabled="false">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

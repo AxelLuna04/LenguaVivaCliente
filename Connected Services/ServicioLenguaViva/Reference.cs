@@ -461,6 +461,24 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombre", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreResponse")]
         System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNombreAsync(string nombre);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreIdioma", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreIdiomaResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.CursoDTO[] ObtenerCursosPorNombreIdioma(string nombreIdioma);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreIdioma", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreIdiomaResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNombreIdiomaAsync(string nombreIdioma);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNivel", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNivelResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.CursoDTO[] ObtenerCursosPorNivel(int nivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNivel", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNivelResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNivelAsync(int nivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreProfesor", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreProfesorResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.CursoDTO[] ObtenerCursosPorNombreProfesor(string nombreProfesor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreProfesor", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursosPorNombreProfesorResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNombreProfesorAsync(string nombreProfesor);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/RegistrarCurso", ReplyAction="http://tempuri.org/IGestionCursos/RegistrarCursoResponse")]
         bool RegistrarCurso(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO);
         
@@ -537,6 +555,30 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNombreAsync(string nombre) {
             return base.Channel.ObtenerCursosPorNombreAsync(nombre);
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.CursoDTO[] ObtenerCursosPorNombreIdioma(string nombreIdioma) {
+            return base.Channel.ObtenerCursosPorNombreIdioma(nombreIdioma);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNombreIdiomaAsync(string nombreIdioma) {
+            return base.Channel.ObtenerCursosPorNombreIdiomaAsync(nombreIdioma);
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.CursoDTO[] ObtenerCursosPorNivel(int nivel) {
+            return base.Channel.ObtenerCursosPorNivel(nivel);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNivelAsync(int nivel) {
+            return base.Channel.ObtenerCursosPorNivelAsync(nivel);
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.CursoDTO[] ObtenerCursosPorNombreProfesor(string nombreProfesor) {
+            return base.Channel.ObtenerCursosPorNombreProfesor(nombreProfesor);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO[]> ObtenerCursosPorNombreProfesorAsync(string nombreProfesor) {
+            return base.Channel.ObtenerCursosPorNombreProfesorAsync(nombreProfesor);
         }
         
         public bool RegistrarCurso(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO) {

@@ -22,6 +22,11 @@ namespace LenguaVivaCliente.Vistas.Cursos
     /// </summary>
     public partial class vtBuscarCurso : Page
     {
+        private class NivelComboBoxItem
+        {
+            public int nivel { get; set; }
+            public string nombre { get; set; }
+        }
 
         private class ResumenCurso
         {
@@ -37,22 +42,44 @@ namespace LenguaVivaCliente.Vistas.Cursos
         public vtBuscarCurso()
         {
             InitializeComponent();
-
             this.Loaded += Page_Loaded;
             
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            cargarComboBox();
             actualizarTabla();
         }
 
+        private void cargarComboBox()
+        {
+            cbBusqueda.Items.Clear();
+            cbBusqueda.Items.Add("Nombre del Curso");
+            cbBusqueda.Items.Add("Nombre del Profesor");
+            cbBusqueda.Items.Add("Idioma");
+            cbBusqueda.Items.Add("Nivel");
+            cbBusqueda.SelectedIndex = 0;
+
+            List<NivelComboBoxItem> niveles = new List<NivelComboBoxItem>
+            {
+                new NivelComboBoxItem { nivel = 1, nombre = "Básico"},
+                new NivelComboBoxItem { nivel = 2, nombre = "Intermedio"},
+                new NivelComboBoxItem { nivel = 3, nombre = "Avanzado"}
+            };
+            cbNiveles.ItemsSource = null;
+            cbNiveles.ItemsSource = niveles;
+            cbNiveles.DisplayMemberPath = "nombre";
+            cbNiveles.SelectedValuePath = "nivel";
+            cbNiveles.SelectedIndex = 0;
+        }
 
         private void actualizarTabla ()
         {
             ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
-            
-            CursoDTO[] cursos = servicio.ObtenerCursosPorNombre(tbNombre.Text);
+
+            CursoDTO[] cursos = obtenerCursos();
+
 
             List<ResumenCurso> listaCursos = new List<ResumenCurso>();
 
@@ -66,7 +93,7 @@ namespace LenguaVivaCliente.Vistas.Cursos
                 };
                 resumenCurso.idioma = servicio.ObtenerIdiomaPorID(cursos[i].idIdioma).nombreIdioma;
 
-                resumenCurso.profesor = servicio.ObtenerProfesorPorID(cursos[i].idProfesor).nombre + servicio.ObtenerProfesorPorID(cursos[i].idProfesor).apellidos;
+                resumenCurso.profesor = servicio.ObtenerProfesorPorID(cursos[i].idProfesor).nombre + " " + servicio.ObtenerProfesorPorID(cursos[i].idProfesor).apellidos;
 
                 switch (cursos[i].nivel)
                 {
@@ -90,6 +117,30 @@ namespace LenguaVivaCliente.Vistas.Cursos
             dgCursos.Items.Refresh();
         }
 
+        private CursoDTO[] obtenerCursos()
+        {
+            ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+            CursoDTO[] cursos;
+            switch (cbBusqueda.SelectedItem)
+            {
+                case "Nombre del Curso":
+                    cursos = servicio.ObtenerCursosPorNombre(tbNombre.Text);
+                    break;
+                case "Nombre del Profesor":
+                    cursos = servicio.ObtenerCursosPorNombreProfesor(tbNombre.Text);
+                    break;
+                case "Idioma":
+                    cursos = servicio.ObtenerCursosPorNombreIdioma(tbNombre.Text);
+                    break;
+                case "Nivel":
+                    cursos = servicio.ObtenerCursosPorNivel((int)cbNiveles.SelectedValue);
+                    break;
+                default:
+                    cursos = servicio.ObtenerCursosPorNombre(tbNombre.Text);
+                    break;
+            }
+            return cursos;
+        }
 
         private void Click_VerInformacion(object sender, RoutedEventArgs e)
         {
@@ -123,6 +174,27 @@ namespace LenguaVivaCliente.Vistas.Cursos
         }
 
         private void tbNombre_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            actualizarTabla();
+        }
+
+        private void cbBusqueda_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((String)cbBusqueda.SelectedItem == "Nivel")
+            {
+                cbNiveles.Visibility = Visibility.Visible;
+                tbNombre.IsEnabled = false;
+                tbNombre.Text = "";
+            }
+            else
+            {
+                cbNiveles.Visibility = Visibility.Hidden;
+                tbNombre.IsEnabled = true;
+            }
+            actualizarTabla();
+        }
+
+        private void cbNiveles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             actualizarTabla();
         }
