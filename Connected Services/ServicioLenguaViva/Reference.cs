@@ -496,6 +496,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerCursoPorID", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerCursoPorIDResponse")]
         System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO> ObtenerCursoPorIDAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ModificarCurso", ReplyAction="http://tempuri.org/IGestionCursos/ModificarCursoResponse")]
+        bool ModificarCurso(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ModificarCurso", ReplyAction="http://tempuri.org/IGestionCursos/ModificarCursoResponse")]
+        System.Threading.Tasks.Task<bool> ModificarCursoAsync(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -579,6 +585,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoDTO> ObtenerCursoPorIDAsync(int idCurso) {
             return base.Channel.ObtenerCursoPorIDAsync(idCurso);
+        }
+        
+        public bool ModificarCurso(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO) {
+            return base.Channel.ModificarCurso(cursoDTO);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ModificarCursoAsync(LenguaVivaCliente.ServicioLenguaViva.CursoDTO cursoDTO) {
+            return base.Channel.ModificarCursoAsync(cursoDTO);
         }
     }
 }

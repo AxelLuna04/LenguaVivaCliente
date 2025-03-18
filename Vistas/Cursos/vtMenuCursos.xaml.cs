@@ -37,11 +37,6 @@ namespace LenguaVivaCliente.Vistas.Cursos
             NavigationService.Navigate(vtBuscarCurso);
         }
 
-        private void Click_Editar(object sender, RoutedEventArgs e)
-        {
-            vtEditarCurso vtEditarCurso = new vtEditarCurso();
-            NavigationService.Navigate(vtEditarCurso);
-        }
 
     }
 }

@@ -37,8 +37,14 @@ namespace LenguaVivaCliente.Vistas.Cursos
         public vtBuscarCurso()
         {
             InitializeComponent();
-            actualizarTabla();
+
+            this.Loaded += Page_Loaded;
             
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            actualizarTabla();
         }
 
 
@@ -59,7 +65,8 @@ namespace LenguaVivaCliente.Vistas.Cursos
                     estado = cursos[i].estado
                 };
                 resumenCurso.idioma = servicio.ObtenerIdiomaPorID(cursos[i].idIdioma).nombreIdioma;
-                resumenCurso.profesor = servicio.ObtenerProfesorPorID(cursos[i].idProfesor).nombre;
+
+                resumenCurso.profesor = servicio.ObtenerProfesorPorID(cursos[i].idProfesor).nombre + servicio.ObtenerProfesorPorID(cursos[i].idProfesor).apellidos;
 
                 switch (cursos[i].nivel)
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LenguaVivaCliente.ServicioLenguaViva;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,104 @@ namespace LenguaVivaCliente.Vistas.Cursos
     /// </summary>
     public partial class vtEditarCurso : Page
     {
-        public vtEditarCurso()
+        private CursoDTO curso;
+        public vtEditarCurso(CursoDTO curso)
         {
             InitializeComponent();
+
+            this.curso = curso;
+
+            cargarIdiomas();
+            actualizarProfesores();
+
+            cargarDatos();
         }
+
+        private void cargarDatos()
+        {
+            tbNombre.Text = curso.nombreCurso;
+            tbDescripcion.Text = curso.descripcion;
+            tbCupo.Text = curso.cupoMaximo.ToString();
+
+            cbEstado.Items.Add("Propuesto");
+            cbEstado.Items.Add("Activo");
+            cbEstado.Items.Add("Inactivo");
+
+            cbEstado.SelectedItem = curso.estado;
+
+            dpFechaInicio.SelectedDate = curso.fechaInicio;
+            dpFechaTermino.SelectedDate = curso.fechaTermino;
+             
+            switch (curso.nivel)
+            {
+                case 1:
+                    rbBasico.IsChecked = true;
+                    break;
+                case 2:
+                    rbIntermedio.IsChecked = true;
+                    break;
+                case 3:
+                    rbAvanzado.IsChecked = true;
+                    break;
+            }
+
+            cbIdiomas.SelectedValue = curso.idIdioma;
+            cbProfesores.SelectedValue = curso.idProfesor;
+
+
+        }
+
 
         private void Click_Confirmar(object sender, RoutedEventArgs e)
         {
+            if (validarCampos() != true || ValidarFechas(dpFechaInicio, dpFechaTermino) != true)
+            {
+                return;
+            }
+            String estadoSeleccionado = (String)cbEstado.SelectedItem;
+            ProfesorDTO profesorSeleccionado = (ProfesorDTO)cbProfesores.SelectedItem;
+            IdiomaDTO idiomaSeleccionado = (IdiomaDTO)cbIdiomas.SelectedItem;
 
+            CursoDTO cursoDTO = new CursoDTO
+            {
+                idCurso = curso.idCurso,
+                nombreCurso = tbNombre.Text,
+                cupoMaximo = int.Parse(tbCupo.Text),
+                descripcion = tbDescripcion.Text,
+                estado = estadoSeleccionado,
+                fechaInicio = dpFechaInicio.SelectedDate.Value,
+                fechaTermino = dpFechaTermino.SelectedDate.Value,
+                idProfesor = profesorSeleccionado.idProfesor,
+                idIdioma = idiomaSeleccionado.idIdioma
+            };
+
+            if (rbBasico.IsChecked == true)
+            {
+                cursoDTO.nivel = 1;
+            }
+            else if (rbIntermedio.IsChecked == true)
+            {
+                cursoDTO.nivel = 2;
+            }
+            else if (rbAvanzado.IsChecked == true)
+            {
+                cursoDTO.nivel = 3;
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Seleccione un nivel");
+                return;
+            }
+            ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+            if (servicio.ModificarCurso(cursoDTO) == true)
+            {
+                System.Windows.MessageBox.Show("Curso modificado con éxito");
+                NavigationService.GoBack();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Error al modificar el curso");
+            }
         }
 
         private void Click_Cancelar(object sender, RoutedEventArgs e)
@@ -35,19 +126,172 @@ namespace LenguaVivaCliente.Vistas.Cursos
             NavigationService.GoBack();
         }
 
-        private void cbProfesores_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void actualizarProfesores()
         {
+            ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+
+            ProfesorDTO[] profesores = servicio.ObtenerProfesoresPorNombre(tbProfesor.Text);
+
+            if (profesores != null)
+            {
+                cbProfesores.ItemsSource = null;
+                cbProfesores.ItemsSource = profesores;
+            }
+        }
+
+        private void cargarIdiomas()
+        {
+            ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+
+            IdiomaDTO[] idiomas = servicio.ObtenerIdiomas();
+            if (idiomas != null)
+            {
+                cbIdiomas.ItemsSource = idiomas;
+                cbIdiomas.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("No se han encontrado idiomas para registrar un curso");
+                NavigationService.GoBack();
+            }
+        }
+
+        private void tbProfesor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (cbProfesores != null)
+            {
+                actualizarProfesores();
+            }
 
         }
 
-        private void cbIdiomas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //Para que el textbox de cupo solo acepte números
+        private void tbCupo_SoloNumeros(object sender, TextCompositionEventArgs e)
         {
+            if (!char.IsDigit(e.Text, e.Text.Length - 1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Para que el textbox no acepte pegar texto
+        private void tbCupo_SoloPegarNumeros(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                string text = (string)e.DataObject.GetData(typeof(string));
+                if (!text.All(char.IsDigit))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+
+        private bool validarCampos()
+        {
+            int contadorCamposVacios = 0;
+            if (tbNombre.Text == "")
+            {
+                lbNombreVacío.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbNombreVacío.Visibility = Visibility.Hidden;
+            }
+
+            if (tbCupo.Text == "")
+            {
+                lbCupoVacio.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbCupoVacio.Visibility = Visibility.Hidden;
+            }
+
+            if (tbDescripcion.Text == "")
+            {
+                lbDescripcionVacia.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbDescripcionVacia.Visibility = Visibility.Hidden;
+            }
+
+            if (dpFechaInicio.SelectedDate == null)
+            {
+                lbFechaInicioVacia.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbFechaInicioVacia.Visibility = Visibility.Hidden;
+            }
+
+            if (dpFechaTermino.SelectedDate == null)
+            {
+                lbFechaTerminoVacia.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbFechaTerminoVacia.Visibility = Visibility.Hidden;
+            }
+
+            if (cbProfesores.SelectedItem == null)
+            {
+                lbProfesorVacio.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbProfesorVacio.Visibility = Visibility.Hidden;
+            }
+
+            if (cbIdiomas.SelectedItem == null)
+            {
+                lbIdiomaVacio.Visibility = Visibility.Visible;
+                contadorCamposVacios++;
+            }
+            else
+            {
+                lbIdiomaVacio.Visibility = Visibility.Hidden;
+            }
+
+            if (contadorCamposVacios > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
 
         }
 
-        private void cbEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        //TODO: Convertirla en una función de utilidad
+        private bool ValidarFechas(DatePicker fechaInicio, DatePicker fechaTermino)
+        {
+            DateTime inicio = fechaInicio.SelectedDate.Value;
+            DateTime termino = fechaTermino.SelectedDate.Value;
+
+            if (termino <= inicio)
+            {
+                MessageBox.Show("La fecha de término debe ser posterior a la fecha de inicio.");
+                return false;
+            }
+
+            return true;
         }
+
+
     }
 }

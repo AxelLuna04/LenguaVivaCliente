@@ -14,46 +14,62 @@
         </Grid.Background>
 
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="343" FontSize="15"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="484" FontSize="15" MaxLength="50"/>
 
 
         <Label Content="Cupo Máximo:" HorizontalAlignment="Left" Margin="573,12,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbNombre_Copiar" HorizontalAlignment="Left" Margin="573,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="183" FontSize="15"/>
+        <TextBox x:Name="tbCupo" HorizontalAlignment="Left" Margin="573,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183" FontSize="15" PreviewTextInput="tbCupo_SoloNumeros" DataObject.Pasting="tbCupo_SoloPegarNumeros" MaxLength="3"/>
 
 
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="44,122,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="712" FontSize="15" Height="68"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="44,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="712" FontSize="15" Height="68" MaxLength="150"/>
 
 
         <Label Content="Profesor:" HorizontalAlignment="Left" Margin="44,199,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbProfesor" HorizontalAlignment="Left" Margin="44,241,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="154" FontSize="15"/>
-        <ComboBox x:Name="cbProfesores" HorizontalAlignment="Left" Margin="44,278,0,0" VerticalAlignment="Top" Width="154" SelectionChanged="cbProfesores_SelectionChanged"/>
+        <TextBox x:Name="tbProfesor" HorizontalAlignment="Left" Margin="44,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154" FontSize="15" TextChanged="tbProfesor_TextChanged" MaxLength="50"/>
+        <ComboBox x:Name="cbProfesores" HorizontalAlignment="Left" Margin="44,278,0,0" VerticalAlignment="Top" Width="154" SelectedValuePath="idProfesor">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding nombre}" />
+                        <TextBlock Text=" " />
+                        <!-- Espacio entre nombre y apellidos -->
+                        <TextBlock Text="{Binding apellidos}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
 
         <Label Content="Idioma:" HorizontalAlignment="Left" Margin="239,198,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox x:Name="cbIdiomas" HorizontalAlignment="Left" Margin="239,241,0,0" VerticalAlignment="Top" Width="148" SelectionChanged="cbIdiomas_SelectionChanged"/>
+        <ComboBox x:Name="cbIdiomas" HorizontalAlignment="Left" Margin="239,241,0,0" VerticalAlignment="Top" Width="148" DisplayMemberPath = "nombreIdioma" SelectedValuePath="idIdioma"/>
 
 
         <Label Content="Fecha de Inicio:" HorizontalAlignment="Left" Margin="443,198,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <DatePicker x:Name="dpFechaInicio" HorizontalAlignment="Left" Margin="443,241,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpFechaInicio" HorizontalAlignment="Left" Margin="443,241,0,0" VerticalAlignment="Top" Focusable="False"/>
 
         <Label Content="Fecha de Término:" HorizontalAlignment="Left" Margin="443,278,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <DatePicker x:Name="dpFechaTermino" HorizontalAlignment="Left" Margin="443,320,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpFechaTermino" HorizontalAlignment="Left" Margin="443,320,0,0" VerticalAlignment="Top" Focusable="False"/>
 
         <Label Content="Nivel de Curso:" HorizontalAlignment="Left" Margin="613,199,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <RadioButton x:Name="rbBasico" Content="RadioButton" HorizontalAlignment="Left" Margin="671,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.802"/>
-        <RadioButton x:Name="rbIntermedio" Content="RadioButton" HorizontalAlignment="Left" Margin="671,261,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbAvanzado" Content="RadioButton" HorizontalAlignment="Left" Margin="671,281,0,0" VerticalAlignment="Top"/>
-
-
-        <Label Content="Estado:" HorizontalAlignment="Left" Margin="239,281,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="239,320,0,0" VerticalAlignment="Top" Width="148" SelectionChanged="cbEstado_SelectionChanged"/>
+        <RadioButton x:Name="rbBasico" Content="Básico" HorizontalAlignment="Left" Margin="671,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.802"/>
+        <RadioButton x:Name="rbIntermedio" Content="Intermedio" HorizontalAlignment="Left" Margin="671,261,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbAvanzado" Content="Avanzado" HorizontalAlignment="Left" Margin="671,281,0,0" VerticalAlignment="Top"/>
 
 
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="602,406,0,0" VerticalAlignment="Top" Click="Click_Cancelar"/>
-        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="699,406,0,0" VerticalAlignment="Top" Click="Click_Confirmar"/>
+        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="705,406,0,0" VerticalAlignment="Top" Click="Click_Confirmar"/>
 
+        <Label x:Name="lbNombreVacío" Content="Campo vacío!" HorizontalAlignment="Left" Margin="458,80,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
+        <Label x:Name="lbCupoVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="686,80,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
+        <Label x:Name="lbDescripcionVacia" Content="Campo vacío!" HorizontalAlignment="Left" Margin="685,190,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
+        <Label x:Name="lbProfesorVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="128,300,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
+        <Label x:Name="lbIdiomaVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="317,265,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
+        <Label x:Name="lbFechaInicioVacia" Content="Campo vacío!" HorizontalAlignment="Left" Margin="518,265,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
+        <Label x:Name="lbFechaTerminoVacia" Content="Campo vacío!" HorizontalAlignment="Left" Margin="519,344,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
 
+        <Label Content="Estado:" HorizontalAlignment="Left" Margin="239,281,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="239,320,0,0" VerticalAlignment="Top" Width="148" />
 
     </Grid>
 </Page>

@@ -87,6 +87,12 @@
   <wsdl:message name="IGestionCursos_ObtenerCursoPorID_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCursoPorIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionCursos_ModificarCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ModificarCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarCursoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestionUsuarios">
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/IniciarSesion" message="tns:IGestionUsuarios_IniciarSesion_InputMessage" />
@@ -121,6 +127,10 @@
     <wsdl:operation name="ObtenerCursoPorID">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursoPorID" message="tns:IGestionCursos_ObtenerCursoPorID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerCursoPorIDResponse" message="tns:IGestionCursos_ObtenerCursoPorID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ModificarCurso" message="tns:IGestionCursos_ModificarCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ModificarCursoResponse" message="tns:IGestionCursos_ModificarCurso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGestionUsuarios" type="tns:IGestionUsuarios">
@@ -197,6 +207,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerCursoPorID">
       <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerCursoPorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ModificarCurso" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
