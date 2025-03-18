@@ -30,5 +30,11 @@ namespace LenguaVivaCliente.Vistas.Menu
             NavigationService?.Navigate(new Vistas.Registros.vtRegistros());
 
         }
+
+        private void Click_MenuCursos(object sender, RoutedEventArgs e)
+        {
+            Vistas.Cursos.vtMenuCursos menuCursos = new Vistas.Cursos.vtMenuCursos();
+            NavigationService.Navigate(menuCursos);
+        }
     }
 }

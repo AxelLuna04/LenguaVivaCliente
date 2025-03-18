@@ -8,12 +8,23 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MenuPrincipal">
 
-    <Grid>        <Button Content="Registro de usuarios"
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="White"/>
+        </Grid.Background>
+
+        <Button Content="Registro de usuarios"
 
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Margin="10"
                 Width="150"
                 Height="30" Click="Button_Click"/>
+        <Button Content="Menú de Cursos"
+
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Width="150"
+            Height="30" Click="Click_MenuCursos" Margin="0,278,0,0"/>
     </Grid>
 </Page>
