@@ -175,6 +175,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServicioLenguaViva\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServicioLenguaViva\service.wsdl" />
     <None Include="Connected Services\ServicioLenguaViva\service.xsd">
       <SubType>Designer</SubType>

@@ -26,6 +26,18 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarAdministrador", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarAdministradorResponse")]
         System.Threading.Tasks.Task<bool> RegistrarAdministradorAsync(ServicioContrato.AdministradorDTO administradorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/CargarIdiomas", ReplyAction="http://tempuri.org/IGestionUsuarios/CargarIdiomasResponse")]
+        ServicioContrato.IdiomaDTO[] CargarIdiomas();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/CargarIdiomas", ReplyAction="http://tempuri.org/IGestionUsuarios/CargarIdiomasResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.IdiomaDTO[]> CargarIdiomasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarProfesor", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarProfesorResponse")]
+        bool RegistrarProfesor(ServicioContrato.ProfesorDTO profesorDTO, int[] idIdiomas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarProfesor", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarProfesorResponse")]
+        System.Threading.Tasks.Task<bool> RegistrarProfesorAsync(ServicioContrato.ProfesorDTO profesorDTO, int[] idIdiomas);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +81,22 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> RegistrarAdministradorAsync(ServicioContrato.AdministradorDTO administradorDTO) {
             return base.Channel.RegistrarAdministradorAsync(administradorDTO);
+        }
+        
+        public ServicioContrato.IdiomaDTO[] CargarIdiomas() {
+            return base.Channel.CargarIdiomas();
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.IdiomaDTO[]> CargarIdiomasAsync() {
+            return base.Channel.CargarIdiomasAsync();
+        }
+        
+        public bool RegistrarProfesor(ServicioContrato.ProfesorDTO profesorDTO, int[] idIdiomas) {
+            return base.Channel.RegistrarProfesor(profesorDTO, idIdiomas);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarProfesorAsync(ServicioContrato.ProfesorDTO profesorDTO, int[] idIdiomas) {
+            return base.Channel.RegistrarProfesorAsync(profesorDTO, idIdiomas);
         }
     }
     

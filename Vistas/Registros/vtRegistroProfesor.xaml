@@ -5,10 +5,76 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Registros"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="vtRegistroProfesor">
 
-    <Grid>
-        
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Campos del Profesor -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,20,0">
+            <Label Content="Nombre" Margin="0,0,0,5"/>
+            <TextBox Name="txtNombre" Width="300" Margin="0,0,0,15"/>
+            <Label Name="lbNombreVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Apellidos" Margin="0,0,0,5"/>
+            <TextBox Name="txtApellidos" Width="300" Margin="0,0,0,15"/>
+            <Label Name="lbApellidosVacios" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Correo" Margin="0,0,0,5"/>
+            <TextBox Name="txtCorreo" Width="300" Margin="0,0,0,15"/>
+            <Label Name="lbCorreoVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Dirección" Margin="0,0,0,5"/>
+            <TextBox Name="txtDireccion" Width="300" Margin="0,0,0,15"/>
+            <Label Name="lbDireccionVacia" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Teléfono" Margin="0,0,0,5"/>
+            <TextBox Name="txtTelefono" Width="300" Margin="0,0,0,15"/>
+
+            <Label Content="Usuario" Margin="0,0,0,5"/>
+            <TextBox Name="txtUsuario" Width="300" Margin="0,0,0,15"/>
+            <Label Name="lbUsuarioVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Contraseña" Margin="0,0,0,5"/>
+            <PasswordBox Name="txtContraseña" Width="300" Margin="0,0,0,15"/>
+            <Label Name="lbContraseniaVacia" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+        </StackPanel>
+
+        <!-- Tabla de Idiomas -->
+        <GroupBox Header="Idiomas" Grid.Column="1" Margin="0,0,0,0">
+            <DataGrid Name="dataGridIdiomas" 
+                      Height="400" 
+                      Width="400" 
+                      AutoGenerateColumns="False" 
+                      SelectionMode="Single" 
+                      IsReadOnly="False">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="Seleccionar" Binding="{Binding IsSelected}" Width="Auto"/>
+                    <DataGridTextColumn Header="Idioma" Binding="{Binding nombreIdioma}" IsReadOnly="True" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <!-- Botones -->
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
+            <Button Content="Cancelar" 
+                    Width="120" 
+                    Height="40" 
+                    Margin="10" 
+                    Background="#FF4C4A" 
+                    Foreground="White" 
+                    Click="BtnCancelar_Click"/>
+            <Button Content="Registrar" 
+                    Width="120" 
+                    Height="40" 
+                    Margin="10" 
+                    Background="#4CAF50" 
+                    Foreground="White" 
+                    Click="BtnRegistrar_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/ServicioContrato" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="IniciarSesion">
     <xs:complexType>
       <xs:sequence>
@@ -30,6 +31,33 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CargarIdiomas">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargarIdiomasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="CargarIdiomasResult" nillable="true" type="q2:ArrayOfIdiomaDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarProfesor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="profesorDTO" nillable="true" type="q3:ProfesorDTO" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idIdiomas" nillable="true" type="q4:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarProfesorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarProfesorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ObtenerCursosPorNombre">
     <xs:complexType>
       <xs:sequence>
@@ -40,7 +68,7 @@
   <xs:element name="ObtenerCursosPorNombreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNombreResult" nillable="true" type="q2:ArrayOfCursoDTO" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNombreResult" nillable="true" type="q5:ArrayOfCursoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +82,7 @@
   <xs:element name="ObtenerCursosPorNombreIdiomaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNombreIdiomaResult" nillable="true" type="q3:ArrayOfCursoDTO" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNombreIdiomaResult" nillable="true" type="q6:ArrayOfCursoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -68,7 +96,7 @@
   <xs:element name="ObtenerCursosPorNivelResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNivelResult" nillable="true" type="q4:ArrayOfCursoDTO" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNivelResult" nillable="true" type="q7:ArrayOfCursoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -82,14 +110,14 @@
   <xs:element name="ObtenerCursosPorNombreProfesorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNombreProfesorResult" nillable="true" type="q5:ArrayOfCursoDTO" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosPorNombreProfesorResult" nillable="true" type="q8:ArrayOfCursoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RegistrarCurso">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="cursoDTO" nillable="true" type="q6:CursoDTO" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="cursoDTO" nillable="true" type="q9:CursoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -110,7 +138,7 @@
   <xs:element name="ObtenerProfesoresPorNombreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerProfesoresPorNombreResult" nillable="true" type="q7:ArrayOfProfesorDTO" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerProfesoresPorNombreResult" nillable="true" type="q10:ArrayOfProfesorDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +152,7 @@
   <xs:element name="ObtenerProfesorPorIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerProfesorPorIDResult" nillable="true" type="q8:ProfesorDTO" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerProfesorPorIDResult" nillable="true" type="q11:ProfesorDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,7 +164,7 @@
   <xs:element name="ObtenerIdiomasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerIdiomasResult" nillable="true" type="q9:ArrayOfIdiomaDTO" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerIdiomasResult" nillable="true" type="q12:ArrayOfIdiomaDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -150,7 +178,7 @@
   <xs:element name="ObtenerIdiomaPorIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerIdiomaPorIDResult" nillable="true" type="q10:IdiomaDTO" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerIdiomaPorIDResult" nillable="true" type="q13:IdiomaDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -164,14 +192,14 @@
   <xs:element name="ObtenerCursoPorIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursoPorIDResult" nillable="true" type="q11:CursoDTO" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursoPorIDResult" nillable="true" type="q14:CursoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ModificarCurso">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="cursoDTO" nillable="true" type="q12:CursoDTO" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="cursoDTO" nillable="true" type="q15:CursoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
