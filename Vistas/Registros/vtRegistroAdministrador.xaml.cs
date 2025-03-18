@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,8 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServicioContrato;
-using LVServicio = LenguaVivaCliente.ServicioLenguaViva.IGestionUsuarios;
 
 
 namespace LenguaVivaCliente.Vistas.Registros
@@ -24,12 +23,13 @@ namespace LenguaVivaCliente.Vistas.Registros
     /// </summary>
     public partial class vtRegistroAdministrador : Page
     {
-        private ServicioContrato.IGestionUsuarios _servicio;
+        private IGestionUsuarios _servicio;
 
         public vtRegistroAdministrador()
         {
             InitializeComponent();
-            _servicio = new ImplementacionServicio();
+            ChannelFactory<IGestionUsuarios> factory = new ChannelFactory<IGestionUsuarios>("NetTcpBinding_IGestionUsuarios");
+            _servicio = factory.CreateChannel();
         }
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
