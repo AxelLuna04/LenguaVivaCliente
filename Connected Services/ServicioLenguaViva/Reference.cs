@@ -38,6 +38,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarProfesor", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarProfesorResponse")]
         System.Threading.Tasks.Task<bool> RegistrarProfesorAsync(ServicioContrato.ProfesorDTO profesorDTO, int[] idIdiomas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarAlumno", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarAlumnoResponse")]
+        bool RegistrarAlumno(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarAlumno", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarAlumnoResponse")]
+        System.Threading.Tasks.Task<bool> RegistrarAlumnoAsync(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> RegistrarProfesorAsync(ServicioContrato.ProfesorDTO profesorDTO, int[] idIdiomas) {
             return base.Channel.RegistrarProfesorAsync(profesorDTO, idIdiomas);
+        }
+        
+        public bool RegistrarAlumno(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel) {
+            return base.Channel.RegistrarAlumno(alumnoDTO, idiomasNivel);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarAlumnoAsync(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel) {
+            return base.Channel.RegistrarAlumnoAsync(alumnoDTO, idiomasNivel);
         }
     }
     

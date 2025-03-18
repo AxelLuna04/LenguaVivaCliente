@@ -38,6 +38,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProfesorDTO" nillable="true" type="tns:ProfesorDTO" />
+  <xs:complexType name="AlumnoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlumnoDTO" nillable="true" type="tns:AlumnoDTO" />
+  <xs:complexType name="ArrayOfIdiomaNivelDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdiomaNivelDTO" nillable="true" type="tns:IdiomaNivelDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdiomaNivelDTO" nillable="true" type="tns:ArrayOfIdiomaNivelDTO" />
+  <xs:complexType name="IdiomaNivelDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idIdioma" type="xs:int" />
+      <xs:element minOccurs="0" name="idiomaNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nivel" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdiomaNivelDTO" nillable="true" type="tns:IdiomaNivelDTO" />
   <xs:complexType name="ArrayOfCursoDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoDTO" nillable="true" type="tns:CursoDTO" />

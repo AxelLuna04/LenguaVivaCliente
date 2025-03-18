@@ -64,6 +64,12 @@
   <wsdl:message name="IGestionUsuarios_RegistrarProfesor_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarProfesorResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_RegistrarAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_RegistrarAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAlumnoResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionCursos_ObtenerCursosPorNombre_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCursosPorNombre" />
   </wsdl:message>
@@ -147,6 +153,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/RegistrarProfesor" message="tns:IGestionUsuarios_RegistrarProfesor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/RegistrarProfesorResponse" message="tns:IGestionUsuarios_RegistrarProfesor_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RegistrarAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/RegistrarAlumno" message="tns:IGestionUsuarios_RegistrarAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/RegistrarAlumnoResponse" message="tns:IGestionUsuarios_RegistrarAlumno_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionCursos">
     <wsdl:operation name="ObtenerCursosPorNombre">
@@ -227,6 +237,15 @@
     </wsdl:operation>
     <wsdl:operation name="RegistrarProfesor">
       <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/RegistrarProfesor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAlumno">
+      <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/RegistrarAlumno" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

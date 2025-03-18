@@ -3,12 +3,69 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Registros"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="vtRegistroAlumno">
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Registro de Alumno">
 
-    <Grid>
-        
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Campos del Alumno -->
+        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,20,0">
+            <Label Content="Nombre" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtNombre" Width="300" Margin="0,0,0,15"/>
+            <Label x:Name="lbNombreVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Apellidos" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtApellidos" Width="300" Margin="0,0,0,15"/>
+            <Label x:Name="lbApellidosVacios" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Correo Electrónico" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtCorreo" Width="300" Margin="0,0,0,15"/>
+            <Label x:Name="lbCorreoVacio" Content="Formato inválido" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Dirección" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtDireccion" Width="300" Margin="0,0,0,15"/>
+            <Label x:Name="lbDireccionVacia" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+        </StackPanel>
+
+        <!-- Selección de Idiomas y Niveles -->
+        <GroupBox Grid.Column="1" Header="Idiomas que domina" Padding="10">
+            <StackPanel Orientation="Vertical">
+                <!-- Sección de selección: ComboBox para Idiomas, ComboBox para Niveles y Botón Agregar -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <ComboBox x:Name="cboIdiomas" Width="150" Margin="0,0,10,0"
+                              ItemsSource="{Binding IdiomasDisponibles}"
+                              DisplayMemberPath="nombreIdioma"
+                              SelectedIndex="0"/>
+                    <ComboBox x:Name="cboNiveles" Width="150"
+                              ItemsSource="{Binding Niveles}"
+                              SelectedIndex="0"/>
+                    <Button Content="Agregar" Width="80" Margin="10,0,0,0" Click="BtnAgregar_Click"/>
+                </StackPanel>
+
+                <!-- DataGrid para mostrar los idiomas agregados -->
+                <DataGrid x:Name="dgIdiomas" AutoGenerateColumns="False" Margin="0,0,0,10" Height="200"
+                          ItemsSource="{Binding IdiomasAgregados}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Idioma" Binding="{Binding idiomaNombre}" Width="*"/>
+                        <DataGridTextColumn Header="Nivel" Binding="{Binding nivel}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!-- Mensaje de error en caso de no tener ningún idioma agregado -->
+                <Label x:Name="lbIdiomasError" Content="Seleccione al menos un idioma" 
+                       Foreground="Red" Visibility="Hidden"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Botones de Cancelar y Registrar -->
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
+            <Button Content="Cancelar" Width="120" Height="40" Margin="10" Background="#FF4C4A" Foreground="White" Click="BtnCancelar_Click"/>
+            <Button Content="Registrar" Width="120" Height="40" Margin="10" Background="#4CAF50" Foreground="White" Click="BtnRegistrar_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
