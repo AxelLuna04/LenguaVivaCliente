@@ -1,4 +1,5 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
+using LenguaVivaCliente.Vistas.Cursos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

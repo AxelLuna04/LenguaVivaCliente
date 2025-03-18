@@ -1,0 +1,71 @@
+﻿<Page x:Class="LenguaVivaCliente.Vistas.Cursos.vtInformacionCurso"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Cursos"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="vtInformacionCurso">
+
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="White" />
+        </Grid.Background>
+
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="343" FontSize="15" IsEnabled="False"/>
+
+
+        <Label Content="Cupo Máximo:" HorizontalAlignment="Left" Margin="573,12,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbCupo" HorizontalAlignment="Left" Margin="573,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="183" FontSize="15" IsEnabled="False"/>
+
+
+        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="44,122,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="712" FontSize="15" Height="68" IsEnabled="False"/>
+
+
+        <Label Content="Profesor:" HorizontalAlignment="Left" Margin="44,199,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="cbProfesores" HorizontalAlignment="Left" Margin="44,242,0,0" VerticalAlignment="Top" Width="154" IsEnabled="false">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding nombre}" />
+                        <TextBlock Text=" " />
+                        <!-- Espacio entre nombre y apellidos -->
+                        <TextBlock Text="{Binding apellidos}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
+        <Label Content="Idioma:" HorizontalAlignment="Left" Margin="239,198,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="cbIdiomas" HorizontalAlignment="Left" Margin="239,241,0,0" VerticalAlignment="Top" Width="148" IsEnabled="false"/>
+
+
+        <Label Content="Fecha de Inicio:" HorizontalAlignment="Left" Margin="443,198,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <DatePicker x:Name="dpFechaInicio" HorizontalAlignment="Left" Margin="443,241,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+
+        <Label Content="Fecha de Término:" HorizontalAlignment="Left" Margin="443,278,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <DatePicker x:Name="dpFechaTermino" HorizontalAlignment="Left" Margin="443,320,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+
+        <Label Content="Nivel de Curso:" HorizontalAlignment="Left" Margin="613,199,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <RadioButton x:Name="rbBasico" Content="Básico" HorizontalAlignment="Left" Margin="671,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.802" IsEnabled="False"/>
+        <RadioButton x:Name="rbIntermedio" Content="Intermedio" HorizontalAlignment="Left" Margin="671,261,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <RadioButton x:Name="rbAvanzado" Content="Avanzado" HorizontalAlignment="Left" Margin="671,281,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+
+
+        <Label Content="Estado:" HorizontalAlignment="Left" Margin="239,281,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="cbEstado" HorizontalAlignment="Left" Margin="239,320,0,0" VerticalAlignment="Top" Width="148" IsEnabled="False"/>
+
+
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="44,406,0,0" VerticalAlignment="Top" Click="Click_Volver"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="699,406,0,0" VerticalAlignment="Top" Click="Click_Eliminar" />
+        <Button Content="Editar" HorizontalAlignment="Left" Margin="625,406,0,0" VerticalAlignment="Top" Click="Click_Editar" />
+        <Button Content="Subir lista de asistencias" HorizontalAlignment="Left" Margin="456,406,0,0" VerticalAlignment="Top" Click="Click_SubirLista" />
+
+
+
+    </Grid>
+</Page>

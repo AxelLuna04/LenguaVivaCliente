@@ -43,6 +43,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,6 +66,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtBuscarCurso.xaml.cs">
+      <DependentUpon>vtBuscarCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtEditarCurso.xaml.cs">
+      <DependentUpon>vtEditarCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtInformacionCurso.xaml.cs">
+      <DependentUpon>vtInformacionCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtMenuCursos.xaml.cs">
+      <DependentUpon>vtMenuCursos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtRegistrarCurso.xaml.cs">
+      <DependentUpon>vtRegistrarCurso.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\InicioSesion\vtInicioSesion.xaml.cs">
       <DependentUpon>vtInicioSesion.xaml</DependentUpon>
@@ -96,6 +112,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\Cursos\vtBuscarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtEditarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtInformacionCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtMenuCursos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtRegistrarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\InicioSesion\vtInicioSesion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,11 +175,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.CursoDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.IdiomaDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.ProfesorDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServicioLenguaViva\service.wsdl" />
     <None Include="Connected Services\ServicioLenguaViva\service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServicioLenguaViva\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioLenguaViva\ServicioContrato.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">

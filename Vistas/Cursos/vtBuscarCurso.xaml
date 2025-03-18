@@ -1,0 +1,31 @@
+﻿<Page x:Class="LenguaVivaCliente.Vistas.Cursos.vtBuscarCurso"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Cursos"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="vtBuscarCurso">
+
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="White" />
+        </Grid.Background>
+
+        <Label Content="Ingrese el nombre del curso:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="343" FontSize="15" TextChanged="tbNombre_TextChanged"/>
+
+
+        <Label Content="Cursos:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <DataGrid x:Name="dgCursos" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="44,127,44,70" IsReadOnly="True" SelectionMode="Single"/>
+
+
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="44,406,0,0" VerticalAlignment="Top" Click="Click_Cancelar"/>
+        <Button Content="Ver Información" HorizontalAlignment="Left" Margin="668,406,0,0" VerticalAlignment="Top" Click="Click_VerInformacion"/>
+        <ComboBox x:Name="cbBusqueda" HorizontalAlignment="Left" Margin="565,58,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="cbBusqueda_SelectionChanged"/>
+        <ComboBox x:Name="cbNiveles" HorizontalAlignment="Left" Margin="565,92,0,0" VerticalAlignment="Top" Width="191" Visibility="Hidden" SelectionChanged="cbNiveles_SelectionChanged"/>
+
+
+    </Grid>
+</Page>
