@@ -16,10 +16,10 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
     public interface IGestionUsuarios {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/IniciarSesion", ReplyAction="http://tempuri.org/IGestionUsuarios/IniciarSesionResponse")]
-        bool IniciarSesion(string usuario, string contrasenia);
+        ServicioContrato.SesionUsuario IniciarSesion(string usuario, string contrasenia);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/IniciarSesion", ReplyAction="http://tempuri.org/IGestionUsuarios/IniciarSesionResponse")]
-        System.Threading.Tasks.Task<bool> IniciarSesionAsync(string usuario, string contrasenia);
+        System.Threading.Tasks.Task<ServicioContrato.SesionUsuario> IniciarSesionAsync(string usuario, string contrasenia);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarAdministrador", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarAdministradorResponse")]
         bool RegistrarAdministrador(ServicioContrato.AdministradorDTO administradorDTO);
@@ -73,11 +73,11 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
                 base(binding, remoteAddress) {
         }
         
-        public bool IniciarSesion(string usuario, string contrasenia) {
+        public ServicioContrato.SesionUsuario IniciarSesion(string usuario, string contrasenia) {
             return base.Channel.IniciarSesion(usuario, contrasenia);
         }
         
-        public System.Threading.Tasks.Task<bool> IniciarSesionAsync(string usuario, string contrasenia) {
+        public System.Threading.Tasks.Task<ServicioContrato.SesionUsuario> IniciarSesionAsync(string usuario, string contrasenia) {
             return base.Channel.IniciarSesionAsync(usuario, contrasenia);
         }
         
