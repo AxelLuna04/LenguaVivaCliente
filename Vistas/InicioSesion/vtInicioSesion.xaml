@@ -65,7 +65,7 @@
                          Tag="************"
                          Height="40"
                          FontSize="16"
-                         Password="************"
+                         Password=""
                          Background="Transparent"
 
                          BorderBrush="Transparent"

@@ -1,0 +1,230 @@
+﻿<Page x:Class="LenguaVivaCliente.Vistas.Menu.MenuUsuarios.vtDetallesUsuario"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Menu.MenuUsuarios"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Detalles del Usuario"
+      Background="#FFE0E0E0">
+    <!-- Fondo más claro -->
+
+    <Grid>
+        <!-- Encabezado -->
+        <Border Background="#FF3498DB" Padding="20" VerticalAlignment="Top">
+            <TextBlock x:Name="TxtTitulo" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
+
+        <!-- Botón de regresar -->
+        <Button HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="10" 
+                Cursor="Hand"
+                Click="BtnRegresar_Click">
+            <Button.Content>
+                <TextBlock Text="⬅️" 
+                           FontSize="30" 
+                           Foreground="White" 
+                           FontFamily="Segoe UI Symbol"/>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF3498DB"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF5DADE2"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!-- Contenedor principal -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Margin="0,20,0,0">
+            <!-- Campo para el correo -->
+            <Border CornerRadius="10" Background="#FF5DADE2" Padding="10" Margin="0,5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Correo: " 
+                               FontSize="16" 
+                               FontWeight="Bold"
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TxtCorreo" 
+                               FontSize="16" 
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Campo para el número de teléfono -->
+            <Border CornerRadius="10" Background="#FF5DADE2" Padding="10" Margin="0,5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Teléfono: " 
+                               FontSize="16" 
+                               FontWeight="Bold"
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TxtTelefono" 
+                               FontSize="16" 
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Campo para la dirección -->
+            <Border CornerRadius="10" Background="#FF5DADE2" Padding="10" Margin="0,5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Dirección: " 
+                               FontSize="16" 
+                               FontWeight="Bold"
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TxtDireccion" 
+                               FontSize="16" 
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Campo para el nivel de idioma (solo para alumnos) -->
+            <Border x:Name="BorderNivelIdioma" 
+                    CornerRadius="10" Background="#FF5DADE2" Padding="10" Margin="0,5"
+                    Visibility="Collapsed">
+                <!-- Oculto por defecto -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Nivel de idioma: " 
+                               FontSize="16" 
+                               FontWeight="Bold"
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TxtNivelIdioma" 
+                               FontSize="16" 
+                               Foreground="#FF2D3436"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Botones de acción -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button x:Name="BtnEditar" 
+                        Content="Editar" 
+                        Background="#FF2ECC71" 
+                        Foreground="#FF2D3436" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        FontFamily="Segoe UI, sans-serif" 
+                        Padding="15,10" 
+                        BorderThickness="0" 
+                        Cursor="Hand"
+                        Margin="0,0,10,0"
+                        Click="BtnEditar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="20"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#FF2D3436"/>
+                            <Setter Property="Background" Value="#FF2ECC71"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF58D68D"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button x:Name="BtnEliminar" 
+                        Content="Eliminar" 
+                        Background="#FFE74C3C" 
+                        Foreground="#FF2D3436" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        FontFamily="Segoe UI, sans-serif" 
+                        Padding="15,10" 
+                        BorderThickness="0" 
+                        Cursor="Hand"
+                        Click="BtnEliminar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="20"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#FF2D3436"/>
+                            <Setter Property="Background" Value="#FFE74C3C"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFEC7063"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

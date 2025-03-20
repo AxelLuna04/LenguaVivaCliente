@@ -1,0 +1,188 @@
+﻿<Page x:Class="LenguaVivaCliente.Vistas.Menu.MenuUsuarios.vtBuscarUsuarios"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Menu"
+      mc:Ignorable="d" 
+      Title="Buscar Usuarios"
+      Background="#FF1E1E2E">
+
+    <Grid>
+        <!-- Encabezado -->
+        <Border Background="#FF3498DB" Padding="20" VerticalAlignment="Top">
+            <TextBlock Text="Buscar Usuarios" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
+
+        <!-- Contenedor principal -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="600">
+            <!-- Texto descriptivo mejorado -->
+            <TextBlock Text="Puede buscar al usuario con alguno de estos datos:" 
+                       FontSize="16" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Segoe UI, sans-serif" 
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBlock Text="Nombre, teléfono, dirección o nivel de idioma (en caso de buscar un alumno)." 
+                       FontSize="14" 
+                       Foreground="#FFB2B2B2" 
+                       FontFamily="Segoe UI, sans-serif" 
+                       FontStyle="Italic"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+
+            <!-- Contenedor para el campo de búsqueda y el botón -->
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Campo de búsqueda con placeholder -->
+                <Border CornerRadius="20" Background="#FF5DADE2" Padding="10" Margin="0,10"
+                        BorderBrush="#FF2980B9" BorderThickness="2">
+                    <Grid>
+                        <TextBox x:Name="TxtBuscar" 
+                                 Background="Transparent" 
+                                 Foreground="#FF2D3436" 
+                                 FontSize="16" 
+                                 FontFamily="Segoe UI, sans-serif" 
+                                 Padding="10" 
+                                 BorderThickness="0" 
+                                 Cursor="IBeam"/>
+                        <!-- TextBlock para el placeholder -->
+                        <TextBlock Text="Ingrese el dato a buscar..." 
+                                   Foreground="#FF7F8C8D" 
+                                   FontSize="16" 
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0"
+                                   Visibility="Collapsed">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=TxtBuscar}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Text, ElementName=TxtBuscar}" Value="{x:Null}">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
+                <!-- Botón Buscar con ícono de lupa -->
+                <Button Grid.Column="1"
+                        Click="Click_Buscar"
+                        Background="#FF2ECC71" 
+                        Foreground="#FF2D3436" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        FontFamily="Segoe UI, sans-serif" 
+                        Padding="20,10" 
+                        BorderThickness="0" 
+                        Cursor="Hand"
+                        Margin="10,10,0,10"
+                        HorizontalAlignment="Left" Width="124">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Buscar" 
+                                   />
+                        <TextBlock Text="🔍" 
+                                   FontSize="20" 
+                                   />
+                    </StackPanel>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="20"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#FF2D3436"/>
+                            <Setter Property="Background" Value="#FF2ECC71"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF58D68D"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+        <!-- Botón de Regresar mejorado -->
+        <Button HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="10" 
+                Cursor="Hand"
+                Click="Regresar_Click">
+            <Button.Content>
+                <TextBlock Text="⬅️" 
+                           FontSize="30" 
+                           Foreground="White" 
+                           FontFamily="Segoe UI Symbol"/>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF3498DB"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF5DADE2"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Page>

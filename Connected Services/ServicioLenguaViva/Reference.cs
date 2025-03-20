@@ -44,6 +44,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarAlumno", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarAlumnoResponse")]
         System.Threading.Tasks.Task<bool> RegistrarAlumnoAsync(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/BuscarUsuarios", ReplyAction="http://tempuri.org/IGestionUsuarios/BuscarUsuariosResponse")]
+        ServicioContrato.UsuarioDTO[] BuscarUsuarios(string criterioBusqueda, int tipoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/BuscarUsuarios", ReplyAction="http://tempuri.org/IGestionUsuarios/BuscarUsuariosResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO[]> BuscarUsuariosAsync(string criterioBusqueda, int tipoUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +117,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> RegistrarAlumnoAsync(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel) {
             return base.Channel.RegistrarAlumnoAsync(alumnoDTO, idiomasNivel);
+        }
+        
+        public ServicioContrato.UsuarioDTO[] BuscarUsuarios(string criterioBusqueda, int tipoUsuario) {
+            return base.Channel.BuscarUsuarios(criterioBusqueda, tipoUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO[]> BuscarUsuariosAsync(string criterioBusqueda, int tipoUsuario) {
+            return base.Channel.BuscarUsuariosAsync(criterioBusqueda, tipoUsuario);
         }
     }
     

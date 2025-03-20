@@ -1,4 +1,5 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
+using ServicioContrato;
 using LenguaVivaCliente.Vistas.Cursos;
 using System;
 using System.Collections.Generic;
@@ -29,14 +30,17 @@ namespace LenguaVivaCliente.Vistas.InicioSesion
             {
                 try
                 {
-                    if (proxy.IniciarSesion(tbUsuario.Text, tpContraseña.Password))
+                    SesionUsuario sesionUsuario = proxy.IniciarSesion(tbUsuario.Text, tpContraseña.Password);
+                    if (sesionUsuario.esValido)
                     {
-                        MessageBox.Show("Inicio correcto");
-                        NavigationService?.Navigate(new Vistas.Menu.MenuPrincipal());
-                                            }
+                        NavigationService?.Navigate(new Vistas.Menu.MenuPrincipal(sesionUsuario));
+                    }
                     else
-                        MessageBox.Show("Inicio incorrecto");
-        }
+                    {
+
+                    }
+                        
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error de conexión: {ex.Message}");

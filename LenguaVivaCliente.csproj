@@ -88,6 +88,18 @@
     <Compile Include="Vistas\Menu\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Menu\MenuUsuarios\vtBuscarUsuarios.xaml.cs">
+      <DependentUpon>vtBuscarUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\MenuUsuarios\vtDetallesUsuario.xaml.cs">
+      <DependentUpon>vtDetallesUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml.cs">
+      <DependentUpon>vtUsuariosEncontrados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\SubMenuUsuarios.xaml.cs">
+      <DependentUpon>SubMenuUsuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Registros\vtRegistroAdministrador.xaml.cs">
       <DependentUpon>vtRegistroAdministrador.xaml</DependentUpon>
     </Compile>
@@ -137,6 +149,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Menu\MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\MenuUsuarios\vtBuscarUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\MenuUsuarios\vtDetallesUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\SubMenuUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,6 +220,7 @@
     <None Include="Properties\DataSources\ServicioContrato.IdiomaDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.ProfesorDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.SesionUsuario.datasource" />
+    <None Include="Properties\DataSources\ServicioContrato.UsuarioDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -218,5 +247,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
