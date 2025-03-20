@@ -5,127 +5,123 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.InicioSesion"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="vtInicioSesion">
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Inicio de Sesión"
+      Background="#FF1E1E2E">
 
     <Grid>
         <Grid.Background>
-            <SolidColorBrush Color="LightSteelBlue" />
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF1E1E2E" Offset="0"/>
+                <GradientStop Color="#FF2C3E50" Offset="1"/>
+            </LinearGradientBrush>
         </Grid.Background>
 
+        <Border Background="#FF34495E" Padding="20" VerticalAlignment="Top">
+            <TextBlock Text="Lengua Viva" 
+                       FontSize="36" 
+                       FontWeight="Bold" 
+                       Foreground="#FFFFFF"
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <Border CornerRadius="10" Background="#FFECF0F1" Padding="10" Margin="0,10">
+                <Grid>
+                    <TextBox x:Name="tbUsuario"
+                             FontSize="16"
+                             Foreground="#2C3E50"
+                        Background="Transparent"
+                             BorderThickness="0"
+                             VerticalAlignment="Center"
+                             TextChanged="tbUsuario_TextChanged"/>
+                        <TextBlock x:Name="tbUsuarioPlaceholder"
+                               Text="Correo"
+                               FontSize="16"
+                               Foreground="#95A5A6"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"
+                               IsHitTestVisible="False"/>
+                </Grid>
+            </Border>
 
-        <Grid Grid.Row="0" Height="150">
-            <TextBlock FontSize="28"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Foreground="Black">
-            <Run Language="es-mx" Text="Lengua Viva"/>
-            </TextBlock>
-        </Grid>
+            <Border CornerRadius="10" Background="#FFECF0F1" Padding="10" Margin="0,10">
+                <Grid>
+                    <PasswordBox x:Name="tpContraseña"
+                                 FontSize="16"
+                                 Foreground="#2C3E50"
+                        Background="Transparent"
+                                 BorderThickness="0"
+                                 VerticalAlignment="Center"
+                                 PasswordChanged="tpContraseña_PasswordChanged"/>
+                        <TextBlock x:Name="tpContraseñaPlaceholder"
+                               Text="Contraseña"
+                               FontSize="16"
+                               Foreground="#95A5A6"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"
+                               IsHitTestVisible="False"/>
+                </Grid>
+            </Border>
 
-        <Grid Grid.Row="1" Margin="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" MaxWidth="400" MinWidth="300">
-
-                <Label Content="Correo"
-                   HorizontalAlignment="Left"
-                   FontSize="16"
-                   FontWeight="Bold"
-                   Margin="0,5,0,0"/>
-                <TextBox x:Name="tbUsuario"
-                     Text="Correo"
-                     Tag="Correo"
-                     Margin="0,10"
-                     Padding="10"
-                     Background="Transparent"
-                     Height="40"
-                     FontSize="16"
-                     Foreground="Black" />
-
-                <Label Content="Contrasena"
-                   HorizontalAlignment="Left"
-                   FontSize="16"
-                   FontWeight="Bold"
-                   Margin="0,10,0,0"/>
-                <PasswordBox x:Name="tpContraseña"
-                         Margin="0,10"
-                         Padding="10"
-                         Tag="************"
-                         Height="40"
-                         FontSize="16"
-                         Password=""
-                         Background="Transparent"
-
-                         BorderBrush="Transparent"
-                         Foreground="Black" />
-                <Label x:Name="lbCredencialesIncorrectas" 
-                   Content="Credenciales incorrectas" 
-                   Visibility="Collapsed" 
-                   FontFamily="Inter" 
-                   FontSize="14" 
-                   VerticalContentAlignment="Center" 
-                   HorizontalContentAlignment="Center" 
-                   Foreground="#FFFF5959" 
-                   Height="28" Width="204"/>
-                <Button Content="Inicio de sesion"
-                    Background="#007ACC"
-                    Foreground="White"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    Margin="0,20,0,0"
-                    Padding="10"
-                    Height="40" 
-                    Click="BtnIniciarSesion_Click"/>
-                <TextBlock FontFamily="Inter" 
+            <!-- Mensaje de credenciales incorrectas -->
+            <TextBlock x:Name="lbCredencialesIncorrectas" 
+                       Text="Credenciales incorrectas" 
+                       Visibility="Collapsed" 
                        FontSize="14" 
-                       VerticalAlignment="Top" 
-                       Foreground="PowderBlue" 
-                       Cursor="Hand" 
-                       Text="Olvide mi contrasena"
-                       Name="BtnRecuperarContraseña"
-                       TextAlignment="Center"
+                       Foreground="#E74C3C"
+                       HorizontalAlignment="Center"
                        Margin="0,10,0,0"/>
 
-                <Button Content="Registrarse"
-                    HorizontalAlignment="Center" 
-                    Margin="0,16,0,0" 
-                    Background="Transparent" 
-                    BorderThickness="0" 
-                    VerticalAlignment="Top" 
-                    Height="32" 
-                    Width="88"/>
-            </StackPanel>
-        </Grid>
-
-        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-
-            </StackPanel>
-            <Button x:Name="BtnInvitado" Content="Invitado" 
-                    HorizontalAlignment="Left" 
-                    FontWeight="Bold" 
-                    FontSize="16" 
-                    Background="Transparent" 
-                    BorderThickness="0" 
-                    Margin="403,0,0,0" />
-            <TextBox Name="tbInvitado" HorizontalAlignment="Left" Margin="595,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        </Grid>
-        <ComboBox x:Name="cbIdioma"
-                      Margin="992,59,58,57">
-            <ComboBoxItem Content="Español" Tag="es-MX" />
-            <ComboBoxItem Content="English" Tag="en-US" />
-        </ComboBox>
+            <!-- Botón de inicio de sesión -->
+            <Button x:Name="BtnIniciarSesion"
+                    Content="Iniciar Sesión"
+                    Background="#FF2ECC71"
+                    Foreground="#FFFFFF"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Padding="15,10"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Stretch"
+                    Click="BtnIniciarSesion_Click" Width="174" Height="39">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            CornerRadius="20"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Foreground" Value="#FFFFFF"/> <!-- Blanco -->
+                        <Setter Property="Background" Value="#FF2ECC71"/> <!-- Verde -->
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#27AE60"/> <!-- Verde más oscuro -->
+                                <Setter Property="Foreground" Value="#FFFFFF"/> <!-- Blanco -->
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
