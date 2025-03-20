@@ -13,8 +13,8 @@
             <SolidColorBrush Color="White" />
         </Grid.Background>
 
-        <Label Content="Ingrese el nombre del curso:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="343" FontSize="15" TextChanged="tbNombre_TextChanged"/>
+        <Label x:Name="lbInstrucciones" Content="Ingrese el nombre del curso:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbBusqueda" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="343" FontSize="15" TextChanged="tbBusqueda_TextChanged"/>
 
 
         <Label Content="Cursos:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>
@@ -24,7 +24,8 @@
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="44,406,0,0" VerticalAlignment="Top" Click="Click_Cancelar"/>
         <Button Content="Ver Información" HorizontalAlignment="Left" Margin="668,406,0,0" VerticalAlignment="Top" Click="Click_VerInformacion"/>
         <ComboBox x:Name="cbBusqueda" HorizontalAlignment="Left" Margin="565,58,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="cbBusqueda_SelectionChanged"/>
-        <ComboBox x:Name="cbNiveles" HorizontalAlignment="Left" Margin="565,92,0,0" VerticalAlignment="Top" Width="191" Visibility="Hidden" SelectionChanged="cbNiveles_SelectionChanged"/>
+        <ComboBox x:Name="cbNiveles" HorizontalAlignment="Left" Margin="44,58,0,0" VerticalAlignment="Top" Width="191" Visibility="Hidden" SelectionChanged="cbNiveles_SelectionChanged"/>
+        <Label Content="Criterio de Búsqueda" FontSize="20" HorizontalAlignment="Left" Margin="565,20,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

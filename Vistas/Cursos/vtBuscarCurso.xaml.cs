@@ -125,19 +125,19 @@ namespace LenguaVivaCliente.Vistas.Cursos
             switch (cbBusqueda.SelectedItem)
             {
                 case "Nombre del Curso":
-                    cursos = servicio.ObtenerCursosPorNombre(tbNombre.Text);
+                    cursos = servicio.ObtenerCursosPorNombre(tbBusqueda.Text);
                     break;
                 case "Nombre del Profesor":
-                    cursos = servicio.ObtenerCursosPorNombreProfesor(tbNombre.Text);
+                    cursos = servicio.ObtenerCursosPorNombreProfesor(tbBusqueda.Text);
                     break;
                 case "Idioma":
-                    cursos = servicio.ObtenerCursosPorNombreIdioma(tbNombre.Text);
+                    cursos = servicio.ObtenerCursosPorNombreIdioma(tbBusqueda.Text);
                     break;
                 case "Nivel":
                     cursos = servicio.ObtenerCursosPorNivel((int)cbNiveles.SelectedValue);
                     break;
                 default:
-                    cursos = servicio.ObtenerCursosPorNombre(tbNombre.Text);
+                    cursos = servicio.ObtenerCursosPorNombre(tbBusqueda.Text);
                     break;
             }
             return cursos;
@@ -174,23 +174,42 @@ namespace LenguaVivaCliente.Vistas.Cursos
             NavigationService.GoBack();
         }
 
-        private void tbNombre_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbBusqueda_TextChanged(object sender, TextChangedEventArgs e)
         {
             actualizarTabla();
         }
 
         private void cbBusqueda_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            switch (cbBusqueda.SelectedItem)
+            {
+                case "Nombre del Curso":
+                    lbInstrucciones.Content = "Ingrese el nombre del curso";
+                    break;
+                case "Nombre del Profesor":
+                    lbInstrucciones.Content = "Ingrese el nombre del profesor";
+                    break;
+                case "Idioma":
+                    lbInstrucciones.Content = "Ingrese el idioma";
+                    break;
+                case "Nivel":
+                    lbInstrucciones.Content = "Seleccione un nivel";
+                    break;
+            }
+
             if ((String)cbBusqueda.SelectedItem == "Nivel")
             {
                 cbNiveles.Visibility = Visibility.Visible;
-                tbNombre.IsEnabled = false;
-                tbNombre.Text = "";
+                tbBusqueda.IsEnabled = false;
+                tbBusqueda.Visibility = Visibility.Hidden;
+                tbBusqueda.Text = "";
+                
             }
             else
             {
                 cbNiveles.Visibility = Visibility.Hidden;
-                tbNombre.IsEnabled = true;
+                tbBusqueda.IsEnabled = true;
+                tbBusqueda.Visibility = Visibility.Visible;
             }
             actualizarTabla();
         }

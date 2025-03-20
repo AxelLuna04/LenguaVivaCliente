@@ -37,6 +37,9 @@ namespace LenguaVivaCliente.Vistas.Cursos
             NavigationService.Navigate(vtBuscarCurso);
         }
 
-
+        private void Click_Volver(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
