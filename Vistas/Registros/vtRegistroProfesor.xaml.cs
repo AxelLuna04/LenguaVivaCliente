@@ -121,7 +121,8 @@ namespace LenguaVivaCliente.Vistas.Registros
                     email = txtCorreo.Text,
                     direccion = txtDireccion.Text,
                     nombreUsuario = txtUsuario.Text,
-                    contrasenia = txtContraseña.Password
+                    contrasenia = txtContraseña.Password,
+                    telefono = txtTelefono.Text
                 };
 
                 bool resultado = servicio.RegistrarProfesor(profesorDTO, idiomasSeleccionados);
@@ -151,6 +152,7 @@ namespace LenguaVivaCliente.Vistas.Registros
             txtTelefono.Clear();
             txtUsuario.Clear();
             txtContraseña.Clear();
+            txtTelefono.Clear();
 
             foreach (var item in dataGridIdiomas.ItemsSource)
             {

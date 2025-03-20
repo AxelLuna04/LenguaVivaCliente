@@ -101,6 +101,7 @@ namespace LenguaVivaCliente.Vistas.Registros
                     apellidos = txtApellidos.Text,
                     direccion = txtDireccion.Text,
                     email = txtCorreo.Text,
+                    telefono = txtTelefono.Text,
                 };
 
                 bool resultado = servicio.RegistrarAlumno(alumnoDTO, IdiomasAgregados.ToArray());
@@ -175,6 +176,7 @@ namespace LenguaVivaCliente.Vistas.Registros
             txtCorreo.Clear();
             txtDireccion.Clear();
             IdiomasAgregados.Clear();
+            txtTelefono.Clear();
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)

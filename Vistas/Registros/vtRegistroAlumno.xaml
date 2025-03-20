@@ -30,6 +30,11 @@
             <Label Content="Dirección" Margin="0,0,0,5"/>
             <TextBox x:Name="txtDireccion" Width="300" Margin="0,0,0,15"/>
             <Label x:Name="lbDireccionVacia" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
+            <Label Content="Teléfono" Margin="0,0,0,5"/>
+            <TextBox Name="txtTelefono" Width="300" Margin="0,0,0,15"/>
+            <Label x:Name="lbTelefonoVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+
         </StackPanel>
 
         <!-- Selección de Idiomas y Niveles -->

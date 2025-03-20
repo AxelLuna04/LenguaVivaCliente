@@ -27,7 +27,8 @@ namespace LenguaVivaCliente.Vistas.Registros
                 email = txtCorreo.Text,
                 direccion = txtDireccion.Text,
                 nombreUsuario = txtUsuario.Text,
-                contrasenia = txtContrasenia.Password
+                contrasenia = txtContrasenia.Password,
+                telefono = txtTelefono.Text
             };
 
             ServicioLenguaViva.IGestionUsuarios servicio = new ServicioLenguaViva.GestionUsuariosClient();
