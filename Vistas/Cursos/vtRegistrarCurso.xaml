@@ -61,7 +61,7 @@
         <Button Content="Registrar" HorizontalAlignment="Left" Margin="705,406,0,0" VerticalAlignment="Top" Click="Click_Registrar"/>
 
         <Label x:Name="lbNombreVacío" Content="Campo vacío!" HorizontalAlignment="Left" Margin="458,80,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-        <Label x:Name="lbCupoVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="686,80,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
+        <Label x:Name="lbCupoVacio" Content="Campo vacío o inválido!" HorizontalAlignment="Left" Margin="640,80,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
         <Label x:Name="lbDescripcionVacia" Content="Campo vacío!" HorizontalAlignment="Left" Margin="685,190,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
         <Label x:Name="lbProfesorVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="128,300,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
         <Label x:Name="lbIdiomaVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="317,265,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>

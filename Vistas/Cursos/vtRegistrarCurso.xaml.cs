@@ -169,7 +169,7 @@ namespace LenguaVivaCliente.Vistas.Cursos
                 lbNombreVacío.Visibility = Visibility.Hidden;
             }
 
-            if (tbCupo.Text == "")
+            if (tbCupo.Text == "" || int.Parse(tbCupo.Text) < 1)
             {
                 lbCupoVacio.Visibility = Visibility.Visible;
                 contadorCamposVacios++;
