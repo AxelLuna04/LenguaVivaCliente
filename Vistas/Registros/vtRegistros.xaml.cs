@@ -42,5 +42,10 @@ namespace LenguaVivaCliente.Vistas.Registros
             Vistas.Registros.vtRegistroProfesor registro = new Vistas.Registros.vtRegistroProfesor();
             NavigationService.Navigate(registro);
         }
+
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

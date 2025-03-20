@@ -126,7 +126,7 @@ namespace LenguaVivaCliente.Vistas.Registros
         {
             int errores = 0;
 
-            if (string.IsNullOrEmpty(txtNombre.Text))
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 lbNombreVacio.Visibility = Visibility.Visible;
                 errores++;
@@ -136,7 +136,7 @@ namespace LenguaVivaCliente.Vistas.Registros
                 lbNombreVacio.Visibility = Visibility.Hidden;
             }
 
-            if (string.IsNullOrEmpty(txtApellidos.Text))
+            if (string.IsNullOrWhiteSpace(txtApellidos.Text))
             {
                 lbApellidosVacios.Visibility = Visibility.Visible;
                 errores++;
@@ -146,8 +146,15 @@ namespace LenguaVivaCliente.Vistas.Registros
                 lbApellidosVacios.Visibility = Visibility.Hidden;
             }
 
-            if (string.IsNullOrEmpty(txtCorreo.Text))
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
+                lbCorreoVacio.Content = "Campo obligatorio";
+                lbCorreoVacio.Visibility = Visibility.Visible;
+                errores++;
+            }
+            else if (!EsCorreoValido(txtCorreo.Text))
+            {
+                lbCorreoVacio.Content = "Formato de correo inválido";
                 lbCorreoVacio.Visibility = Visibility.Visible;
                 errores++;
             }
@@ -156,7 +163,7 @@ namespace LenguaVivaCliente.Vistas.Registros
                 lbCorreoVacio.Visibility = Visibility.Hidden;
             }
 
-            if (string.IsNullOrEmpty(txtDireccion.Text))
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 lbDireccionVacia.Visibility = Visibility.Visible;
                 errores++;
@@ -166,8 +173,36 @@ namespace LenguaVivaCliente.Vistas.Registros
                 lbDireccionVacia.Visibility = Visibility.Hidden;
             }
 
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                lbTelefonoVacio.Content = "Campo obligatorio";
+                lbTelefonoVacio.Visibility = Visibility.Visible;
+                errores++;
+            }
+            else if (!EsTelefonoValido(txtTelefono.Text))
+            {
+                lbTelefonoVacio.Content = "Solo números permitidos";
+                lbTelefonoVacio.Visibility = Visibility.Visible;
+                errores++;
+            }
+            else
+            {
+                lbTelefonoVacio.Visibility = Visibility.Hidden;
+            }
+
             return errores == 0;
         }
+
+        private bool EsCorreoValido(string correo)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        }
+
+        private bool EsTelefonoValido(string telefono)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(telefono, @"^\d+$");
+        }
+
 
         private void LimpiarCampos()
         {

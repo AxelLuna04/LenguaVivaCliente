@@ -47,50 +47,113 @@ namespace LenguaVivaCliente.Vistas.Registros
         {
             int errores = 0;
 
-            if (string.IsNullOrEmpty(txtNombre.Text))
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 lbNombreVacio.Visibility = Visibility.Visible;
                 errores++;
             }
-            else lbNombreVacio.Visibility = Visibility.Hidden;
+            else
+            {
+                lbNombreVacio.Visibility = Visibility.Hidden;
+            }
 
-            if (string.IsNullOrEmpty(txtApellidos.Text))
+            if (string.IsNullOrWhiteSpace(txtApellidos.Text))
             {
                 lbApellidosVacios.Visibility = Visibility.Visible;
                 errores++;
             }
-            else lbApellidosVacios.Visibility = Visibility.Hidden;
-
-            if (string.IsNullOrEmpty(txtCorreo.Text))
+            else
             {
+                lbApellidosVacios.Visibility = Visibility.Hidden;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                lbCorreoVacio.Content = "Campo obligatorio";
                 lbCorreoVacio.Visibility = Visibility.Visible;
                 errores++;
             }
-            else lbCorreoVacio.Visibility = Visibility.Hidden;
+            else if (!EsCorreoValido(txtCorreo.Text))
+            {
+                lbCorreoVacio.Content = "Formato de correo inválido";
+                lbCorreoVacio.Visibility = Visibility.Visible;
+                errores++;
+            }
+            else
+            {
+                lbCorreoVacio.Visibility = Visibility.Hidden;
+            }
 
-            if (string.IsNullOrEmpty(txtDireccion.Text))
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 lbDireccionVacia.Visibility = Visibility.Visible;
                 errores++;
             }
-            else lbDireccionVacia.Visibility = Visibility.Hidden;
+            else
+            {
+                lbDireccionVacia.Visibility = Visibility.Hidden;
+            }
 
-            if (string.IsNullOrEmpty(txtUsuario.Text))
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                lbTelefonoVacio.Content = "Campo obligatorio";
+                lbTelefonoVacio.Visibility = Visibility.Visible;
+                errores++;
+            }
+            else if (!EsTelefonoValido(txtTelefono.Text))
+            {
+                lbTelefonoVacio.Content = "Solo números permitidos";
+                lbTelefonoVacio.Visibility = Visibility.Visible;
+                errores++;
+            }
+            else
+            {
+                lbTelefonoVacio.Visibility = Visibility.Hidden;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 lbUsuarioVacio.Visibility = Visibility.Visible;
                 errores++;
             }
-            else lbUsuarioVacio.Visibility = Visibility.Hidden;
+            else
+            {
+                lbUsuarioVacio.Visibility = Visibility.Hidden;
+            }
 
-            if (string.IsNullOrEmpty(txtContraseña.Password))
+            if (string.IsNullOrWhiteSpace(txtContraseña.Password))
             {
                 lbContraseniaVacia.Visibility = Visibility.Visible;
                 errores++;
             }
-            else lbContraseniaVacia.Visibility = Visibility.Hidden;
+            else
+            {
+                lbContraseniaVacia.Visibility = Visibility.Hidden;
+            }
+
+            var idiomasSeleccionados = (dataGridIdiomas.ItemsSource as List<IdiomaDTO>)?
+                .Where(i => i.IsSelected)
+                .ToList();
+
+            if (idiomasSeleccionados == null || idiomasSeleccionados.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos un idioma.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                errores++;
+            }
 
             return errores == 0;
         }
+
+        private bool EsCorreoValido(string correo)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        }
+
+        private bool EsTelefonoValido(string telefono)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(telefono, @"^\d+$");
+        }
+
 
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {

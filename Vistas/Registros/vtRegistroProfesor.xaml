@@ -26,7 +26,7 @@
 
             <Label Content="Correo" Margin="0,0,0,5"/>
             <TextBox Name="txtCorreo" Width="300" Margin="0,0,0,15"/>
-            <Label Name="lbCorreoVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+            <Label x:Name="lbCorreoVacio" Content="Formato inválido" Foreground="Red" Visibility="Hidden"/>
 
             <Label Content="Dirección" Margin="0,0,0,5"/>
             <TextBox Name="txtDireccion" Width="300" Margin="0,0,0,15"/>
@@ -48,11 +48,12 @@
         <!-- Tabla de Idiomas -->
         <GroupBox Header="Idiomas" Grid.Column="1" Margin="0,0,0,0">
             <DataGrid Name="dataGridIdiomas" 
-                      Height="400" 
-                      Width="400" 
-                      AutoGenerateColumns="False" 
-                      SelectionMode="Single" 
-                      IsReadOnly="False">
+          Height="400" 
+          Width="400" 
+          AutoGenerateColumns="False" 
+          SelectionMode="Single" 
+          IsReadOnly="False"
+          CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="Seleccionar" Binding="{Binding IsSelected}" Width="Auto"/>
                     <DataGridTextColumn Header="Idioma" Binding="{Binding nombreIdioma}" IsReadOnly="True" Width="*"/>

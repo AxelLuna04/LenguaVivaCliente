@@ -30,6 +30,15 @@
                     Margin="10"
                     FontSize="14"
                     Click="BtnProfesor_Click"/>
+
+            <!-- Botón para volver -->
+            <Button Content="Volver"
+                    Width="200" 
+                    Height="40" 
+                    Margin="10"
+                    FontSize="14"
+                    Background="LightGray"
+                    Click="BtnVolver_Click"/>
         </StackPanel>
     </Grid>
 </Page>
