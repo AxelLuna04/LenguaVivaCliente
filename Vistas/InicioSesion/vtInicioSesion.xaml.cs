@@ -50,13 +50,11 @@ namespace LenguaVivaCliente.Vistas.InicioSesion
 
         private void tbUsuario_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Mostrar u ocultar el placeholder del correo
             tbUsuarioPlaceholder.Visibility = string.IsNullOrEmpty(tbUsuario.Text) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void tpContraseña_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            // Mostrar u ocultar el placeholder de la contraseña
             tpContraseñaPlaceholder.Visibility = string.IsNullOrEmpty(tpContraseña.Password) ? Visibility.Visible : Visibility.Collapsed;
         }
     }

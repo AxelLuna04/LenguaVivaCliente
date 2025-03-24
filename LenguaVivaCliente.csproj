@@ -67,6 +67,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\VentanasEmergentes.cs" />
+    <Compile Include="VentanasReutilizables\vtVentanaEmergente.xaml.cs">
+      <DependentUpon>vtVentanaEmergente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Cursos\vtBuscarCurso.xaml.cs">
       <DependentUpon>vtBuscarCurso.xaml</DependentUpon>
     </Compile>
@@ -124,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VentanasReutilizables\vtVentanaEmergente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\Cursos\vtBuscarCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
