@@ -8,68 +8,315 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="vtRegistrarCurso">
 
-    <Grid>
-        <Grid.Background>
-            <SolidColorBrush Color="White" />
-        </Grid.Background>
+    <Grid Background="#FF1E1E2E">
+        <!-- Encabezado -->
+        <Border Background="#3bb971" Padding="20" VerticalAlignment="Top">
+            <TextBlock Text="Registrar Nuevo Curso" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
 
-        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="484" FontSize="15" MaxLength="50"/>
+        <!-- Botón de regresar -->
+        <Button HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="10" 
+                Cursor="Hand"
+                Click="Click_Cancelar">
+            <Button.Content>
+                <TextBlock Text="⬅️" 
+                           FontSize="30" 
+                           Foreground="White" 
+                           FontFamily="Segoe UI Symbol"/>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#3bb971"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF9B59B6"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
+        <!-- Contenido principal -->
+        <StackPanel Margin="44,80,44,0">
+            <!-- Fila 1: Nombre y Cupo -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <!-- Nombre -->
+                <StackPanel Width="484" Margin="0,0,20,0">
+                    <Label Content="Nombre:" FontSize="18" Foreground="White"/>
+                    <TextBox x:Name="tbNombre" 
+                             Height="40" 
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                             BorderBrush="#FF9B59B6"
+                             Background="#FFF4ECF7"
+                             Padding="5"
+                             MaxLength="50"/>
+                    <Label x:Name="lbNombreVacío" 
+                           Content="Campo vacío!" 
+                           FontSize="12" 
+                           Foreground="#FFE74C3C" 
+                           Visibility="Hidden"/>
+                </StackPanel>
 
-        <Label Content="Cupo Máximo:" HorizontalAlignment="Left" Margin="573,12,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbCupo" HorizontalAlignment="Left" Margin="573,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183" FontSize="15" PreviewTextInput="tbCupo_SoloNumeros" DataObject.Pasting="tbCupo_SoloPegarNumeros" MaxLength="3"/>
+                <!-- Cupo -->
+                <StackPanel Width="183">
+                    <Label Content="Cupo Máximo:" FontSize="18" Foreground="White"/>
+                    <TextBox x:Name="tbCupo" 
+                             Height="40" 
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                             BorderBrush="#FF9B59B6"
+                             Background="#FFF4ECF7"
+                             Padding="5"
+                             PreviewTextInput="tbCupo_SoloNumeros" 
+                             DataObject.Pasting="tbCupo_SoloPegarNumeros" 
+                             MaxLength="3"/>
+                    <Label x:Name="lbCupoVacio" 
+                           Content="Campo vacío o inválido!" 
+                           FontSize="12" 
+                           Foreground="#FFE74C3C" 
+                           Visibility="Hidden"/>
+                </StackPanel>
+            </StackPanel>
 
+            <!-- Descripción -->
+            <StackPanel Margin="0,0,0,20">
+                <Label Content="Descripción:" FontSize="18" Foreground="White"/>
+                <TextBox x:Name="tbDescripcion" 
+                         Height="68" 
+                         FontSize="16"
+                         TextWrapping="Wrap" 
+                         VerticalContentAlignment="Top"
+                         BorderBrush="#FF9B59B6"
+                         Background="#FFF4ECF7"
+                         Padding="5"
+                         MaxLength="150"/>
+                <Label x:Name="lbDescripcionVacia" 
+                       Content="Campo vacío!" 
+                       FontSize="12" 
+                       Foreground="#FFE74C3C" 
+                       Visibility="Hidden"/>
+            </StackPanel>
 
-        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbDescripcion" HorizontalAlignment="Left" Margin="44,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="712" FontSize="15" Height="68" MaxLength="150"/>
+            <!-- Fila 2: Profesor e Idioma -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <!-- Profesor -->
+                <StackPanel Width="154" Margin="0,0,20,0">
+                    <Label Content="Profesor:" FontSize="18" Foreground="White"/>
+                    <TextBox x:Name="tbProfesor" 
+                             Height="40" 
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                             BorderBrush="#FF9B59B6"
+                             Background="#FFF4ECF7"
+                             Padding="5"
+                             TextChanged="tbProfesor_TextChanged" 
+                             MaxLength="50"/>
+                    <ComboBox x:Name="cbProfesores" 
+                              Height="40" 
+                              FontSize="16"
+                              VerticalContentAlignment="Center"
+                              BorderBrush="#FF9B59B6"
+                              Background="#FFD7BDE2">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding nombre}" />
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding apellidos}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label x:Name="lbProfesorVacio" 
+                           Content="Campo vacío!" 
+                           FontSize="12" 
+                           Foreground="#FFE74C3C" 
+                           Visibility="Hidden"/>
+                </StackPanel>
 
+                <!-- Idioma -->
+                <StackPanel Width="148">
+                    <Label Content="Idioma:" FontSize="18" Foreground="White"/>
+                    <ComboBox x:Name="cbIdiomas" 
+                              Height="40" 
+                              FontSize="16"
+                              VerticalContentAlignment="Center"
+                              BorderBrush="#FF9B59B6"
+                              Background="#FFD7BDE2"/>
+                    <Label x:Name="lbIdiomaVacio" 
+                           Content="Campo vacío!" 
+                           FontSize="12" 
+                           Foreground="#FFE74C3C" 
+                           Visibility="Hidden"/>
+                </StackPanel>
+            </StackPanel>
 
-        <Label Content="Profesor:" HorizontalAlignment="Left" Margin="44,199,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbProfesor" HorizontalAlignment="Left" Margin="44,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154" FontSize="15" TextChanged="tbProfesor_TextChanged" MaxLength="50"/>
-        <ComboBox x:Name="cbProfesores" HorizontalAlignment="Left" Margin="44,278,0,0" VerticalAlignment="Top" Width="154">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding nombre}" />
-                        <TextBlock Text=" " />
-                        <!-- Espacio entre nombre y apellidos -->
-                        <TextBlock Text="{Binding apellidos}" />
+            <!-- Fila 3: Fechas y Nivel -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <!-- Fechas -->
+                <StackPanel Width="300" Margin="0,0,20,0">
+                    <Label Content="Fecha de Inicio:" FontSize="18" Foreground="White"/>
+                    <DatePicker x:Name="dpFechaInicio" 
+                               Height="40" 
+                               FontSize="16"
+                               VerticalContentAlignment="Center"
+                               BorderBrush="#FF9B59B6"
+                               Background="#FFF4ECF7"
+                               Focusable="False"/>
+                    <Label x:Name="lbFechaInicioVacia" 
+                           Content="Campo vacío!" 
+                           FontSize="12" 
+                           Foreground="#FFE74C3C" 
+                           Visibility="Hidden"/>
+
+                    <Label Content="Fecha de Término:" FontSize="18" Foreground="White" Margin="0,10,0,0"/>
+                    <DatePicker x:Name="dpFechaTermino" 
+                               Height="40" 
+                               FontSize="16"
+                               VerticalContentAlignment="Center"
+                               BorderBrush="#FF9B59B6"
+                               Background="#FFF4ECF7"
+                               Focusable="False"/>
+                    <Label x:Name="lbFechaTerminoVacia" 
+                           Content="Campo vacío!" 
+                           FontSize="12" 
+                           Foreground="#FFE74C3C" 
+                           Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Nivel -->
+                <StackPanel>
+                    <Label Content="Nivel de Curso:" FontSize="18" Foreground="White"/>
+                    <StackPanel Margin="10,5,0,0">
+                        <RadioButton x:Name="rbBasico" 
+                                    Content="Básico" 
+                                    FontSize="16"
+                                    Foreground="White"
+                                    Margin="0,0,0,5"/>
+                        <RadioButton x:Name="rbIntermedio" 
+                                    Content="Intermedio" 
+                                    FontSize="16"
+                                    Foreground="White"
+                                    Margin="0,0,0,5"/>
+                        <RadioButton x:Name="rbAvanzado" 
+                                    Content="Avanzado" 
+                                    FontSize="16"
+                                    Foreground="White"/>
                     </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
 
+        <!-- Botones -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+            <!-- Botón Cancelar -->
+            <Button Content="Cancelar"
+                    Click="Click_Cancelar"
+                    Width="160" Height="50"
+                    FontSize="18"
+                    Background="#FFD7BDE2"
+                    Foreground="#FF2D3436"
+                    FontWeight="Bold"
+                    Cursor="Hand"
+                    Margin="0,0,20,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            CornerRadius="20"
+                                            BorderBrush="#FF9B59B6"
+                                            BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFC39BD3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
-        <Label Content="Idioma:" HorizontalAlignment="Left" Margin="239,198,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox x:Name="cbIdiomas" HorizontalAlignment="Left" Margin="239,241,0,0" VerticalAlignment="Top" Width="148"/>
-
-
-        <Label Content="Fecha de Inicio:" HorizontalAlignment="Left" Margin="443,198,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <DatePicker x:Name="dpFechaInicio" HorizontalAlignment="Left" Margin="443,241,0,0" VerticalAlignment="Top" Focusable="False"/>
-
-        <Label Content="Fecha de Término:" HorizontalAlignment="Left" Margin="443,278,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <DatePicker x:Name="dpFechaTermino" HorizontalAlignment="Left" Margin="443,320,0,0" VerticalAlignment="Top" Focusable="False"/>
-
-        <Label Content="Nivel de Curso:" HorizontalAlignment="Left" Margin="613,199,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <RadioButton x:Name="rbBasico" Content="Básico" HorizontalAlignment="Left" Margin="671,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.802"/>
-        <RadioButton x:Name="rbIntermedio" Content="Intermedio" HorizontalAlignment="Left" Margin="671,261,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbAvanzado" Content="Avanzado" HorizontalAlignment="Left" Margin="671,281,0,0" VerticalAlignment="Top"/>
-
-
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="602,406,0,0" VerticalAlignment="Top" Click="Click_Cancelar"/>
-        <Button Content="Registrar" HorizontalAlignment="Left" Margin="705,406,0,0" VerticalAlignment="Top" Click="Click_Registrar"/>
-
-        <Label x:Name="lbNombreVacío" Content="Campo vacío!" HorizontalAlignment="Left" Margin="458,80,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-        <Label x:Name="lbCupoVacio" Content="Campo vacío o inválido!" HorizontalAlignment="Left" Margin="640,80,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-        <Label x:Name="lbDescripcionVacia" Content="Campo vacío!" HorizontalAlignment="Left" Margin="685,190,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-        <Label x:Name="lbProfesorVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="128,300,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-        <Label x:Name="lbIdiomaVacio" Content="Campo vacío!" HorizontalAlignment="Left" Margin="317,265,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-        <Label x:Name="lbFechaInicioVacia" Content="Campo vacío!" HorizontalAlignment="Left" Margin="518,265,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-        <Label x:Name="lbFechaTerminoVacia" Content="Campo vacío!" HorizontalAlignment="Left" Margin="519,344,0,0" VerticalAlignment="Top" FontSize="10" Foreground="Crimson" Visibility="Hidden"/>
-
-
-
-
+            <!-- Botón Registrar -->
+            <Button Content="Registrar"
+                    Click="Click_Registrar"
+                    Width="160" Height="50"
+                    FontSize="18"
+                    Background="#FFE8DAEF"
+                    Foreground="#FF2D3436"
+                    FontWeight="Bold"
+                    Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            CornerRadius="20"
+                                            BorderBrush="#FFA569BD"
+                                            BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFD2B4DA"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

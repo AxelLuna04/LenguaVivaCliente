@@ -76,9 +76,6 @@
     <Compile Include="Vistas\Cursos\vtInformacionCurso.xaml.cs">
       <DependentUpon>vtInformacionCurso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Cursos\vtMenuCursos.xaml.cs">
-      <DependentUpon>vtMenuCursos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\Cursos\vtRegistrarCurso.xaml.cs">
       <DependentUpon>vtRegistrarCurso.xaml</DependentUpon>
     </Compile>
@@ -96,6 +93,9 @@
     </Compile>
     <Compile Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml.cs">
       <DependentUpon>vtUsuariosEncontrados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\SubMenuCursos.xaml.cs">
+      <DependentUpon>SubMenuCursos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\SubMenuUsuarios.xaml.cs">
       <DependentUpon>SubMenuUsuarios.xaml</DependentUpon>
@@ -136,10 +136,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\Cursos\vtMenuCursos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Vistas\Cursos\vtRegistrarCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\SubMenuCursos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

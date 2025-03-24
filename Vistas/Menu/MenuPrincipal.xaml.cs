@@ -42,7 +42,7 @@ namespace LenguaVivaCliente.Vistas.Menu
 
         private void Click_MenuCursos(object sender, RoutedEventArgs e)
         {
-            Vistas.Cursos.vtMenuCursos menuCursos = new Vistas.Cursos.vtMenuCursos();
+            Vistas.Menu.SubMenuCursos menuCursos = new Vistas.Menu.SubMenuCursos(sesionUsuario);
             NavigationService.Navigate(menuCursos);
         }
 

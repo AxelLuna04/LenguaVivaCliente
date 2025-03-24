@@ -8,25 +8,223 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="vtBuscarCurso">
 
-    <Grid>
-        <Grid.Background>
-            <SolidColorBrush Color="White" />
-        </Grid.Background>
+    <Grid Background="#FF1E1E2E">
 
-        <Label x:Name="lbInstrucciones" Content="Ingrese el nombre del curso:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbBusqueda" HorizontalAlignment="Left" Margin="44,58,0,0" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="343" FontSize="15" TextChanged="tbBusqueda_TextChanged"/>
+        <!-- Encabezado -->
+        <Border Background="#3bb971" Padding="20" VerticalAlignment="Top">
+            <TextBlock Text="Buscar Curso" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
+        
 
+        <!-- Formulario de búsqueda -->
+        <StackPanel VerticalAlignment="Top" Margin="44,90,44,0" Orientation="Vertical">
 
-        <Label Content="Cursos:" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <DataGrid x:Name="dgCursos" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="44,127,44,70" IsReadOnly="True" SelectionMode="Single"/>
+            <Label x:Name="lbInstrucciones" Content="Ingrese el nombre del curso:" HorizontalAlignment="Left" Margin="44,20,0,0" VerticalAlignment="Top" FontSize="20" 
+                   FontWeight="DemiBold" 
+Foreground="#FFEDEDED" 
+FontFamily="Pacifico, cursive"
+                   />
+            
+            <!-- Fila: ComboBox + TextBox -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,0,10">
+                <ComboBox x:Name="cbBusqueda" 
+                          Width="180" 
+                          Height="40" 
+                          FontSize="16"
+                          SelectionChanged="cbBusqueda_SelectionChanged"
+                          Cursor="Hand" 
+                          Margin="0,0,10,0"
+                          VerticalContentAlignment="Center"
+                          BorderBrush="#FF9B59B6" 
+                          Background="#FFD7BDE2">
+                    <ComboBoxItem Content="Nombre" />
+                    <ComboBoxItem Content="Nivel" />
+                </ComboBox>
 
+                <TextBox x:Name="tbBusqueda" 
+                         Width="400" 
+                         Height="40" 
+                         FontSize="16"
+                         TextWrapping="Wrap" 
+                         VerticalContentAlignment="Center"
+                         TextChanged="tbBusqueda_TextChanged"
+                         BorderBrush="#FF9B59B6"
+                         Background="#FFF4ECF7"
+                         Padding="5"/>
+            </StackPanel>
 
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="44,406,0,0" VerticalAlignment="Top" Click="Click_Cancelar"/>
-        <Button Content="Ver Información" HorizontalAlignment="Left" Margin="668,406,0,0" VerticalAlignment="Top" Click="Click_VerInformacion"/>
-        <ComboBox x:Name="cbBusqueda" HorizontalAlignment="Left" Margin="565,58,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="cbBusqueda_SelectionChanged"/>
-        <ComboBox x:Name="cbNiveles" HorizontalAlignment="Left" Margin="44,58,0,0" VerticalAlignment="Top" Width="191" Visibility="Hidden" SelectionChanged="cbNiveles_SelectionChanged"/>
-        <Label Content="Criterio de Búsqueda" FontSize="20" HorizontalAlignment="Left" Margin="565,20,0,0" VerticalAlignment="Top"/>
+            <!-- Label oculto + ComboBox Niveles -->
+            <StackPanel Orientation="Horizontal" Visibility="Hidden" x:Name="spNiveles" Margin="0,0,0,10">
+                <Label Content="Nivel:" 
+                       FontSize="18" 
+                       Foreground="White"
+                       VerticalAlignment="Center" />
+                <ComboBox x:Name="cbNiveles" 
+                          Width="180" 
+                          Height="40" 
+                          FontSize="16"
+                          SelectionChanged="cbNiveles_SelectionChanged"
+                          Cursor="Hand" 
+                          BorderBrush="#FF9B59B6" 
+                          Background="#FFD7BDE2"
+                          VerticalContentAlignment="Center"
+                          Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
 
+        <!-- DataGrid -->
+        <Border CornerRadius="10" 
+                BorderBrush="#FF8E44AD" 
+                BorderThickness="2" 
+                Background="#FFF4ECF7"
+                Margin="44,200,44,90"
+                Padding="10">
+            <DataGrid x:Name="dgCursos" 
+                      AutoGenerateColumns="True"
+                      IsReadOnly="True" 
+                      SelectionMode="Single"
+                      BorderThickness="0"
+                      Background="Transparent"
+                      Foreground="#FF2D3436"
+                      GridLinesVisibility="None"
+                      RowBackground="White"
+                      AlternatingRowBackground="#FFE8DAEF"
+                      VerticalScrollBarVisibility="Auto"/>
+        </Border>
+
+        <!-- Botones -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+
+            <!-- Botón Cancelar -->
+            <Button Content="Cancelar"
+                    Click="Click_Cancelar"
+                    Width="160" Height="50"
+                    FontSize="18"
+                    Background="#FFD7BDE2"
+                    Foreground="#FF2D3436"
+                    FontWeight="Bold"
+                    Cursor="Hand"
+                    Margin="0,0,20,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            CornerRadius="20"
+                                            BorderBrush="#FF9B59B6"
+                                            BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFC39BD3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!-- Botón Ver Información -->
+            <Button Content="Ver Información"
+                    Click="Click_VerInformacion"
+                    Width="160" Height="50"
+                    FontSize="18"
+                    Background="#FFE8DAEF"
+                    Foreground="#FF2D3436"
+                    FontWeight="Bold"
+                    Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            CornerRadius="20"
+                                            BorderBrush="#FFA569BD"
+                                            BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFD2B4DA"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+
+        <!-- Botón de regresar -->
+        <Button HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="10" 
+                Cursor="Hand"
+                Click="Click_Cancelar">
+            <Button.Content>
+                <TextBlock Text="⬅️" 
+                           FontSize="30" 
+                           Foreground="White" 
+                           FontFamily="Segoe UI Symbol"/>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#3bb971"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF9B59B6"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
     </Grid>
 </Page>

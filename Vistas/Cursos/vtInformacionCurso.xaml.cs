@@ -23,13 +23,21 @@ namespace LenguaVivaCliente.Vistas.Cursos
     public partial class vtInformacionCurso : Page
     {
         private CursoDTO curso;
-        public vtInformacionCurso(CursoDTO curso)
+        private int tipoUsuario;
+        public vtInformacionCurso(CursoDTO curso, int tipoUsuario)
         {
             InitializeComponent();
 
             
             this.curso = curso;
             this.Loaded += Page_Loaded;
+            this.tipoUsuario = tipoUsuario;
+            if (tipoUsuario == 2)
+            {
+                btnEditar.Visibility = Visibility.Collapsed;
+                btnEliminar.Visibility = Visibility.Collapsed;
+                btnSubirLista.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

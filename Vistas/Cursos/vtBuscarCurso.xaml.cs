@@ -40,11 +40,14 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
         }
 
-        public vtBuscarCurso()
+        private int tipoUsuario;
+
+        public vtBuscarCurso(int tipoUsuario)
         {
             InitializeComponent();
             this.Loaded += Page_Loaded;
-            
+            this.tipoUsuario = tipoUsuario;
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -157,7 +160,7 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
                 if (curso != null)
                 {
-                    vtInformacionCurso vtInformacionCurso = new vtInformacionCurso(curso);
+                    vtInformacionCurso vtInformacionCurso = new vtInformacionCurso(curso, tipoUsuario);
                     NavigationService.Navigate(vtInformacionCurso);
                 }
                 else
