@@ -5,40 +5,163 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Registros"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="vtRegistros">
+      Title="Registro de Usuarios"
+      Background="#FF1E1E2E">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
-            <Button Content="Registrar alumno" 
-                    Width="200" 
-                    Height="40" 
-                    Margin="10"
-                    FontSize="14"
-                    Click="BtnAlumno_Click"/>
+        <!-- Encabezado del menú -->
+        <Border Background="#FF8E44AD" Padding="20" VerticalAlignment="Top">
+            <TextBlock Text="Registro de Usuarios" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
 
-            <Button Content="Registrar administrador" 
-                    Width="200" 
-                    Height="40" 
-                    Margin="10"
-                    FontSize="14"
-                    Click="BtnAdministrador_Click"/>
+        <!-- Contenedor de botones -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+            <!-- Botón Registrar Alumno -->
+            <Border CornerRadius="20" Background="#FFD7BDE2" Padding="10" Margin="0,10"
+                    BorderBrush="#FF9B59B6" BorderThickness="2">
+                <Button Content="Registrar Alumno"
+                        Click="BtnAlumno_Click"
+                        Background="Transparent" 
+                        Foreground="#FF2D3436" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        FontFamily="Segoe UI, sans-serif" 
+                        Padding="20,10" 
+                        BorderThickness="0" 
+                        Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="20"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#FF2D3436"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFC39BD3"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
 
-            <Button Content="Registrar profesor" 
-                    Width="200" 
-                    Height="40" 
-                    Margin="10"
-                    FontSize="14"
-                    Click="BtnProfesor_Click"/>
+            <!-- Botón Registrar Administrador -->
+            <Border CornerRadius="20" Background="#FFE8DAEF" Padding="10" Margin="0,10"
+                    BorderBrush="#FFA569BD" BorderThickness="2">
+                <Button Content="Registrar Administrador"
+                        Click="BtnAdministrador_Click"
+                        Background="Transparent" 
+                        Foreground="#FF2D3436" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        FontFamily="Segoe UI, sans-serif" 
+                        Padding="20,10" 
+                        BorderThickness="0" 
+                        Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="20"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#FF2D3436"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFD2B4DA"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
 
-            <!-- Botón para volver -->
-            <Button Content="Volver"
-                    Width="200" 
-                    Height="40" 
-                    Margin="10"
-                    FontSize="14"
-                    Background="LightGray"
-                    Click="BtnVolver_Click"/>
+            <!-- Botón de Volver -->
+            <Button HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="10" 
+                    Cursor="Hand"
+                    Click="BtnVolver_Click">
+                <Button.Content>
+                    <TextBlock Text="⬅️" 
+                               FontSize="30" 
+                               Foreground="White" 
+                               FontFamily="Segoe UI Symbol"/>
+                </Button.Content>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF8E44AD"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Padding" Value="15"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF9B59B6"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

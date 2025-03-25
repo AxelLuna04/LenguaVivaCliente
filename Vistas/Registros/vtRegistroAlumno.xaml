@@ -5,72 +5,224 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="Registro de Alumno">
+      Title="Registro de Alumno"
+      Background="#FF1E1E2E">
 
-    <Grid Margin="20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <!-- Campos del Alumno -->
-        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,20,0">
-            <Label Content="Nombre" Margin="0,0,0,5"/>
-            <TextBox x:Name="txtNombre" Width="300" Margin="0,0,0,15"/>
-            <Label x:Name="lbNombreVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+        <!-- Encabezado -->
+        <Border Grid.Row="0" Background="#FF3498DB" Padding="20">
+            <TextBlock Text="Registro de Alumno" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
 
-            <Label Content="Apellidos" Margin="0,0,0,5"/>
-            <TextBox x:Name="txtApellidos" Width="300" Margin="0,0,0,15"/>
-            <Label x:Name="lbApellidosVacios" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+        <!-- Contenido principal -->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <Label Content="Correo Electrónico" Margin="0,0,0,5"/>
-            <TextBox x:Name="txtCorreo" Width="300" Margin="0,0,0,15"/>
-            <Label x:Name="lbCorreoVacio" Content="Formato inválido" Foreground="Red" Visibility="Hidden"/>
-
-            <Label Content="Dirección" Margin="0,0,0,5"/>
-            <TextBox x:Name="txtDireccion" Width="300" Margin="0,0,0,15"/>
-            <Label x:Name="lbDireccionVacia" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
-
-            <Label Content="Teléfono" Margin="0,0,0,5"/>
-            <TextBox Name="txtTelefono" Width="300" Margin="0,0,0,15"/>
-            <Label x:Name="lbTelefonoVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
-
-        </StackPanel>
-
-        <!-- Selección de Idiomas y Niveles -->
-        <GroupBox Grid.Column="1" Header="Idiomas que domina" Padding="10">
-            <StackPanel Orientation="Vertical">
-                <!-- Sección de selección: ComboBox para Idiomas, ComboBox para Niveles y Botón Agregar -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <ComboBox x:Name="cboIdiomas" Width="150" Margin="0,0,10,0"
-                              ItemsSource="{Binding IdiomasDisponibles}"
-                              DisplayMemberPath="nombreIdioma"
-                              SelectedIndex="0"/>
-                    <ComboBox x:Name="cboNiveles" Width="150"
-                              ItemsSource="{Binding Niveles}"
-                              SelectedIndex="0"/>
-                    <Button Content="Agregar" Width="80" Margin="10,0,0,0" Click="BtnAgregar_Click"/>
+            <!-- Formulario de datos personales -->
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <!-- Campo: Nombre -->
+                <Label Content="Nombre" Margin="0,0,0,5" Foreground="White"/>
+                <StackPanel Orientation="Vertical">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5" Margin="0,0,0,5">
+                        <TextBox x:Name="txtNombre" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbNombreVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
                 </StackPanel>
 
-                <!-- DataGrid para mostrar los idiomas agregados -->
-                <DataGrid x:Name="dgIdiomas" AutoGenerateColumns="False" Margin="0,0,0,10" Height="200"
-                          ItemsSource="{Binding IdiomasAgregados}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Idioma" Binding="{Binding idiomaNombre}" Width="*"/>
-                        <DataGridTextColumn Header="Nivel" Binding="{Binding nivel}" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <!-- Campo: Apellidos -->
+                <Label Content="Apellidos" Margin="0,10,0,5" Foreground="White"/>
+                <StackPanel Orientation="Vertical">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5" Margin="0,0,0,5">
+                        <TextBox x:Name="txtApellidos" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbApellidosVacios" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
 
-                <!-- Mensaje de error en caso de no tener ningún idioma agregado -->
-                <Label x:Name="lbIdiomasError" Content="Seleccione al menos un idioma" 
-                       Foreground="Red" Visibility="Hidden"/>
+                <!-- Campo: Correo Electrónico -->
+                <Label Content="Correo Electrónico" Margin="0,10,0,5" Foreground="White"/>
+                <StackPanel Orientation="Vertical">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5" Margin="0,0,0,5">
+                        <TextBox x:Name="txtCorreo" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbCorreoVacio" Content="Formato inválido" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Campo: Dirección -->
+                <Label Content="Dirección" Margin="0,10,0,5" Foreground="White"/>
+                <StackPanel Orientation="Vertical">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5" Margin="0,0,0,5">
+                        <TextBox x:Name="txtDireccion" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbDireccionVacia" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Campo: Teléfono -->
+                <Label Content="Teléfono" Margin="0,10,0,5" Foreground="White"/>
+                <StackPanel Orientation="Vertical">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5" Margin="0,0,0,5">
+                        <TextBox x:Name="txtTelefono" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbTelefonoVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
             </StackPanel>
-        </GroupBox>
 
-        <!-- Botones de Cancelar y Registrar -->
-        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
-            <Button Content="Cancelar" Width="120" Height="40" Margin="10" Background="#FF4C4A" Foreground="White" Click="BtnCancelar_Click"/>
-            <Button Content="Registrar" Width="120" Height="40" Margin="10" Background="#4CAF50" Foreground="White" Click="BtnRegistrar_Click"/>
-        </StackPanel>
+            <!-- Sección de Idiomas y Niveles -->
+            <GroupBox Grid.Column="2" Header="Idiomas que domina" Padding="10" FontFamily="Segoe UI, sans-serif" Foreground="White" BorderBrush="#FF3498DB">
+                <StackPanel Orientation="Vertical">
+                    <!-- Selección de Idiomas y Niveles -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <!-- ComboBox para Idiomas, envuelto en Border para aplicar fondo y esquinas redondeadas -->
+                        <Border CornerRadius="10" Background="#FF5DADE2" Padding="2" Margin="0,0,10,0">
+                            <ComboBox x:Name="cboIdiomas" Width="150" 
+                                      ItemsSource="{Binding IdiomasDisponibles}"
+                                      DisplayMemberPath="nombreIdioma"
+                                      SelectedIndex="0"
+                                      Background="Transparent" 
+                                      Foreground="#FF2D3436"
+                                      BorderThickness="0"/>
+                        </Border>
+                        <!-- ComboBox para Niveles -->
+                        <Border CornerRadius="10" Background="#FF5DADE2" Padding="2" Margin="0,0,10,0">
+                            <ComboBox x:Name="cboNiveles" Width="150" 
+                                      ItemsSource="{Binding Niveles}"
+                                      SelectedIndex="0"
+                                      Background="Transparent" 
+                                      Foreground="#FF2D3436"
+                                      BorderThickness="0"/>
+                        </Border>
+                        <!-- Botón Agregar con estilo similar a los otros botones -->
+                        <Button Content="Agregar" Width="80" Cursor="Hand" Click="BtnAgregar_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#2ECC71"/>
+                                    <Setter Property="Foreground" Value="#FF2D3436"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="Padding" Value="10"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" CornerRadius="20">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#58D68D"/>
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+
+                    <!-- DataGrid para mostrar los idiomas agregados -->
+                    <Border CornerRadius="10" Background="#FFEDEDED" Padding="5" BorderBrush="#FF2980B9" BorderThickness="2">
+                        <DataGrid x:Name="dgIdiomas" AutoGenerateColumns="False" Height="200" 
+                                  ItemsSource="{Binding IdiomasAgregados}"
+                                  Background="Transparent"
+                                  Foreground="#FF2D3436"
+                                  BorderThickness="0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Idioma" Binding="{Binding idiomaNombre}" Width="*"/>
+                                <DataGridTextColumn Header="Nivel" Binding="{Binding nivel}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                    <!-- Mensaje de error para idiomas -->
+                    <Label x:Name="lbIdiomasError" Content="Seleccione al menos un idioma" 
+                           Foreground="Red" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Botones de Cancelar y Registrar -->
+            <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
+                <Button Content="Cancelar" Width="120" Height="40" Margin="10" Background="#FF4C4A" Foreground="White" Cursor="Hand" Click="BtnCancelar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FF4C4A"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#9B59B6"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Content="Registrar" Width="120" Height="40" Margin="10" Background="#4CAF50" Foreground="White" Cursor="Hand" Click="BtnRegistrar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#4CAF50"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#2E7D32"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
