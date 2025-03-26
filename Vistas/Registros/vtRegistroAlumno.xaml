@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Formulario de datos personales -->
+            <!-- Formulario de datos personales en la columna izquierda -->
             <StackPanel Grid.Column="0" Orientation="Vertical">
                 <!-- Campo: Nombre -->
                 <Label Content="Nombre" Margin="0,0,0,5" Foreground="White"/>
@@ -79,14 +79,79 @@
                     </Border>
                     <Label x:Name="lbTelefonoVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
                 </StackPanel>
+
+                <!-- Botones de Cancelar y Registrar, colocados debajo de los campos de datos personales -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <Button Content="Cancelar" Width="120" Height="40" Margin="10" Background="#FF4C4A" Foreground="White" Cursor="Hand" Click="BtnCancelar_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#FF4C4A"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#9B59B6"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button Content="Registrar" Width="120" Height="40" Margin="10" Background="#4CAF50" Foreground="White" Cursor="Hand" Click="BtnRegistrar_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#4CAF50"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#2E7D32"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
             </StackPanel>
 
-            <!-- Sección de Idiomas y Niveles -->
+            <!-- Sección de Idiomas y Niveles en la columna derecha -->
             <GroupBox Grid.Column="2" Header="Idiomas que domina" Padding="10" FontFamily="Segoe UI, sans-serif" Foreground="White" BorderBrush="#FF3498DB">
                 <StackPanel Orientation="Vertical">
                     <!-- Selección de Idiomas y Niveles -->
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <!-- ComboBox para Idiomas, envuelto en Border para aplicar fondo y esquinas redondeadas -->
+                        <!-- ComboBox para Idiomas -->
                         <Border CornerRadius="10" Background="#FF5DADE2" Padding="2" Margin="0,0,10,0">
                             <ComboBox x:Name="cboIdiomas" Width="150" 
                                       ItemsSource="{Binding IdiomasDisponibles}"
@@ -105,7 +170,7 @@
                                       Foreground="#FF2D3436"
                                       BorderThickness="0"/>
                         </Border>
-                        <!-- Botón Agregar con estilo similar a los otros botones -->
+                        <!-- Botón Agregar -->
                         <Button Content="Agregar" Width="80" Cursor="Hand" Click="BtnAgregar_Click">
                             <Button.Style>
                                 <Style TargetType="Button">
@@ -145,7 +210,8 @@
                                   ItemsSource="{Binding IdiomasAgregados}"
                                   Background="Transparent"
                                   Foreground="#FF2D3436"
-                                  BorderThickness="0">
+                                  BorderThickness="0"
+                                  CanUserAddRows="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Idioma" Binding="{Binding idiomaNombre}" Width="*"/>
                                 <DataGridTextColumn Header="Nivel" Binding="{Binding nivel}" Width="*"/>
@@ -158,71 +224,6 @@
                            Foreground="Red" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                 </StackPanel>
             </GroupBox>
-
-            <!-- Botones de Cancelar y Registrar -->
-            <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
-                <Button Content="Cancelar" Width="120" Height="40" Margin="10" Background="#FF4C4A" Foreground="White" Cursor="Hand" Click="BtnCancelar_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#FF4C4A"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="BorderThickness" Value="0"/>
-                            <Setter Property="Padding" Value="10"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#9B59B6"/>
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-
-                <Button Content="Registrar" Width="120" Height="40" Margin="10" Background="#4CAF50" Foreground="White" Cursor="Hand" Click="BtnRegistrar_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#4CAF50"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="BorderThickness" Value="0"/>
-                            <Setter Property="Padding" Value="10"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#2E7D32"/>
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </StackPanel>
         </Grid>
     </Grid>
 </Page>

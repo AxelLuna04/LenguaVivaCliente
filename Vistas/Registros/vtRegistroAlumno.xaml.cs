@@ -82,7 +82,6 @@ namespace LenguaVivaCliente.Vistas.Registros
         {
             if (!ValidarCampos())
             {
-                MessageBox.Show("Complete todos los campos obligatorios.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

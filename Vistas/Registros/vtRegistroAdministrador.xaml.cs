@@ -71,13 +71,13 @@ namespace LenguaVivaCliente.Vistas.Registros
 
             if (string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
-                lbCorreoVacio.Content = "Campo obligatorio";
+                lbCorreoVacio.Text = "Campo obligatorio";
                 lbCorreoVacio.Visibility = Visibility.Visible;
                 contadorCamposVacios++;
             }
             else if (!EsCorreoValido(txtCorreo.Text))
             {
-                lbCorreoVacio.Content = "Formato de correo inválido";
+                lbCorreoVacio.Text = "Formato de correo inválido";
                 lbCorreoVacio.Visibility = Visibility.Visible;
                 contadorCamposVacios++;
             }
@@ -98,13 +98,13 @@ namespace LenguaVivaCliente.Vistas.Registros
 
             if (string.IsNullOrWhiteSpace(txtTelefono.Text))
             {
-                lbTelefonoVacio.Content = "Campo obligatorio";
+                lbTelefonoVacio.Text = "Campo obligatorio";
                 lbTelefonoVacio.Visibility = Visibility.Visible;
                 contadorCamposVacios++;
             }
             else if (!EsTelefonoValido(txtTelefono.Text))
             {
-                lbTelefonoVacio.Content = "Solo números permitidos";
+                lbTelefonoVacio.Text = "Solo números permitidos";
                 lbTelefonoVacio.Visibility = Visibility.Visible;
                 contadorCamposVacios++;
             }
