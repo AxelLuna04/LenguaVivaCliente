@@ -256,5 +256,9 @@
     </None>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="ImagenesProyecto\eye_hide.png" />
+    <Resource Include="ImagenesProyecto\eye_show.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

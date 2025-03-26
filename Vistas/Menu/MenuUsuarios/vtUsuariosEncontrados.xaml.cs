@@ -1,8 +1,10 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
+using LenguaVivaCliente.Utilidades;
 using ServicioContrato;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Proxies;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,7 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
     public partial class vtUsuariosEncontrados : Page
     {
         private UsuarioDTO usuarioSeleccionado;
+        private UsuarioDTO[] usuariosEncontrados;
         public vtUsuariosEncontrados(string criterioBusqueda, int tipoUsuario)
         {
             InitializeComponent();
@@ -32,7 +35,12 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
         private void CargarUsuariosEncontrados(string criterioBusqueda, int tipoUsuario)
         {
             GestionUsuariosClient proxy = new GestionUsuariosClient();
-            LvUsuarios.ItemsSource = proxy.BuscarUsuarios(criterioBusqueda, tipoUsuario);
+            usuariosEncontrados = proxy.BuscarUsuarios(criterioBusqueda, tipoUsuario);
+            if (usuariosEncontrados.Length != 0)
+                LvUsuarios.ItemsSource = usuariosEncontrados;
+            else
+                VentanasEmergentes.CrearVentanaEmergente("Sin resultados de búsqueda", "No se ha encontrado ningún usuario que coincida con la información proporcionada.");
+
         }
 
         private void ObtenerUsuarioSeleccionado(object sender, SelectionChangedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LenguaVivaCliente.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,8 +36,14 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
 
         private void Click_Buscar(object sender, RoutedEventArgs e)
         {
-            Vistas.Menu.MenuUsuarios.vtUsuariosEncontrados vtUsuariosEncontrados = new Vistas.Menu.MenuUsuarios.vtUsuariosEncontrados(TxtBuscar.Text, tipoUsuario);
-            NavigationService.Navigate(vtUsuariosEncontrados);
+            string criterioBusqueda = TxtBuscar.Text;
+            if (criterioBusqueda != "")
+            {
+                Vistas.Menu.MenuUsuarios.vtUsuariosEncontrados vtUsuariosEncontrados = new Vistas.Menu.MenuUsuarios.vtUsuariosEncontrados(criterioBusqueda, tipoUsuario);
+                NavigationService.Navigate(vtUsuariosEncontrados);
+            }
+            else
+                VentanasEmergentes.CrearVentanaEmergente("Campos vacíos", "Favor de ingresar la información en el campo de búsqueda.");
         }
     }
 }

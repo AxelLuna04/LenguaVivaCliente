@@ -9,6 +9,32 @@
       Title="Inicio de Sesión"
       Background="#FF1E1E2E">
 
+    <Page.Resources>
+        <!-- Easing function para la animación de temblor -->
+        <ElasticEase x:Key="ElasticEase" Oscillations="2" Springiness="3"/>
+
+        <!-- Animación para desvanecer el mensaje -->
+        <Storyboard x:Key="FadeOutStoryboard" AutoReverse="False">
+            <DoubleAnimation
+                Storyboard.TargetName="lbCredencialesIncorrectas"
+                Storyboard.TargetProperty="Opacity"
+                From="1" To="0" Duration="0:0:2" />
+        </Storyboard>
+
+        <!-- Animación de temblor -->
+        <Storyboard x:Key="ShakeAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-10" EasingFunction="{StaticResource ElasticEase}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="8" EasingFunction="{StaticResource ElasticEase}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-6" EasingFunction="{StaticResource ElasticEase}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="4" EasingFunction="{StaticResource ElasticEase}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-2" EasingFunction="{StaticResource ElasticEase}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0" EasingFunction="{StaticResource ElasticEase}"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -27,17 +53,21 @@
                        TextAlignment="Center"/>
         </Border>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+        <StackPanel x:Name="LoginPanel" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <StackPanel.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </StackPanel.RenderTransform>
+
             <Border CornerRadius="10" Background="#FFECF0F1" Padding="10" Margin="0,10">
                 <Grid>
                     <TextBox x:Name="tbUsuario"
                              FontSize="16"
                              Foreground="#2C3E50"
-                        Background="Transparent"
+                             Background="Transparent"
                              BorderThickness="0"
                              VerticalAlignment="Center"
                              TextChanged="tbUsuario_TextChanged"/>
-                        <TextBlock x:Name="tbUsuarioPlaceholder"
+                    <TextBlock x:Name="tbUsuarioPlaceholder"
                                Text="Correo"
                                FontSize="16"
                                Foreground="#95A5A6"
@@ -49,20 +79,47 @@
 
             <Border CornerRadius="10" Background="#FFECF0F1" Padding="10" Margin="0,10">
                 <Grid>
+                    <!-- PasswordBox (oculto cuando se muestra el texto) -->
                     <PasswordBox x:Name="tpContraseña"
-                                 FontSize="16"
-                                 Foreground="#2C3E50"
-                        Background="Transparent"
-                                 BorderThickness="0"
-                                 VerticalAlignment="Center"
-                                 PasswordChanged="tpContraseña_PasswordChanged"/>
-                        <TextBlock x:Name="tpContraseñaPlaceholder"
+                     FontSize="16"
+                     Foreground="#2C3E50"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     VerticalAlignment="Center"
+                     PasswordChanged="tpContraseña_PasswordChanged"
+                     Visibility="Visible"/>
+
+                    <!-- TextBox para mostrar texto (oculto inicialmente) -->
+                    <TextBox x:Name="tbContraseñaVisible"
+                             FontSize="16"
+                             Foreground="#2C3E50"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             VerticalAlignment="Center"
+                             Visibility="Collapsed"
+                             TextChanged="tbContraseñaVisible_TextChanged"/>
+
+                    <TextBlock x:Name="tpContraseñaPlaceholder"
                                Text="Contraseña"
                                FontSize="16"
                                Foreground="#95A5A6"
                                VerticalAlignment="Center"
-                               Margin="10,0,0,0"
+                               Margin="10,0,30,0"
                                IsHitTestVisible="False"/>
+
+                    <!-- Botón del ojito -->
+                    <Button x:Name="btnTogglePassword"
+                            Width="24" Height="24"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,5,0"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Click="btnTogglePassword_Click">
+                        <Image x:Name="EyeIcon"
+                               Source="/ImagenesProyecto/eye_show.png" 
+                               Stretch="Uniform"/>
+                    </Button>
                 </Grid>
             </Border>
 
@@ -103,14 +160,14 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
-                        <Setter Property="Foreground" Value="#FFFFFF"/> <!-- Blanco -->
-                        <Setter Property="Background" Value="#FF2ECC71"/> <!-- Verde -->
+                        <Setter Property="Foreground" Value="#FFFFFF"/>
+                        <Setter Property="Background" Value="#FF2ECC71"/>
                         <Setter Property="BorderBrush" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="0"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#27AE60"/> <!-- Verde más oscuro -->
-                                <Setter Property="Foreground" Value="#FFFFFF"/> <!-- Blanco -->
+                                <Setter Property="Background" Value="#27AE60"/>
+                                <Setter Property="Foreground" Value="#FFFFFF"/>
                                 <Setter Property="RenderTransform">
                                     <Setter.Value>
                                         <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
