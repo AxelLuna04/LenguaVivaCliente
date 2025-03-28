@@ -50,6 +50,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/BuscarUsuarios", ReplyAction="http://tempuri.org/IGestionUsuarios/BuscarUsuariosResponse")]
         System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO[]> BuscarUsuariosAsync(string criterioBusqueda, int tipoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/EliminarUsuario", ReplyAction="http://tempuri.org/IGestionUsuarios/EliminarUsuarioResponse")]
+        ServicioContrato.UsuarioDTO EliminarUsuario(string correo, int tipoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/EliminarUsuario", ReplyAction="http://tempuri.org/IGestionUsuarios/EliminarUsuarioResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO> EliminarUsuarioAsync(string correo, int tipoUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -125,6 +131,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO[]> BuscarUsuariosAsync(string criterioBusqueda, int tipoUsuario) {
             return base.Channel.BuscarUsuariosAsync(criterioBusqueda, tipoUsuario);
+        }
+        
+        public ServicioContrato.UsuarioDTO EliminarUsuario(string correo, int tipoUsuario) {
+            return base.Channel.EliminarUsuario(correo, tipoUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO> EliminarUsuarioAsync(string correo, int tipoUsuario) {
+            return base.Channel.EliminarUsuarioAsync(correo, tipoUsuario);
         }
     }
     

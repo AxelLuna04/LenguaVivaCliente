@@ -23,9 +23,11 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
     public partial class vtUsuariosEncontrados : Page
     {
         private UsuarioDTO usuarioSeleccionado;
+        private int filtroTipoUsuario;
         public vtUsuariosEncontrados(string criterioBusqueda, int tipoUsuario)
         {
             InitializeComponent();
+            this.filtroTipoUsuario = tipoUsuario;
             CargarUsuariosEncontrados(criterioBusqueda, tipoUsuario);
         }
 
@@ -41,7 +43,7 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
 
             if (usuarioSeleccionado != null)
             {
-                NavigationService?.Navigate(new vtDetallesUsuario(usuarioSeleccionado));
+                NavigationService?.Navigate(new vtDetallesUsuario(usuarioSeleccionado, usuarioSeleccionado.tipoUsuario));
             }
         }
 

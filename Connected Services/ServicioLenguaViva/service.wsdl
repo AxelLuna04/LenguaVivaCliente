@@ -76,6 +76,12 @@
   <wsdl:message name="IGestionUsuarios_BuscarUsuarios_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarUsuariosResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionCursos_ObtenerCursosPorNombre_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCursosPorNombre" />
   </wsdl:message>
@@ -166,6 +172,10 @@
     <wsdl:operation name="BuscarUsuarios">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/BuscarUsuarios" message="tns:IGestionUsuarios_BuscarUsuarios_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/BuscarUsuariosResponse" message="tns:IGestionUsuarios_BuscarUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/EliminarUsuario" message="tns:IGestionUsuarios_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/EliminarUsuarioResponse" message="tns:IGestionUsuarios_EliminarUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionCursos">
@@ -265,6 +275,15 @@
     </wsdl:operation>
     <wsdl:operation name="BuscarUsuarios">
       <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/BuscarUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/EliminarUsuario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

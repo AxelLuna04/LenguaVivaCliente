@@ -87,6 +87,7 @@
       <xs:element minOccurs="0" name="nivelIdioma" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoUsuario" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UsuarioDTO" nillable="true" type="tns:UsuarioDTO" />
