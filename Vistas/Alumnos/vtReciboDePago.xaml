@@ -1,0 +1,170 @@
+﻿<Window x:Class="LenguaVivaCliente.Vistas.Alumnos.vtReciboDePago"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:LenguaVivaCliente.Properties"
+        xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Alumnos"
+        mc:Ignorable="d"
+        Title="Recibo de pago" 
+        Height="450" Width="600"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <!-- Estilo base para los botones -->
+        <Style x:Key="BaseButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12 6"/>
+            <Setter Property="Margin" Value="10 5"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="2" Opacity="0.2" BlurRadius="4"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="4"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.9"/>
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect ShadowDepth="3" Opacity="0.3" BlurRadius="6"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Botón Descargar (Verde) -->
+        <Style x:Key="DescargarButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#43A047"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Botón Enviar (Azul) -->
+        <Style x:Key="EnviarButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1E88E5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Estilos para etiquetas y campos de texto -->
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="10 5 5 5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="162*"/>
+            <ColumnDefinition Width="421*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="White" Margin="20,20,3,20" CornerRadius="5" BorderThickness="1" BorderBrush="#E0E0E0" Grid.ColumnSpan="2">
+            <Grid Name="gridRecibo">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Encabezado -->
+                <Border Grid.Row="0" Background="#3F51B5" CornerRadius="5 5 0 0" Padding="20">
+                    <StackPanel>
+                        <TextBlock Text="RECIBO DE PAGO" 
+                                   Foreground="White" 
+                                   FontSize="24" 
+                                   FontWeight="Bold" 
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Lengua Viva" 
+                                   Foreground="White" 
+                                   FontSize="16" 
+                                   HorizontalAlignment="Center"
+                                   Margin="0 5 0 0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Contenido del recibo -->
+                <Grid Grid.Row="1" Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Campos del formulario -->
+                    <Label Grid.Row="0" Grid.Column="0" Content="Curso:"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="txtCurso"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Alumno:"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="txtAlumno"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Fecha de pago:"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="txtFechaPago"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Cantidad pagada:"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="txtCantidadPagada"/>
+                </Grid>
+
+                <!-- Pie de página con botones mejorados -->
+                <Border Grid.Row="2" Background="#F5F5F5" CornerRadius="0 0 5 5" Padding="10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Descargar" 
+                                Name="btnDescargar" 
+                                Style="{StaticResource DescargarButtonStyle}"
+                                Click="BtnDescargar_Click" Height="29"/>
+                        <Button Content="Enviar" 
+                                Name="btnEnviar" 
+                                Style="{StaticResource EnviarButtonStyle}"
+                                Click="BtnEnviar_Click"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

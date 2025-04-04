@@ -143,6 +143,81 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionAlumnos")]
+    public interface IGestionAlumnos {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/RegistrarPago", ReplyAction="http://tempuri.org/IGestionAlumnos/RegistrarPagoResponse")]
+        bool RegistrarPago(int cantidadPagada, int idInscripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/RegistrarPago", ReplyAction="http://tempuri.org/IGestionAlumnos/RegistrarPagoResponse")]
+        System.Threading.Tasks.Task<bool> RegistrarPagoAsync(int cantidadPagada, int idInscripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerReciboPago", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerReciboPagoResponse")]
+        ServicioContrato.ReciboPago ObtenerReciboPago(int idInscripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerReciboPago", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerReciboPagoResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.ReciboPago> ObtenerReciboPagoAsync(int idInscripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago", ReplyAction="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPagoResponse")]
+        bool EnviarCorreoReciboPago(int idInscripcion, string pdfPath);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago", ReplyAction="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPagoResponse")]
+        System.Threading.Tasks.Task<bool> EnviarCorreoReciboPagoAsync(int idInscripcion, string pdfPath);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGestionAlumnosChannel : LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GestionAlumnosClient : System.ServiceModel.ClientBase<LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos>, LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos {
+        
+        public GestionAlumnosClient() {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionAlumnosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool RegistrarPago(int cantidadPagada, int idInscripcion) {
+            return base.Channel.RegistrarPago(cantidadPagada, idInscripcion);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarPagoAsync(int cantidadPagada, int idInscripcion) {
+            return base.Channel.RegistrarPagoAsync(cantidadPagada, idInscripcion);
+        }
+        
+        public ServicioContrato.ReciboPago ObtenerReciboPago(int idInscripcion) {
+            return base.Channel.ObtenerReciboPago(idInscripcion);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.ReciboPago> ObtenerReciboPagoAsync(int idInscripcion) {
+            return base.Channel.ObtenerReciboPagoAsync(idInscripcion);
+        }
+        
+        public bool EnviarCorreoReciboPago(int idInscripcion, string pdfPath) {
+            return base.Channel.EnviarCorreoReciboPago(idInscripcion, pdfPath);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EnviarCorreoReciboPagoAsync(int idInscripcion, string pdfPath) {
+            return base.Channel.EnviarCorreoReciboPagoAsync(idInscripcion, pdfPath);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionCursos")]
     public interface IGestionCursos {
         

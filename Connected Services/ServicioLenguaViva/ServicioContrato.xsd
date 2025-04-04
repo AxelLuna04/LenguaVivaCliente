@@ -91,6 +91,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UsuarioDTO" nillable="true" type="tns:UsuarioDTO" />
+  <xs:complexType name="ReciboPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alumno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cantidadPagada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="curso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaPago" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReciboPago" nillable="true" type="tns:ReciboPago" />
   <xs:complexType name="ArrayOfCursoDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoDTO" nillable="true" type="tns:CursoDTO" />

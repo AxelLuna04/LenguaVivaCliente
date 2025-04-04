@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LenguaVivaCliente.VentanasReutilizables;
+using LenguaVivaCliente.Vistas.Alumnos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -24,7 +26,9 @@ namespace LenguaVivaCliente
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new Uri("Vistas/InicioSesion/vtInicioSesion.xaml", UriKind.Relative));
+            //MainFrame.NavigationService.Navigate(new Uri("Vistas/InicioSesion/vtInicioSesion.xaml", UriKind.Relative));
+            vtReciboDePago reciboPago = new vtReciboDePago(1);
+            reciboPago.Show();
         }
     }
 }
