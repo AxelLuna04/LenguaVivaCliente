@@ -104,6 +104,24 @@
   <wsdl:message name="IGestionUsuarios_ModificarAdministrador_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarAdministradorResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ObtenerAdministradorPorCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAdministradorPorCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ObtenerAdministradorPorCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAdministradorPorCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ObtenerProfesorPorCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProfesorPorCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ObtenerProfesorPorCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProfesorPorCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ObtenerAlumnoPorCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAlumnoPorCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ObtenerAlumnoPorCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAlumnoPorCorreoResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionAlumnos_RegistrarPago_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarPago" />
   </wsdl:message>
@@ -220,6 +238,18 @@
     <wsdl:operation name="ModificarAdministrador">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/ModificarAdministrador" message="tns:IGestionUsuarios_ModificarAdministrador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/ModificarAdministradorResponse" message="tns:IGestionUsuarios_ModificarAdministrador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAdministradorPorCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/ObtenerAdministradorPorCorreo" message="tns:IGestionUsuarios_ObtenerAdministradorPorCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/ObtenerAdministradorPorCorreoResponse" message="tns:IGestionUsuarios_ObtenerAdministradorPorCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProfesorPorCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/ObtenerProfesorPorCorreo" message="tns:IGestionUsuarios_ObtenerProfesorPorCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/ObtenerProfesorPorCorreoResponse" message="tns:IGestionUsuarios_ObtenerProfesorPorCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlumnoPorCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreo" message="tns:IGestionUsuarios_ObtenerAlumnoPorCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreoResponse" message="tns:IGestionUsuarios_ObtenerAlumnoPorCorreo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionAlumnos">
@@ -351,6 +381,33 @@
     </wsdl:operation>
     <wsdl:operation name="ModificarAdministrador">
       <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/ModificarAdministrador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAdministradorPorCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/ObtenerAdministradorPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProfesorPorCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/ObtenerProfesorPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAlumnoPorCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

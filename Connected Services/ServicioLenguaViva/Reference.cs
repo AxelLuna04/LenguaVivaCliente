@@ -62,6 +62,24 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ModificarAdministrador", ReplyAction="http://tempuri.org/IGestionUsuarios/ModificarAdministradorResponse")]
         System.Threading.Tasks.Task<bool> ModificarAdministradorAsync(ServicioContrato.AdministradorDTO administradorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ObtenerAdministradorPorCorreo", ReplyAction="http://tempuri.org/IGestionUsuarios/ObtenerAdministradorPorCorreoResponse")]
+        ServicioContrato.AdministradorDTO ObtenerAdministradorPorCorreo(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ObtenerAdministradorPorCorreo", ReplyAction="http://tempuri.org/IGestionUsuarios/ObtenerAdministradorPorCorreoResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.AdministradorDTO> ObtenerAdministradorPorCorreoAsync(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ObtenerProfesorPorCorreo", ReplyAction="http://tempuri.org/IGestionUsuarios/ObtenerProfesorPorCorreoResponse")]
+        ServicioContrato.ProfesorDTO ObtenerProfesorPorCorreo(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ObtenerProfesorPorCorreo", ReplyAction="http://tempuri.org/IGestionUsuarios/ObtenerProfesorPorCorreoResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.ProfesorDTO> ObtenerProfesorPorCorreoAsync(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreo", ReplyAction="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreoResponse")]
+        ServicioContrato.AlumnoDTO ObtenerAlumnoPorCorreo(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreo", ReplyAction="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreoResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO> ObtenerAlumnoPorCorreoAsync(string correo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -153,6 +171,30 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> ModificarAdministradorAsync(ServicioContrato.AdministradorDTO administradorDTO) {
             return base.Channel.ModificarAdministradorAsync(administradorDTO);
+        }
+        
+        public ServicioContrato.AdministradorDTO ObtenerAdministradorPorCorreo(string correo) {
+            return base.Channel.ObtenerAdministradorPorCorreo(correo);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.AdministradorDTO> ObtenerAdministradorPorCorreoAsync(string correo) {
+            return base.Channel.ObtenerAdministradorPorCorreoAsync(correo);
+        }
+        
+        public ServicioContrato.ProfesorDTO ObtenerProfesorPorCorreo(string correo) {
+            return base.Channel.ObtenerProfesorPorCorreo(correo);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.ProfesorDTO> ObtenerProfesorPorCorreoAsync(string correo) {
+            return base.Channel.ObtenerProfesorPorCorreoAsync(correo);
+        }
+        
+        public ServicioContrato.AlumnoDTO ObtenerAlumnoPorCorreo(string correo) {
+            return base.Channel.ObtenerAlumnoPorCorreo(correo);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO> ObtenerAlumnoPorCorreoAsync(string correo) {
+            return base.Channel.ObtenerAlumnoPorCorreoAsync(correo);
         }
     }
     

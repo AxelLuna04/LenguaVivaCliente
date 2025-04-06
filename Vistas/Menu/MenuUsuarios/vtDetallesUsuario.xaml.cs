@@ -50,33 +50,39 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            if (usuarioSeleccionado.tipoUsuario == 1)
+            try
             {
-                AdministradorDTO administradorSeleccionado = new AdministradorDTO
+                using (var proxy = new GestionUsuariosClient())
                 {
-                    idAdministrador = 0, 
-                    nombreUsuario = usuarioSeleccionado.correo, 
-                    nombre = usuarioSeleccionado.nombre,
-                    apellidos = usuarioSeleccionado.apellidos,
-                    direccion = usuarioSeleccionado.direccion,
-                    email = usuarioSeleccionado.correo,
-                    telefono = usuarioSeleccionado.telefono,
-                    contrasenia = "ContraseñaPorDefecto" 
-                };
+                    if (usuarioSeleccionado.tipoUsuario == 1)
+                    {
+                        var adminReal = proxy.ObtenerAdministradorPorCorreo(usuarioSeleccionado.correo);
 
-                NavigationService?.Navigate(new vtEditarAdministrador(administradorSeleccionado));
+                        if (adminReal == null)
+                        {
+                            MessageBox.Show("No se encontró el administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
+                        AdministradorDTO administradorSeleccionado = new AdministradorDTO
+                        {
+                            idAdministrador = adminReal.idAdministrador, 
+                            nombreUsuario = adminReal.nombreUsuario,     
+                            nombre = adminReal.nombre,
+                            apellidos = adminReal.apellidos,
+                            direccion = adminReal.direccion,
+                            email = adminReal.email,
+                            telefono = adminReal.telefono,
+                            contrasenia = "" 
+                        };
+
+                        NavigationService?.Navigate(new vtEditarAdministrador(administradorSeleccionado));
+                    }
+                }
             }
-            else if (usuarioSeleccionado.tipoUsuario == 2)
+            catch (Exception ex)
             {
-                NavigationService?.Navigate(new vtEditarProfesor());
-            }
-            else if (usuarioSeleccionado.tipoUsuario == 3)
-            {
-                NavigationService?.Navigate(new vtEditarAlumno());
-            }
-            else
-            {
-                MessageBox.Show("Tipo de usuario no reconocido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error al obtener datos: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

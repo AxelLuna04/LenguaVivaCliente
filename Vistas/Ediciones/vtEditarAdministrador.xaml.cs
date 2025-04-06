@@ -33,7 +33,7 @@ namespace LenguaVivaCliente.Vistas.Ediciones
                 return;
             }
 
-            AdministradorDTO administrador = new AdministradorDTO
+            var administrador = new AdministradorDTO
             {
                 idAdministrador = administradorSeleccionado.idAdministrador,
                 nombre = txtNombre.Text,
@@ -41,9 +41,12 @@ namespace LenguaVivaCliente.Vistas.Ediciones
                 email = txtCorreo.Text,
                 direccion = txtDireccion.Text,
                 nombreUsuario = txtUsuario.Text,
-                contrasenia = txtContrasenia.Password,  
+                contrasenia = !string.IsNullOrEmpty(txtContrasenia.Password)
+                      ? txtContrasenia.Password
+                      : null, 
                 telefono = txtTelefono.Text
             };
+
 
             try
             {
@@ -54,7 +57,7 @@ namespace LenguaVivaCliente.Vistas.Ediciones
                     if (actualizado)
                     {
                         MessageBox.Show("Administrador actualizado con éxito");
-                        NavigationService?.GoBack();  // Regresamos a la vista anterior
+                        NavigationService?.GoBack();
                     }
                     else
                     {
@@ -64,9 +67,15 @@ namespace LenguaVivaCliente.Vistas.Ediciones
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al intentar actualizar el administrador: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error al intentar actualizar: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                // Limpiar campo sensible
+                txtContrasenia.Password = string.Empty;
             }
         }
+
 
         private bool validarCampos()
         {
@@ -137,10 +146,14 @@ namespace LenguaVivaCliente.Vistas.Ediciones
                 lbUsuarioVacio.Visibility = Visibility.Hidden;
             }
 
-            if (string.IsNullOrWhiteSpace(txtContrasenia.Password))
+            if (!string.IsNullOrWhiteSpace(txtContrasenia.Password))
             {
-                lbContraseniaVacia.Visibility = Visibility.Visible;
-                contadorCamposVacios++;
+                if (txtContrasenia.Password.Length < 8)
+                {
+                    lbContraseniaVacia.Text = "Mínimo 8 caracteres si desea cambiar";
+                    lbContraseniaVacia.Visibility = Visibility.Visible;
+                    contadorCamposVacios++;
+                }
             }
             else
             {

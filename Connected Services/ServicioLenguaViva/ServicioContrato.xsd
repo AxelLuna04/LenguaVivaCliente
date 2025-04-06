@@ -86,6 +86,7 @@
       <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nivelIdioma" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreUsuario" type="xs:int" />
       <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="tipoUsuario" type="xs:int" />
     </xs:sequence>
