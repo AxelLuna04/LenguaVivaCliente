@@ -1,4 +1,5 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
+using LenguaVivaCliente.Vistas.Ediciones;
 using ServicioContrato;
 using System;
 using System.Collections.Generic;
@@ -49,8 +50,36 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
 
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
+            if (usuarioSeleccionado.tipoUsuario == 1)
+            {
+                AdministradorDTO administradorSeleccionado = new AdministradorDTO
+                {
+                    idAdministrador = 0, 
+                    nombreUsuario = usuarioSeleccionado.correo, 
+                    nombre = usuarioSeleccionado.nombre,
+                    apellidos = usuarioSeleccionado.apellidos,
+                    direccion = usuarioSeleccionado.direccion,
+                    email = usuarioSeleccionado.correo,
+                    telefono = usuarioSeleccionado.telefono,
+                    contrasenia = "ContraseñaPorDefecto" 
+                };
 
+                NavigationService?.Navigate(new vtEditarAdministrador(administradorSeleccionado));
+            }
+            else if (usuarioSeleccionado.tipoUsuario == 2)
+            {
+                NavigationService?.Navigate(new vtEditarProfesor());
+            }
+            else if (usuarioSeleccionado.tipoUsuario == 3)
+            {
+                NavigationService?.Navigate(new vtEditarAlumno());
+            }
+            else
+            {
+                MessageBox.Show("Tipo de usuario no reconocido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {

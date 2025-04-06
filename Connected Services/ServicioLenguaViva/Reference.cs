@@ -56,6 +56,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/EliminarUsuario", ReplyAction="http://tempuri.org/IGestionUsuarios/EliminarUsuarioResponse")]
         System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO> EliminarUsuarioAsync(string correo, int tipoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ModificarAdministrador", ReplyAction="http://tempuri.org/IGestionUsuarios/ModificarAdministradorResponse")]
+        bool ModificarAdministrador(ServicioContrato.AdministradorDTO administradorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ModificarAdministrador", ReplyAction="http://tempuri.org/IGestionUsuarios/ModificarAdministradorResponse")]
+        System.Threading.Tasks.Task<bool> ModificarAdministradorAsync(ServicioContrato.AdministradorDTO administradorDTO);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -139,6 +145,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<ServicioContrato.UsuarioDTO> EliminarUsuarioAsync(string correo, int tipoUsuario) {
             return base.Channel.EliminarUsuarioAsync(correo, tipoUsuario);
+        }
+        
+        public bool ModificarAdministrador(ServicioContrato.AdministradorDTO administradorDTO) {
+            return base.Channel.ModificarAdministrador(administradorDTO);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ModificarAdministradorAsync(ServicioContrato.AdministradorDTO administradorDTO) {
+            return base.Channel.ModificarAdministradorAsync(administradorDTO);
         }
     }
     

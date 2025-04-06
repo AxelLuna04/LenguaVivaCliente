@@ -153,6 +153,15 @@
     <Compile Include="Vistas\Cursos\vtRegistrarCurso.xaml.cs">
       <DependentUpon>vtRegistrarCurso.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Ediciones\vtEditarAdministrador.xaml.cs">
+      <DependentUpon>vtEditarAdministrador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Ediciones\vtEditarAlumno.xaml.cs">
+      <DependentUpon>vtEditarAlumno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Ediciones\vtEditarProfesor.xaml.cs">
+      <DependentUpon>vtEditarProfesor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\InicioSesion\vtInicioSesion.xaml.cs">
       <DependentUpon>vtInicioSesion.xaml</DependentUpon>
     </Compile>
@@ -223,6 +232,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Cursos\vtRegistrarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Ediciones\vtEditarAdministrador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Ediciones\vtEditarAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Ediciones\vtEditarProfesor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -98,6 +98,12 @@
   <wsdl:message name="IGestionUsuarios_EliminarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ModificarAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IGestionUsuarios_ModificarAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarAdministradorResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionAlumnos_RegistrarPago_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarPago" />
   </wsdl:message>
@@ -210,6 +216,10 @@
     <wsdl:operation name="EliminarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/EliminarUsuario" message="tns:IGestionUsuarios_EliminarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/EliminarUsuarioResponse" message="tns:IGestionUsuarios_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/ModificarAdministrador" message="tns:IGestionUsuarios_ModificarAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/ModificarAdministradorResponse" message="tns:IGestionUsuarios_ModificarAdministrador_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionAlumnos">
@@ -332,6 +342,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarUsuario">
       <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarAdministrador">
+      <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/ModificarAdministrador" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

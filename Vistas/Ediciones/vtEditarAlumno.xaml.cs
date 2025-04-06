@@ -1,9 +1,6 @@
-﻿using LenguaVivaCliente.VentanasReutilizables;
-using LenguaVivaCliente.Vistas.Alumnos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LenguaVivaCliente
+namespace LenguaVivaCliente.Vistas.Ediciones
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para vtEditarAlumno.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class vtEditarAlumno : Page
     {
-        public MainWindow()
+        public vtEditarAlumno()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new Uri("Vistas/InicioSesion/vtInicioSesion.xaml", UriKind.Relative));
         }
     }
 }
