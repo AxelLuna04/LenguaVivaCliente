@@ -98,7 +98,7 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
                             email = profesorReal.email,
                             telefono = profesorReal.telefono,
                             contrasenia = "",
-                            idiomasDominados = profesorReal.idiomasDominados
+                            idiomasSeleccionados = profesorReal.idiomasSeleccionados
                         };
 
                         NavigationService?.Navigate(new vtEditarProfesor(profesorSeleccionado));

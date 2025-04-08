@@ -43,7 +43,7 @@
       <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="idProfesor" type="xs:int" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idiomasDominados" nillable="true" type="q1:ArrayOfint" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idiomasSeleccionados" nillable="true" type="q1:ArrayOfint" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />

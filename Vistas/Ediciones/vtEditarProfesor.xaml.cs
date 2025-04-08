@@ -33,7 +33,7 @@ namespace LenguaVivaCliente.Vistas.Ediciones
                     {
                         idIdioma = i.idIdioma,
                         nombreIdioma = i.nombreIdioma,
-                        IsSelected = profesorSeleccionado.idiomasDominados != null && profesorSeleccionado.idiomasDominados.Contains(i.idIdioma)
+                        IsSelected = profesorSeleccionado.idiomasSeleccionados != null && profesorSeleccionado.idiomasSeleccionados.Contains(i.idIdioma)
                     }).ToList();
 
                     dataGridIdiomas.ItemsSource = lista;
@@ -194,12 +194,12 @@ namespace LenguaVivaCliente.Vistas.Ediciones
             
             profesorSeleccionado.contrasenia = string.Empty;
 
-            var idiomasSeleccionados = (dataGridIdiomas.ItemsSource as System.Collections.Generic.List<IdiomaDTO>)?
+            var idiomasSeleccionados = (dataGridIdiomas.ItemsSource as List<IdiomaDTO>)?
                 .Where(i => i.IsSelected)
                 .Select(i => i.idIdioma)
                 .ToList();
 
-            profesorSeleccionado.idiomasDominados = idiomasSeleccionados ?? new List<int>();
+            profesorSeleccionado.idiomasSeleccionados = idiomasSeleccionados;
 
             try
             {
