@@ -56,6 +56,7 @@
       <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+      <xs:element minOccurs="0" name="idiomasNivel" nillable="true" type="tns:ArrayOfIdiomaNivelDTO" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
     </xs:sequence>

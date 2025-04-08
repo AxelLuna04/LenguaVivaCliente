@@ -3,12 +3,130 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Ediciones"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="vtEditarAlumno">
+      Title="Editar Alumno"
+      Background="#FF1E1E2E">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Encabezado -->
+        <Border Grid.Row="0" Background="#FF3498DB" Padding="20">
+            <TextBlock Text="Editar Alumno" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
+
+        <!-- Contenido principal -->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Formulario de datos personales (columna izquierda) -->
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+
+                <!-- Nombre -->
+                <Label Content="Nombre" Foreground="White"/>
+                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5">
+                        <TextBox x:Name="txtNombre" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbNombreVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Apellidos -->
+                <Label Content="Apellidos" Foreground="White"/>
+                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5">
+                        <TextBox x:Name="txtApellidos" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbApellidosVacios" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Correo -->
+                <Label Content="Correo Electrónico" Foreground="White"/>
+                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5">
+                        <TextBox x:Name="txtCorreo" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbCorreoVacio" Content="Formato inválido" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Dirección -->
+                <Label Content="Dirección" Foreground="White"/>
+                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5">
+                        <TextBox x:Name="txtDireccion" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbDireccionVacia" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Teléfono -->
+                <Label Content="Teléfono" Foreground="White"/>
+                <StackPanel Orientation="Vertical" Margin="0,0,0,20">
+                    <Border CornerRadius="10" Background="#FF5DADE2" Padding="5">
+                        <TextBox x:Name="txtTelefono" Width="300" Background="Transparent" BorderThickness="0" Foreground="#FF2D3436"/>
+                    </Border>
+                    <Label x:Name="lbTelefonoVacio" Content="Campo obligatorio" Foreground="Red" Visibility="Hidden"/>
+                </StackPanel>
+
+                <!-- Botones -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Cancelar" Width="120" Height="40" Margin="5"
+                            Background="#FF4C4A" Foreground="White" Cursor="Hand"
+                            Click="BtnCancelar_Click">
+                    </Button>
+                    <Button Content="Guardar" Width="120" Height="40" Margin="5"
+                            Background="#4CAF50" Foreground="White" Cursor="Hand"
+                            Click="BtnGuardar_Click">
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Idiomas y niveles (columna derecha) -->
+            <GroupBox Grid.Column="2" Header="Idiomas y niveles" Padding="10"
+                      Foreground="White" BorderBrush="#FF3498DB">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Border CornerRadius="10" Background="#FF5DADE2" Padding="2" Margin="0,0,10,0">
+                            <ComboBox x:Name="cboIdiomas" Width="150" ItemsSource="{Binding IdiomasDisponibles}"
+                                      DisplayMemberPath="nombreIdioma"/>
+                        </Border>
+                        <Border CornerRadius="10" Background="#FF5DADE2" Padding="2">
+                            <ComboBox x:Name="cboNiveles" ItemsSource="{Binding Niveles}" SelectedIndex="0" Background="Transparent" 
+Foreground="#FF2D3436"
+BorderThickness="0"  Width="150"/>
+                        </Border>
+                        <Button Content="Agregar" Width="80" Margin="10,0,0,0" Cursor="Hand"
+                                Click="BtnAgregar_Click">
+                        </Button>
+                    </StackPanel>
+
+                    <Border CornerRadius="10" Background="#FFEDEDED" Padding="5" BorderBrush="#FF2980B9" BorderThickness="2">
+                        <DataGrid x:Name="dgIdiomas" AutoGenerateColumns="False" Height="200"
+                                  CanUserAddRows="False"
+                                  Background="Transparent" Foreground="#FF2D3436"
+                                  BorderThickness="0"
+                                  ItemsSource="{Binding IdiomasAgregados}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Idioma" Binding="{Binding idiomaNombre}" Width="*"/>
+                                <DataGridTextColumn Header="Nivel" Binding="{Binding nivel}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+                    <Label x:Name="lbIdiomasError" Content="Seleccione al menos un idioma" Foreground="Red" Visibility="Hidden" HorizontalAlignment="Center" Margin="5"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
     </Grid>
 </Page>

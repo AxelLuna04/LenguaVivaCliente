@@ -103,12 +103,34 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
 
                         NavigationService?.Navigate(new vtEditarProfesor(profesorSeleccionado));
                     }
+                    else if (usuarioSeleccionado.tipoUsuario == 3)
+                    {
+                        var alumnoReal = proxy.ObtenerAlumnoPorCorreo(usuarioSeleccionado.correo);
+
+                        if (alumnoReal == null)
+                        {
+                            MessageBox.Show("No se encontró el alumno", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
+                        AlumnoDTO alumnoSeleccionado = new AlumnoDTO
+                        {
+                            idAlumno = alumnoReal.idAlumno,
+                            nombre = alumnoReal.nombre,
+                            apellidos = alumnoReal.apellidos,
+                            direccion = alumnoReal.direccion,
+                            email = alumnoReal.email,
+                            telefono = alumnoReal.telefono,
+                            idiomasNivel = alumnoReal.idiomasNivel
+                        };
+
+                        NavigationService?.Navigate(new vtEditarAlumno(alumnoSeleccionado));
+                    }
                     else
                     {
                         MessageBox.Show("Tipo de usuario no reconocido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-
-
+                       
                 }
                 
             }
