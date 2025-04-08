@@ -211,6 +211,18 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ModificarCurso", ReplyAction="http://tempuri.org/IGestionCursos/ModificarCursoResponse")]
         System.Threading.Tasks.Task<bool> ModificarCursoAsync(ServicioContrato.CursoDTO cursoDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/EliminarCurso", ReplyAction="http://tempuri.org/IGestionCursos/EliminarCursoResponse")]
+        bool EliminarCurso(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/EliminarCurso", ReplyAction="http://tempuri.org/IGestionCursos/EliminarCursoResponse")]
+        System.Threading.Tasks.Task<bool> EliminarCursoAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos", ReplyAction="http://tempuri.org/IGestionCursos/TieneAlumnosInscritosResponse")]
+        bool TieneAlumnosInscritos(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos", ReplyAction="http://tempuri.org/IGestionCursos/TieneAlumnosInscritosResponse")]
+        System.Threading.Tasks.Task<bool> TieneAlumnosInscritosAsync(int idCurso);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -326,6 +338,22 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> ModificarCursoAsync(ServicioContrato.CursoDTO cursoDTO) {
             return base.Channel.ModificarCursoAsync(cursoDTO);
+        }
+        
+        public bool EliminarCurso(int idCurso) {
+            return base.Channel.EliminarCurso(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarCursoAsync(int idCurso) {
+            return base.Channel.EliminarCursoAsync(idCurso);
+        }
+        
+        public bool TieneAlumnosInscritos(int idCurso) {
+            return base.Channel.TieneAlumnosInscritos(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TieneAlumnosInscritosAsync(int idCurso) {
+            return base.Channel.TieneAlumnosInscritosAsync(idCurso);
         }
     }
 }

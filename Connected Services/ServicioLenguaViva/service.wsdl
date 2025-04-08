@@ -148,6 +148,18 @@
   <wsdl:message name="IGestionCursos_ModificarCurso_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarCursoResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionCursos_EliminarCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_EliminarCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_TieneAlumnosInscritos_InputMessage">
+    <wsdl:part name="parameters" element="tns:TieneAlumnosInscritos" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_TieneAlumnosInscritos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TieneAlumnosInscritosResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestionUsuarios">
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/IniciarSesion" message="tns:IGestionUsuarios_IniciarSesion_InputMessage" />
@@ -222,6 +234,14 @@
     <wsdl:operation name="ModificarCurso">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ModificarCurso" message="tns:IGestionCursos_ModificarCurso_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ModificarCursoResponse" message="tns:IGestionCursos_ModificarCurso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/EliminarCurso" message="tns:IGestionCursos_EliminarCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/EliminarCursoResponse" message="tns:IGestionCursos_EliminarCurso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TieneAlumnosInscritos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos" message="tns:IGestionCursos_TieneAlumnosInscritos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritosResponse" message="tns:IGestionCursos_TieneAlumnosInscritos_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGestionUsuarios" type="tns:IGestionUsuarios">
@@ -388,6 +408,24 @@
     </wsdl:operation>
     <wsdl:operation name="ModificarCurso">
       <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ModificarCurso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/EliminarCurso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneAlumnosInscritos">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

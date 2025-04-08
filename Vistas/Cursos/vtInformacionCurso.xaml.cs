@@ -1,4 +1,5 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
+using LenguaVivaCliente.Utilidades;
 using ServicioContrato;
 using System;
 using System.Collections.Generic;
@@ -96,6 +97,35 @@ namespace LenguaVivaCliente.Vistas.Cursos
         private void Click_Eliminar(object sender, RoutedEventArgs e)
         {
             //TODO: Eliminar curso
+            ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+
+
+            if (servicio.TieneAlumnosInscritos(curso.idCurso) == false)
+            {
+                bool confirmado = VentanasEmergentes.CrearVentanaConfirmacion("¿Eliminar archivo?",
+                    "¿Estás seguro de que quieres eliminar el archivo? Esta acción no se puede deshacer.");
+
+                if (confirmado)
+                {
+                    if (servicio.EliminarCurso(curso.idCurso) == true)
+                    {
+                        VentanasEmergentes.CrearVentanaEmergente("Eliminado", "Curso eliminado correctamente.");
+                        NavigationService.GoBack();
+                    }
+                    else
+                    {
+                        VentanasEmergentes.CrearVentanaEmergente("Error", "No se pudo eliminar el curso.");
+                    }
+
+                    //servicio.EliminarCurso(curso.idCurso);
+                }
+            }
+            else
+            {
+                VentanasEmergentes.CrearVentanaEmergente("Error", "No se puede eliminar el curso porque tiene alumnos inscritos.");
+
+            }
+                
         }
 
         private void Click_Editar(object sender, RoutedEventArgs e)
@@ -107,6 +137,16 @@ namespace LenguaVivaCliente.Vistas.Cursos
         private void Click_SubirLista(object sender, RoutedEventArgs e)
         {
             //TODO_ Subir lista de asistencia
+        }
+
+        private void Click_VerHorarios(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Click_AsignarHorario(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

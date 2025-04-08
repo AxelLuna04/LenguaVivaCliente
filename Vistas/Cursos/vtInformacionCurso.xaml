@@ -211,8 +211,8 @@
             <!-- Botón Volver -->
             <Button Content="Volver"
                     Click="Click_Volver"
-                    Width="160" Height="50"
-                    FontSize="18"
+                    Width="100" Height="40"
+                    FontSize="16"
                     Background="#FFD7BDE2"
                     Foreground="#FF2D3436"
                     FontWeight="Bold"
@@ -249,12 +249,95 @@
                 </Button.Style>
             </Button>
 
+            <!-- Botón ver horarios -->
+            <Button Content="Ver horarios"
+        Click="Click_VerHorarios"
+        Width="130" Height="40"
+        FontSize="16"
+        Background="#FFE8DAEF"
+Foreground="#FF2D3436"
+        FontWeight="Bold"
+        Cursor="Hand"
+        Margin="0,0,20,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="20"
+                                BorderBrush="#FF9B59B6"
+                                BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFC39BD3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!-- Botón asigna horario -->
+            <Button Content="Asignar horario"
+        Click="Click_AsignarHorario"
+        Width="130" Height="40"
+        FontSize="16"
+        Background="#FFE8DAEF"
+        Foreground="#FF2D3436"
+        FontWeight="Bold"
+        Cursor="Hand"
+        Margin="0,0,20,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="20"
+                                BorderBrush="#FF9B59B6"
+                                BorderThickness="2">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFC39BD3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+
             <!-- Botón Subir lista -->
             <Button x:Name="btnSubirLista"
                     Content="Subir lista"
                     Click="Click_SubirLista"
-                    Width="160" Height="50"
-                    FontSize="18"
+                    Width="100" Height="40"
+                    FontSize="16"
                     Background="#FFE8DAEF"
                     Foreground="#FF2D3436"
                     FontWeight="Bold"
@@ -295,8 +378,8 @@
             <Button x:Name="btnEditar"
                     Content="Editar"
                     Click="Click_Editar"
-                    Width="160" Height="50"
-                    FontSize="18"
+                    Width="100" Height="40"
+                    FontSize="16"
                     Background="#FFABEBC6"
                     Foreground="#FF2D3436"
                     FontWeight="Bold"
@@ -337,8 +420,8 @@
             <Button x:Name="btnEliminar"
                     Content="Eliminar"
                     Click="Click_Eliminar"
-                    Width="160" Height="50"
-                    FontSize="18"
+                    Width="100" Height="40"
+                    FontSize="16"
                     Background="#FFE6B0AA"
                     Foreground="#FF2D3436"
                     FontWeight="Bold"
