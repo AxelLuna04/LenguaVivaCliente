@@ -77,8 +77,40 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
                         };
 
                         NavigationService?.Navigate(new vtEditarAdministrador(administradorSeleccionado));
+
+                    }else if (usuarioSeleccionado.tipoUsuario == 2)
+                    {
+                        var profesorReal = proxy.ObtenerProfesorPorCorreo(usuarioSeleccionado.correo);
+
+                        if (profesorReal == null)
+                        {
+                            MessageBox.Show("No se encontró el profesor", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
+                        ProfesorDTO profesorSeleccionado = new ProfesorDTO
+                        {
+                            idProfesor = profesorReal.idProfesor,
+                            nombreUsuario = profesorReal.nombreUsuario,
+                            nombre = profesorReal.nombre,
+                            apellidos = profesorReal.apellidos,
+                            direccion = profesorReal.direccion,
+                            email = profesorReal.email,
+                            telefono = profesorReal.telefono,
+                            contrasenia = "",
+                            idiomasDominados = profesorReal.idiomasDominados
+                        };
+
+                        NavigationService?.Navigate(new vtEditarProfesor(profesorSeleccionado));
                     }
+                    else
+                    {
+                        MessageBox.Show("Tipo de usuario no reconocido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+
                 }
+                
             }
             catch (Exception ex)
             {

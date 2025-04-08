@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicioContrato" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicioContrato" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="SesionUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
@@ -42,6 +43,7 @@
       <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="idProfesor" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idiomasDominados" nillable="true" type="q1:ArrayOfint" />
       <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />

@@ -80,6 +80,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreo", ReplyAction="http://tempuri.org/IGestionUsuarios/ObtenerAlumnoPorCorreoResponse")]
         System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO> ObtenerAlumnoPorCorreoAsync(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ModificarProfesor", ReplyAction="http://tempuri.org/IGestionUsuarios/ModificarProfesorResponse")]
+        bool ModificarProfesor(ServicioContrato.ProfesorDTO profesorDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ModificarProfesor", ReplyAction="http://tempuri.org/IGestionUsuarios/ModificarProfesorResponse")]
+        System.Threading.Tasks.Task<bool> ModificarProfesorAsync(ServicioContrato.ProfesorDTO profesorDTO);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -195,6 +201,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO> ObtenerAlumnoPorCorreoAsync(string correo) {
             return base.Channel.ObtenerAlumnoPorCorreoAsync(correo);
+        }
+        
+        public bool ModificarProfesor(ServicioContrato.ProfesorDTO profesorDTO) {
+            return base.Channel.ModificarProfesor(profesorDTO);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ModificarProfesorAsync(ServicioContrato.ProfesorDTO profesorDTO) {
+            return base.Channel.ModificarProfesorAsync(profesorDTO);
         }
     }
     
