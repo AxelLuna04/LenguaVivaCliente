@@ -188,6 +188,12 @@
   <wsdl:message name="IGestionCursos_ObtenerHorariosPorCurso_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerHorariosPorCursoResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionCursos_SubirListaAlumnos_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubirListaAlumnos" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_SubirListaAlumnos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubirListaAlumnosResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionAlumnos_RegistrarInscripcion_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarInscripcion" />
   </wsdl:message>
@@ -302,6 +308,10 @@
     <wsdl:operation name="ObtenerHorariosPorCurso">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCurso" message="tns:IGestionCursos_ObtenerHorariosPorCurso_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCursoResponse" message="tns:IGestionCursos_ObtenerHorariosPorCurso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubirListaAlumnos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/SubirListaAlumnos" message="tns:IGestionCursos_SubirListaAlumnos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/SubirListaAlumnosResponse" message="tns:IGestionCursos_SubirListaAlumnos_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionAlumnos">
@@ -522,6 +532,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerHorariosPorCurso">
       <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCurso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubirListaAlumnos">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/SubirListaAlumnos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

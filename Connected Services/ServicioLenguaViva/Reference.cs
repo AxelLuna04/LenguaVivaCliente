@@ -346,6 +346,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCurso", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCursoResponse")]
         System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.HorarioDTO[]> ObtenerHorariosPorCursoAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/SubirListaAlumnos", ReplyAction="http://tempuri.org/IGestionCursos/SubirListaAlumnosResponse")]
+        bool SubirListaAlumnos(int idCurso, byte[] archivo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/SubirListaAlumnos", ReplyAction="http://tempuri.org/IGestionCursos/SubirListaAlumnosResponse")]
+        System.Threading.Tasks.Task<bool> SubirListaAlumnosAsync(int idCurso, byte[] archivo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -493,6 +499,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.HorarioDTO[]> ObtenerHorariosPorCursoAsync(int idCurso) {
             return base.Channel.ObtenerHorariosPorCursoAsync(idCurso);
+        }
+        
+        public bool SubirListaAlumnos(int idCurso, byte[] archivo) {
+            return base.Channel.SubirListaAlumnos(idCurso, archivo);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SubirListaAlumnosAsync(int idCurso, byte[] archivo) {
+            return base.Channel.SubirListaAlumnosAsync(idCurso, archivo);
         }
     }
     

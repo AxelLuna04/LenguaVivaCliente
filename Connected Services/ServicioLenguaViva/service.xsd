@@ -311,6 +311,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SubirListaAlumnos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+        <xs:element minOccurs="0" name="archivo" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubirListaAlumnosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubirListaAlumnosResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RegistrarInscripcion">
     <xs:complexType>
       <xs:sequence>

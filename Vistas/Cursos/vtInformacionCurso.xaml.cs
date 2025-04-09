@@ -3,6 +3,7 @@ using LenguaVivaCliente.Utilidades;
 using ServicioContrato;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -136,7 +137,28 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
         private void Click_SubirLista(object sender, RoutedEventArgs e)
         {
-            //TODO_ Subir lista de asistencia
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "Archivos de Excel (*.xls; *.xlsx)|*.xls;*.xlsx";  // Filtra los archivos de Excel
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                // Lee el archivo y lo convierte en un arreglo de bytes
+                byte[] fileBytes = File.ReadAllBytes(filePath);
+
+                // Aquí puedes llamar al método que guardará los datos en la base de datos
+                //GuardarArchivoEnBaseDeDatos(fileBytes);
+                ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+                if (servicio.SubirListaAlumnos(curso.idCurso, fileBytes))
+                {
+                    VentanasEmergentes.CrearVentanaEmergente("Éxito", "Lista de alumnos subida correctamente.");
+                }
+                else
+                {
+                    VentanasEmergentes.CrearVentanaEmergente("Error", "No se pudo subir la lista de alumnos.");
+                }
+            }
         }
 
         private void Click_VerHorarios(object sender, RoutedEventArgs e)
@@ -149,5 +171,8 @@ namespace LenguaVivaCliente.Vistas.Cursos
             vtAsignarHorario vtAsignarHorario = new vtAsignarHorario(curso.idCurso);
             NavigationService.Navigate(vtAsignarHorario);
         }
+
+
+
     }
 }
