@@ -44,6 +44,12 @@ namespace LenguaVivaCliente.Vistas.Menu
             Vistas.Alumnos.vtInscribirAlumno vtInscribirAlumno = new Vistas.Alumnos.vtInscribirAlumno();
             NavigationService.Navigate(vtInscribirAlumno);
         }
+
+        private void Click_HistorialCursos(object sender, RoutedEventArgs e)
+        {
+            Vistas.Alumnos.vtHistorialDeCursos vtHistorialDeCursos= new Vistas.Alumnos.vtHistorialDeCursos();
+            NavigationService.Navigate(vtHistorialDeCursos);
+        }
     }
 }
 

@@ -33,7 +33,6 @@ namespace LenguaVivaCliente.Vistas.Alumnos
         private void BtnInscribir_Click(object sender, RoutedEventArgs e)
         {
             ServicioLenguaViva.IGestionAlumnos servicio = new ServicioLenguaViva.GestionAlumnosClient();
-
             
 
             InscripcionDTO inscripcion = new InscripcionDTO
@@ -52,7 +51,22 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             if (servicio.RegistrarInscripcion(inscripcion))
             {
                 VentanasEmergentes.CrearVentanaEmergente("Inscripción exitosa", "El alumno se ha inscrito correctamente al curso.");
-                NavigationService?.GoBack();
+                int idInscripcion = servicio.ObtenerIDInscripcionPorIDAlumnoYCurso(inscripcion.idAlumno, inscripcion.idCurso);
+
+                if (idInscripcion > 0)
+                {
+                    // Abrir ventana de pago
+                    vtRegistrarPago ventanaPago = new vtRegistrarPago(idInscripcion);
+                    ventanaPago.Show();
+
+                    // Cerrar o navegar desde la actual
+                    NavigationService?.GoBack();
+                }
+                else
+                {
+                    VentanasEmergentes.CrearVentanaEmergente("Error", "No se pudo obtener la inscripción.");
+                }
+                //NavigationService?.GoBack();
             }
             else
             {

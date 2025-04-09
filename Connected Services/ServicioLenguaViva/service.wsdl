@@ -306,6 +306,12 @@
   <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorAlumnoYCursoResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorIDAlumnoYCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorIDAlumnoYCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorIDAlumnoYCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorIDAlumnoYCursoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestionUsuarios">
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/IniciarSesion" message="tns:IGestionUsuarios_IniciarSesion_InputMessage" />
@@ -468,6 +474,10 @@
     <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIDInscripcionPorIDAlumnoYCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorIDAlumnoYCurso" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorIDAlumnoYCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorIDAlumnoYCursoResponse" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorIDAlumnoYCurso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGestionUsuarios" type="tns:IGestionUsuarios">
@@ -833,6 +843,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
       <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIDInscripcionPorIDAlumnoYCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorIDAlumnoYCurso" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

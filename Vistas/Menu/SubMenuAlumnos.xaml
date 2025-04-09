@@ -6,13 +6,12 @@
       xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Menu"
       mc:Ignorable="d" 
       Title="SubMenuAlumnos"
-
-    Background="#FF1E1E2E">
+      Background="#FF1E1E2E">
 
     <Grid>
         <!-- Encabezado del submenú -->
         <Border Background="#FF8E44AD" Padding="20" VerticalAlignment="Top">
-            <TextBlock Text="Menú de Alumos" 
+            <TextBlock Text="Menú de Alumnos" 
                        FontSize="28" 
                        FontWeight="Bold" 
                        Foreground="#FFEDEDED" 
@@ -23,8 +22,8 @@
 
         <!-- Contenedor de botones del submenú -->
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
-            <!-- Botón Registrar Usuarios -->
-            <Border Name="borderBotones"  CornerRadius="20" Background="#FFD7BDE2" Padding="10" Margin="0,10"
+            <!-- Botón Inscribir Alumno -->
+            <Border Name="borderBotones" CornerRadius="20" Background="#FFD7BDE2" Padding="10" Margin="0,10"
                     BorderBrush="#FF9B59B6" BorderThickness="2">
                 <Button Content="Inscribir Alumno"
                         Name="btnInscribirAlumno"
@@ -73,6 +72,55 @@
                 </Button>
             </Border>
 
+            <!-- Botón Historial de Cursos (nuevo) -->
+            <Border Name="borderHistorialCursos" CornerRadius="20" Background="#FFD7BDE2" Padding="10" Margin="0,10"
+                    BorderBrush="#FF9B59B6" BorderThickness="2">
+                <Button Content="Historial de Cursos"
+                        Name="btnHistorialCursos"
+                        Click="Click_HistorialCursos"
+                        Background="Transparent" 
+                        Foreground="#FF2D3436" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        FontFamily="Segoe UI, sans-serif" 
+                        Padding="20,10" 
+                        BorderThickness="0" 
+                        Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="20"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#FF2D3436"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFC39BD3"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
         </StackPanel>
 
         <!-- Botón de Regresar mejorado -->

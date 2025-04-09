@@ -529,7 +529,7 @@
   <xs:element name="ObtenerCursosDeAlumno">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -543,7 +543,7 @@
   <xs:element name="ObtenerIDInscripcionPorAlumnoYCurso">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="idCurso" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -552,6 +552,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ObtenerIDInscripcionPorAlumnoYCursoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIDInscripcionPorIDAlumnoYCurso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIDInscripcionPorIDAlumnoYCursoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerIDInscripcionPorIDAlumnoYCursoResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

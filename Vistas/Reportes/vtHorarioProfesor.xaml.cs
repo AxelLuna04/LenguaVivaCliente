@@ -27,34 +27,48 @@ namespace LenguaVivaCliente.Vistas.Reportes
         {
             InitializeComponent();
             this.sesionUsuario = sesionUsuario;
+            CargarHorario();
         }
 
         private void CargarHorario()
         {
             GestionReportesClient proxy = new GestionReportesClient();
-            var horarios = proxy.ObtenerHorariosCursos(sesionUsuario.correo);
+            CursoHorario[] horarios = proxy.ObtenerHorariosCursos(sesionUsuario.correo);
 
             foreach (var curso in horarios)
             {
+                string horaInicioFormateada = curso.horaInicio.ToString(@"hh\:mm");
+                string horaSalidaFormateada = curso.horaSalida.ToString(@"hh\:mm");
+
                 int columna = ObtenerColumnaPorDia(curso.dia);
-                int fila = ObtenerFilaPorHorario(curso.horaInicio, curso.horaSalida);
+                int fila = ObtenerFilaPorHorario(horaInicioFormateada, horaSalidaFormateada);
 
                 if (columna == -1 || fila == -1) continue;
 
-                TextBlock bloque = new TextBlock
+                // Crear un borde con el curso dentro
+                Border bloqueCurso = new Border
                 {
-                    Text = curso.nombreCurso,
                     Background = new SolidColorBrush(Color.FromRgb(173, 216, 230)),
-                    TextWrapping = TextWrapping.Wrap,
-                    TextAlignment = TextAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Margin = new Thickness(5),
-                    FontWeight = FontWeights.SemiBold
+                    BorderBrush = Brushes.LightGray,
+                    BorderThickness = new Thickness(1),
+                    CornerRadius = new CornerRadius(4),
+                    Margin = new Thickness(2),
+                    Child = new TextBlock
+                    {
+                        Text = curso.nombreCurso,
+                        TextWrapping = TextWrapping.Wrap,
+                        TextAlignment = TextAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Margin = new Thickness(5),
+                        FontWeight = FontWeights.SemiBold,
+                        FontSize = 12
+                    }
                 };
-                Grid.SetRow(bloque, fila);
-                Grid.SetColumn(bloque, columna);
-                HorarioGrid.Children.Add(bloque);
+
+                Grid.SetRow(bloqueCurso, fila);
+                Grid.SetColumn(bloqueCurso, columna);
+                HorarioGrid.Children.Add(bloqueCurso);
             }
         }
 
@@ -93,6 +107,11 @@ namespace LenguaVivaCliente.Vistas.Reportes
         private void BtnDescargar_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Regresar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
         }
     }
 }

@@ -68,7 +68,7 @@ namespace LenguaVivaCliente.Vistas.Alumnos
                 BitmapSource imagenRecibo = CapturarReciboComoImagen();
                 GuardarImagenTemporal(imagenRecibo);
 
-                string pdfPath = ConvertirImagenAPDF();
+                string pdfPath = ConvertirImagenAPDFDescarga();
 
                 if (!string.IsNullOrEmpty(pdfPath))
                 {
@@ -80,6 +80,11 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al generar el PDF: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                btnDescargar.Visibility = Visibility.Visible;
+                btnEnviar.Visibility = Visibility.Visible;
             }
         }
 
@@ -105,7 +110,7 @@ namespace LenguaVivaCliente.Vistas.Alumnos
         /// <summary>
         /// Convierte la imagen guardada en un archivo PDF.
         /// </summary>
-        /*private string ConvertirImagenAPDF()
+        private string ConvertirImagenAPDFDescarga()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
@@ -128,7 +133,7 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             }
 
             return string.Empty;
-        }*/
+        }
 
         private string ConvertirImagenAPDF()
         {

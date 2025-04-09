@@ -105,8 +105,8 @@
   <xs:complexType name="CursoHorario">
     <xs:sequence>
       <xs:element minOccurs="0" name="dia" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="horaInicio" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="horaSalida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horaInicio" type="ser:duration" />
+      <xs:element minOccurs="0" name="horaSalida" type="ser:duration" />
       <xs:element minOccurs="0" name="nombreCurso" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

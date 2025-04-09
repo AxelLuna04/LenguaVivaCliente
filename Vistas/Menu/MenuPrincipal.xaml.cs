@@ -53,7 +53,8 @@ namespace LenguaVivaCliente.Vistas.Menu
 
         private void Click_MenuReportes(object sender, RoutedEventArgs e)
         {
-
+            Vistas.Menu.MenuReportes.MenuReportes menuReportes = new Vistas.Menu.MenuReportes.MenuReportes(sesionUsuario);
+            NavigationService.Navigate(menuReportes);
         }
 
         private void Click_MenuAlumnos(object sender, RoutedEventArgs e)

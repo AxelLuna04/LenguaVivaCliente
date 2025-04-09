@@ -6,81 +6,219 @@
       xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Reportes"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="900"
-      Background="#FFE0E0E0"
+      Background="#FFF5F5F5"
       Title="Horario">
-
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Título -->
             <RowDefinition Height="*"/>
-            <!-- Horario -->
             <RowDefinition Height="Auto"/>
-            <!-- Botón -->
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Horario del Profesor"
+        <!-- Título mejorado -->
+        <Border Grid.Row="0" Background="#FF8E44AD" CornerRadius="5" Padding="15" Margin="0,0,0,20">
+            <TextBlock Text="HORARIO" 
                    FontSize="24"
                    FontWeight="Bold"
+                   Foreground="White"
+                   FontFamily="Segoe UI"
                    HorizontalAlignment="Center"
-                   Margin="0,0,0,20" />
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"/>
+        </Border>
 
-        <!-- Tabla de horario -->
-        <ScrollViewer Grid.Row="1">
-            <Grid Name="HorarioGrid">
-                <!-- Columnas: Hora, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado -->
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <!-- Tabla de horario mejorada -->
+        <Border Grid.Row="1" BorderBrush="#FFBDBDBD" BorderThickness="1" CornerRadius="5" Background="White" Padding="0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Grid Name="HorarioGrid" ShowGridLines="False">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- Filas: Encabezado + 7 tramos de 2 horas -->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <!-- Encabezados -->
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
 
-                <!-- Encabezados de columna -->
-                <TextBlock Text="Hora" Grid.Row="0" Grid.Column="0" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Lunes" Grid.Row="0" Grid.Column="1" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Martes" Grid.Row="0" Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Miércoles" Grid.Row="0" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Jueves" Grid.Row="0" Grid.Column="4" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Viernes" Grid.Row="0" Grid.Column="5" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Sábado" Grid.Row="0" Grid.Column="6" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <!-- Líneas de la cuadrícula -->
+                    <Rectangle Grid.RowSpan="8" Grid.ColumnSpan="7" Stroke="#FFE0E0E0" StrokeThickness="1" Fill="Transparent"/>
 
-                <!-- Horarios -->
-                <TextBlock Text="07:00 AM&#x0a;09:00 AM" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock Text="09:00 AM&#x0a;11:00 AM" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock Text="11:00 AM&#x0a;01:00 PM" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock Text="01:00 PM&#x0a;03:00 PM" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock Text="03:00 PM&#x0a;05:00 PM" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock Text="05:00 PM&#x0a;07:00 PM" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock Text="07:00 PM&#x0a;09:00 PM" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <!-- Encabezados mejorados -->
+                    <Border Grid.Row="0" Grid.Column="0" Background="#FF8E44AD" BorderBrush="#FFBDBDBD" BorderThickness="0,0,1,1">
+                        <TextBlock Text="Hora" Foreground="White" FontWeight="Bold" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Border>
 
-            </Grid>
-        </ScrollViewer>
+                    <Border Grid.Row="0" Grid.Column="1" Background="#FF9B59B6" BorderBrush="#FFBDBDBD" BorderThickness="0,0,1,1">
+                        <TextBlock Text="Lunes" Foreground="White" FontWeight="Bold" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Border>
 
-        <!-- Botón Descargar -->
+                    <Border Grid.Row="0" Grid.Column="2" Background="#FF9B59B6" BorderBrush="#FFBDBDBD" BorderThickness="0,0,1,1">
+                        <TextBlock Text="Martes" Foreground="White" FontWeight="Bold" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="3" Background="#FF9B59B6" BorderBrush="#FFBDBDBD" BorderThickness="0,0,1,1">
+                        <TextBlock Text="Miércoles" Foreground="White" FontWeight="Bold" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="4" Background="#FF9B59B6" BorderBrush="#FFBDBDBD" BorderThickness="0,0,1,1">
+                        <TextBlock Text="Jueves" Foreground="White" FontWeight="Bold" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="5" Background="#FF9B59B6" BorderBrush="#FFBDBDBD" BorderThickness="0,0,1,1">
+                        <TextBlock Text="Viernes" Foreground="White" FontWeight="Bold" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="6" Background="#FF9B59B6" BorderBrush="#FFBDBDBD" BorderThickness="0,0,0,1">
+                        <TextBlock Text="Sábado" Foreground="White" FontWeight="Bold" 
+                               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+                    </Border>
+
+                    <!-- Horas con diseño mejorado -->
+                    <Border Grid.Row="1" Grid.Column="0" BorderBrush="#FFE0E0E0" BorderThickness="0,0,1,1">
+                        <TextBlock Text="07:00 - 09:00" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               TextAlignment="Center" Margin="5" FontSize="12"/>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="0" BorderBrush="#FFE0E0E0" BorderThickness="0,0,1,1">
+                        <TextBlock Text="09:00 - 11:00" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               TextAlignment="Center" Margin="5" FontSize="12"/>
+                    </Border>
+
+                    <Border Grid.Row="3" Grid.Column="0" BorderBrush="#FFE0E0E0" BorderThickness="0,0,1,1">
+                        <TextBlock Text="11:00 - 13:00" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               TextAlignment="Center" Margin="5" FontSize="12"/>
+                    </Border>
+
+                    <Border Grid.Row="4" Grid.Column="0" BorderBrush="#FFE0E0E0" BorderThickness="0,0,1,1">
+                        <TextBlock Text="13:00 - 15:00" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               TextAlignment="Center" Margin="5" FontSize="12"/>
+                    </Border>
+
+                    <Border Grid.Row="5" Grid.Column="0" BorderBrush="#FFE0E0E0" BorderThickness="0,0,1,1">
+                        <TextBlock Text="15:00 - 17:00" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               TextAlignment="Center" Margin="5" FontSize="12"/>
+                    </Border>
+
+                    <Border Grid.Row="6" Grid.Column="0" BorderBrush="#FFE0E0E0" BorderThickness="0,0,1,1">
+                        <TextBlock Text="17:00 - 19:00" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               TextAlignment="Center" Margin="5" FontSize="12"/>
+                    </Border>
+
+                    <Border Grid.Row="7" Grid.Column="0" BorderBrush="#FFE0E0E0" BorderThickness="0,0,1,0">
+                        <TextBlock Text="19:00 - 21:00" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               TextAlignment="Center" Margin="5" FontSize="12"/>
+                    </Border>
+
+                    <!-- Celdas de días (se llenarán dinámicamente) -->
+                    <Rectangle Grid.Row="1" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="6" 
+                           Fill="White" Stroke="#FFE0E0E0" StrokeThickness="1"/>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Botón Descargar mejorado -->
         <Button Grid.Row="2"
                 Content="Descargar"
                 HorizontalAlignment="Right"
-                Width="120"
+                Width="180"
+                Height="40"
                 Margin="0,20,0,0"
-                Click="BtnDescargar_Click"/>
+                FontSize="14"
+                FontWeight="Bold"
+                Foreground="White"
+                Click="BtnDescargar_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF8E44AD"/>
+                    <Setter Property="BorderBrush" Value="#FF6C3480"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" 
+                                        Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="4">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF9B59B6"/>
+                                        <Setter Property="BorderBrush" Value="#FF8E44AD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF6C3480"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!-- Botón de Regresar mejorado -->
+        <Button HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="10" 
+                Cursor="Hand"
+                Click="Regresar_Click">
+            <Button.Content>
+                <TextBlock Text="⬅️" 
+               FontSize="30" 
+               Foreground="White" 
+               FontFamily="Segoe UI Symbol"/>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF8E44AD"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF9B59B6"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Page>
 

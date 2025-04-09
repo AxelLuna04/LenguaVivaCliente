@@ -143,7 +143,7 @@
                     Foreground="White"
                     Cursor="Hand"
                     Click="BtnReciboPago_Click"
-                    IsEnabled="{Binding ElementName=LvCursos, Path=SelectedItems.Count}">
+                    IsEnabled="{Binding ElementName=LvCursos, Path=SelectedItems.Count}" Width="174" Height="33">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#FF27AE60"/>

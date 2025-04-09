@@ -577,16 +577,22 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         System.Threading.Tasks.Task<bool> EnviarCorreoReciboPagoAsync(int idInscripcion, string pdfPath);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumnoResponse")]
-        ServicioContrato.CursoAlumno[] ObtenerCursosDeAlumno(int idAlumno);
+        ServicioContrato.CursoAlumno[] ObtenerCursosDeAlumno(string correo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumnoResponse")]
-        System.Threading.Tasks.Task<ServicioContrato.CursoAlumno[]> ObtenerCursosDeAlumnoAsync(int idAlumno);
+        System.Threading.Tasks.Task<ServicioContrato.CursoAlumno[]> ObtenerCursosDeAlumnoAsync(string correo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse")]
-        int ObtenerIDInscripcionPorAlumnoYCurso(int idAlumno, int idCurso);
+        int ObtenerIDInscripcionPorAlumnoYCurso(string correo, int idCurso);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse")]
-        System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorAlumnoYCursoAsync(int idAlumno, int idCurso);
+        System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorAlumnoYCursoAsync(string correo, int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorIDAlumnoYCurso", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorIDAlumnoYCursoResponse")]
+        int ObtenerIDInscripcionPorIDAlumnoYCurso(int idAlumno, int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorIDAlumnoYCurso", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorIDAlumnoYCursoResponse")]
+        System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorIDAlumnoYCursoAsync(int idAlumno, int idCurso);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -672,20 +678,28 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
             return base.Channel.EnviarCorreoReciboPagoAsync(idInscripcion, pdfPath);
         }
         
-        public ServicioContrato.CursoAlumno[] ObtenerCursosDeAlumno(int idAlumno) {
-            return base.Channel.ObtenerCursosDeAlumno(idAlumno);
+        public ServicioContrato.CursoAlumno[] ObtenerCursosDeAlumno(string correo) {
+            return base.Channel.ObtenerCursosDeAlumno(correo);
         }
         
-        public System.Threading.Tasks.Task<ServicioContrato.CursoAlumno[]> ObtenerCursosDeAlumnoAsync(int idAlumno) {
-            return base.Channel.ObtenerCursosDeAlumnoAsync(idAlumno);
+        public System.Threading.Tasks.Task<ServicioContrato.CursoAlumno[]> ObtenerCursosDeAlumnoAsync(string correo) {
+            return base.Channel.ObtenerCursosDeAlumnoAsync(correo);
         }
         
-        public int ObtenerIDInscripcionPorAlumnoYCurso(int idAlumno, int idCurso) {
-            return base.Channel.ObtenerIDInscripcionPorAlumnoYCurso(idAlumno, idCurso);
+        public int ObtenerIDInscripcionPorAlumnoYCurso(string correo, int idCurso) {
+            return base.Channel.ObtenerIDInscripcionPorAlumnoYCurso(correo, idCurso);
         }
         
-        public System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorAlumnoYCursoAsync(int idAlumno, int idCurso) {
-            return base.Channel.ObtenerIDInscripcionPorAlumnoYCursoAsync(idAlumno, idCurso);
+        public System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorAlumnoYCursoAsync(string correo, int idCurso) {
+            return base.Channel.ObtenerIDInscripcionPorAlumnoYCursoAsync(correo, idCurso);
+        }
+        
+        public int ObtenerIDInscripcionPorIDAlumnoYCurso(int idAlumno, int idCurso) {
+            return base.Channel.ObtenerIDInscripcionPorIDAlumnoYCurso(idAlumno, idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorIDAlumnoYCursoAsync(int idAlumno, int idCurso) {
+            return base.Channel.ObtenerIDInscripcionPorIDAlumnoYCursoAsync(idAlumno, idCurso);
         }
     }
 }

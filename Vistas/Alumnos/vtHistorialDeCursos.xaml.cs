@@ -1,5 +1,6 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
 using LenguaVivaCliente.Utilidades;
+using LenguaVivaCliente.VentanasReutilizables;
 using LenguaVivaCliente.Vistas.Menu.MenuUsuarios;
 using ServicioContrato;
 using System;
@@ -25,20 +26,37 @@ namespace LenguaVivaCliente.Vistas.Alumnos
     /// </summary>
     public partial class vtHistorialDeCursos : Page
     {
-        private int idAlumno;
         private CursoAlumno[] cursosEncontrados;
         private CursoAlumno cursoSeleccionado;
         GestionAlumnosClient proxy = new GestionAlumnosClient();
-        public vtHistorialDeCursos(int idAlumno)
+        private string correo;
+        public vtHistorialDeCursos()
         {
             InitializeComponent();
-            this.idAlumno = idAlumno;
-            CargarHistorialCursos(idAlumno);
+            correo = ObtenerCorreo();
+            CargarHistorialCursos(correo);
         }
 
-        public void CargarHistorialCursos(int idAlumno)
+        public string ObtenerCorreo()
         {
-            cursosEncontrados = proxy.ObtenerCursosDeAlumno(idAlumno);
+            var ventanaCorreo = new vtSolicitarCorreo();
+            bool? resultado = ventanaCorreo.ShowDialog();
+
+            if (resultado == true)
+            {
+                string correo = ventanaCorreo.CorreoIngresado;
+                return correo;
+            }
+            else
+            {
+                NavigationService?.GoBack();
+                return null;
+            }
+        }
+
+        public void CargarHistorialCursos(string correo)
+        {
+            cursosEncontrados = proxy.ObtenerCursosDeAlumno(correo);
 
             if(cursosEncontrados.Length != 0)
             {
@@ -59,7 +77,7 @@ namespace LenguaVivaCliente.Vistas.Alumnos
 
         private void BtnReciboPago_Click(object sender, RoutedEventArgs e)
         {
-            var idInscripcion = proxy.ObtenerIDInscripcionPorAlumnoYCurso(idAlumno, cursoSeleccionado.idCurso);
+            var idInscripcion = proxy.ObtenerIDInscripcionPorAlumnoYCurso(correo, cursoSeleccionado.idCurso);
             vtReciboDePago reciboPago = new vtReciboDePago(idInscripcion);
             reciboPago.Show();
         }
