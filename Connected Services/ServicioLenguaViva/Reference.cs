@@ -215,6 +215,115 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="HorarioDTO", Namespace="http://schemas.datacontract.org/2004/07/ServicioContrato")]
+    [System.SerializableAttribute()]
+    public partial class HorarioDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string diaSemanaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan horaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan horaTerminoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idHorarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string diaSemana {
+            get {
+                return this.diaSemanaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.diaSemanaField, value) != true)) {
+                    this.diaSemanaField = value;
+                    this.RaisePropertyChanged("diaSemana");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan horaInicio {
+            get {
+                return this.horaInicioField;
+            }
+            set {
+                if ((this.horaInicioField.Equals(value) != true)) {
+                    this.horaInicioField = value;
+                    this.RaisePropertyChanged("horaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan horaTermino {
+            get {
+                return this.horaTerminoField;
+            }
+            set {
+                if ((this.horaTerminoField.Equals(value) != true)) {
+                    this.horaTerminoField = value;
+                    this.RaisePropertyChanged("horaTermino");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCurso {
+            get {
+                return this.idCursoField;
+            }
+            set {
+                if ((this.idCursoField.Equals(value) != true)) {
+                    this.idCursoField = value;
+                    this.RaisePropertyChanged("idCurso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idHorario {
+            get {
+                return this.idHorarioField;
+            }
+            set {
+                if ((this.idHorarioField.Equals(value) != true)) {
+                    this.idHorarioField = value;
+                    this.RaisePropertyChanged("idHorario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionUsuarios")]
     public interface IGestionUsuarios {
@@ -649,6 +758,36 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ModificarCurso", ReplyAction="http://tempuri.org/IGestionCursos/ModificarCursoResponse")]
         System.Threading.Tasks.Task<bool> ModificarCursoAsync(ServicioContrato.CursoDTO cursoDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/EliminarCurso", ReplyAction="http://tempuri.org/IGestionCursos/EliminarCursoResponse")]
+        bool EliminarCurso(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/EliminarCurso", ReplyAction="http://tempuri.org/IGestionCursos/EliminarCursoResponse")]
+        System.Threading.Tasks.Task<bool> EliminarCursoAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos", ReplyAction="http://tempuri.org/IGestionCursos/TieneAlumnosInscritosResponse")]
+        bool TieneAlumnosInscritos(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos", ReplyAction="http://tempuri.org/IGestionCursos/TieneAlumnosInscritosResponse")]
+        System.Threading.Tasks.Task<bool> TieneAlumnosInscritosAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/AsignarHorario", ReplyAction="http://tempuri.org/IGestionCursos/AsignarHorarioResponse")]
+        bool AsignarHorario(LenguaVivaCliente.ServicioLenguaViva.HorarioDTO horario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/AsignarHorario", ReplyAction="http://tempuri.org/IGestionCursos/AsignarHorarioResponse")]
+        System.Threading.Tasks.Task<bool> AsignarHorarioAsync(LenguaVivaCliente.ServicioLenguaViva.HorarioDTO horario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCurso", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCursoResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.HorarioDTO[] ObtenerHorariosPorCurso(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCurso", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCursoResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.HorarioDTO[]> ObtenerHorariosPorCursoAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/SubirListaAlumnos", ReplyAction="http://tempuri.org/IGestionCursos/SubirListaAlumnosResponse")]
+        bool SubirListaAlumnos(int idCurso, byte[] archivo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/SubirListaAlumnos", ReplyAction="http://tempuri.org/IGestionCursos/SubirListaAlumnosResponse")]
+        System.Threading.Tasks.Task<bool> SubirListaAlumnosAsync(int idCurso, byte[] archivo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -764,6 +903,135 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> ModificarCursoAsync(ServicioContrato.CursoDTO cursoDTO) {
             return base.Channel.ModificarCursoAsync(cursoDTO);
+        }
+        
+        public bool EliminarCurso(int idCurso) {
+            return base.Channel.EliminarCurso(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarCursoAsync(int idCurso) {
+            return base.Channel.EliminarCursoAsync(idCurso);
+        }
+        
+        public bool TieneAlumnosInscritos(int idCurso) {
+            return base.Channel.TieneAlumnosInscritos(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TieneAlumnosInscritosAsync(int idCurso) {
+            return base.Channel.TieneAlumnosInscritosAsync(idCurso);
+        }
+        
+        public bool AsignarHorario(LenguaVivaCliente.ServicioLenguaViva.HorarioDTO horario) {
+            return base.Channel.AsignarHorario(horario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AsignarHorarioAsync(LenguaVivaCliente.ServicioLenguaViva.HorarioDTO horario) {
+            return base.Channel.AsignarHorarioAsync(horario);
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.HorarioDTO[] ObtenerHorariosPorCurso(int idCurso) {
+            return base.Channel.ObtenerHorariosPorCurso(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.HorarioDTO[]> ObtenerHorariosPorCursoAsync(int idCurso) {
+            return base.Channel.ObtenerHorariosPorCursoAsync(idCurso);
+        }
+        
+        public bool SubirListaAlumnos(int idCurso, byte[] archivo) {
+            return base.Channel.SubirListaAlumnos(idCurso, archivo);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SubirListaAlumnosAsync(int idCurso, byte[] archivo) {
+            return base.Channel.SubirListaAlumnosAsync(idCurso, archivo);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionAlumnos")]
+    public interface IGestionAlumnos {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/RegistrarInscripcion", ReplyAction="http://tempuri.org/IGestionAlumnos/RegistrarInscripcionResponse")]
+        bool RegistrarInscripcion(ServicioContrato.InscripcionDTO inscripcionDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/RegistrarInscripcion", ReplyAction="http://tempuri.org/IGestionAlumnos/RegistrarInscripcionResponse")]
+        System.Threading.Tasks.Task<bool> RegistrarInscripcionAsync(ServicioContrato.InscripcionDTO inscripcionDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/BuscarAlumnos", ReplyAction="http://tempuri.org/IGestionAlumnos/BuscarAlumnosResponse")]
+        ServicioContrato.AlumnoDTO[] BuscarAlumnos(string criterioBusqueda);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/BuscarAlumnos", ReplyAction="http://tempuri.org/IGestionAlumnos/BuscarAlumnosResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO[]> BuscarAlumnosAsync(string criterioBusqueda);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripciones", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripcionesResponse")]
+        int ObtenerNumInscripciones(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripciones", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripcionesResponse")]
+        System.Threading.Tasks.Task<int> ObtenerNumInscripcionesAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/InscripcionExistente", ReplyAction="http://tempuri.org/IGestionAlumnos/InscripcionExistenteResponse")]
+        bool InscripcionExistente(int idCurso, int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/InscripcionExistente", ReplyAction="http://tempuri.org/IGestionAlumnos/InscripcionExistenteResponse")]
+        System.Threading.Tasks.Task<bool> InscripcionExistenteAsync(int idCurso, int idAlumno);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGestionAlumnosChannel : LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GestionAlumnosClient : System.ServiceModel.ClientBase<LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos>, LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos {
+        
+        public GestionAlumnosClient() {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionAlumnosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool RegistrarInscripcion(ServicioContrato.InscripcionDTO inscripcionDTO) {
+            return base.Channel.RegistrarInscripcion(inscripcionDTO);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarInscripcionAsync(ServicioContrato.InscripcionDTO inscripcionDTO) {
+            return base.Channel.RegistrarInscripcionAsync(inscripcionDTO);
+        }
+        
+        public ServicioContrato.AlumnoDTO[] BuscarAlumnos(string criterioBusqueda) {
+            return base.Channel.BuscarAlumnos(criterioBusqueda);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO[]> BuscarAlumnosAsync(string criterioBusqueda) {
+            return base.Channel.BuscarAlumnosAsync(criterioBusqueda);
+        }
+        
+        public int ObtenerNumInscripciones(int idCurso) {
+            return base.Channel.ObtenerNumInscripciones(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerNumInscripcionesAsync(int idCurso) {
+            return base.Channel.ObtenerNumInscripcionesAsync(idCurso);
+        }
+        
+        public bool InscripcionExistente(int idCurso, int idAlumno) {
+            return base.Channel.InscripcionExistente(idCurso, idAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InscripcionExistenteAsync(int idCurso, int idAlumno) {
+            return base.Channel.InscripcionExistenteAsync(idCurso, idAlumno);
         }
     }
 }

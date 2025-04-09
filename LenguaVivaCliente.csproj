@@ -132,6 +132,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\VentanasEmergentes.cs" />
+    <Compile Include="VentanasReutilizables\PlantillaVentanaConfirmacion.xaml.cs">
+      <DependentUpon>PlantillaVentanaConfirmacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanasReutilizables\vtVentanaEmergente.xaml.cs">
       <DependentUpon>vtVentanaEmergente.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,12 @@
     </Compile>
     <Compile Include="Vistas\Alumnos\vtRegistrarPago.xaml.cs">
       <DependentUpon>vtRegistrarPago.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Alumnos\vtInscribirAlumno.xaml.cs">
+      <DependentUpon>vtInscribirAlumno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cursos\vtAsignarHorario.xaml.cs">
+      <DependentUpon>vtAsignarHorario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Cursos\vtBuscarCurso.xaml.cs">
       <DependentUpon>vtBuscarCurso.xaml</DependentUpon>
@@ -180,6 +189,9 @@
     <Compile Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml.cs">
       <DependentUpon>vtUsuariosEncontrados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Menu\SubMenuAlumnos.xaml.cs">
+      <DependentUpon>SubMenuAlumnos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Menu\SubMenuCursos.xaml.cs">
       <DependentUpon>SubMenuCursos.xaml</DependentUpon>
     </Compile>
@@ -213,6 +225,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VentanasReutilizables\PlantillaVentanaConfirmacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanasReutilizables\vtVentanaEmergente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,6 +242,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Alumnos\vtRegistrarPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Alumnos\vtInscribirAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtAsignarHorario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\SubMenuAlumnos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -333,6 +361,9 @@
     <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.CursoHorario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.HorarioDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServicioLenguaViva\service.wsdl" />
     <None Include="Connected Services\ServicioLenguaViva\service.xsd">
       <SubType>Designer</SubType>
@@ -345,6 +376,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ServicioContrato.AdministradorDTO.datasource" />
+    <None Include="Properties\DataSources\ServicioContrato.AlumnoDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.AlumnoDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.CursoDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.IdiomaDTO.datasource" />

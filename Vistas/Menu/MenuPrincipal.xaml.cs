@@ -58,7 +58,8 @@ namespace LenguaVivaCliente.Vistas.Menu
 
         private void Click_MenuAlumnos(object sender, RoutedEventArgs e)
         {
-
+            Vistas.Menu.SubMenuAlumnos menuAlumnos = new Vistas.Menu.SubMenuAlumnos(sesionUsuario);
+            NavigationService.Navigate(menuAlumnos);
         }
     }
 }

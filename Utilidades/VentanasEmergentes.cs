@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace LenguaVivaCliente.Utilidades
 {
@@ -63,5 +64,34 @@ namespace LenguaVivaCliente.Utilidades
             ventanaEmergente.Show();
         }
 
+        public static bool CrearVentanaConfirmacion(string titulo, string descripcion)
+        {
+            Window ventana = new Window
+            {
+                Title = "",
+                Height = 250,
+                Width = 600,
+                ResizeMode = ResizeMode.NoResize,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                WindowStyle = WindowStyle.None,
+                AllowsTransparency = true,
+                Background = Brushes.Transparent,
+                Owner = Application.Current.MainWindow
+            };
+
+
+            PlantillaVentanaConfirmacion control = new PlantillaVentanaConfirmacion(titulo, descripcion);
+             
+            bool? resultado = null;
+             
+            control.btnAceptar.Click += (s, e) => { resultado = true; ventana.Close(); };
+            control.btnCancelar.Click += (s, e) => { resultado = false; ventana.Close(); };
+             
+            ventana.Content = control;
+             
+            ventana.ShowDialog();
+             
+            return resultado == true;
+        }
     }
 }
