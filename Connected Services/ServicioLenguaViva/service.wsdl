@@ -32,6 +32,22 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGestionAlumnos_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000">
+          </wsrm:InactivityTimeout>
+          <wsrm:AcknowledgementInterval Milliseconds="200">
+          </wsrm:AcknowledgementInterval>
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
@@ -160,6 +176,30 @@
   <wsdl:message name="IGestionCursos_TieneAlumnosInscritos_OutputMessage">
     <wsdl:part name="parameters" element="tns:TieneAlumnosInscritosResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_RegistrarInscripcion_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarInscripcion" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_RegistrarInscripcion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarInscripcionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_BuscarAlumnos_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAlumnos" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_BuscarAlumnos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAlumnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerNumInscripciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumInscripciones" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerNumInscripciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumInscripcionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_InscripcionExistente_InputMessage">
+    <wsdl:part name="parameters" element="tns:InscripcionExistente" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_InscripcionExistente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InscripcionExistenteResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestionUsuarios">
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/IniciarSesion" message="tns:IGestionUsuarios_IniciarSesion_InputMessage" />
@@ -242,6 +282,24 @@
     <wsdl:operation name="TieneAlumnosInscritos">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos" message="tns:IGestionCursos_TieneAlumnosInscritos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritosResponse" message="tns:IGestionCursos_TieneAlumnosInscritos_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGestionAlumnos">
+    <wsdl:operation name="RegistrarInscripcion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/RegistrarInscripcion" message="tns:IGestionAlumnos_RegistrarInscripcion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/RegistrarInscripcionResponse" message="tns:IGestionAlumnos_RegistrarInscripcion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAlumnos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/BuscarAlumnos" message="tns:IGestionAlumnos_BuscarAlumnos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/BuscarAlumnosResponse" message="tns:IGestionAlumnos_BuscarAlumnos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumInscripciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripciones" message="tns:IGestionAlumnos_ObtenerNumInscripciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripcionesResponse" message="tns:IGestionAlumnos_ObtenerNumInscripciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InscripcionExistente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/InscripcionExistente" message="tns:IGestionAlumnos_InscripcionExistente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/InscripcionExistenteResponse" message="tns:IGestionAlumnos_InscripcionExistente_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGestionUsuarios" type="tns:IGestionUsuarios">
@@ -434,6 +492,47 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGestionAlumnos" type="tns:IGestionAlumnos">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGestionAlumnos_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="RegistrarInscripcion">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/RegistrarInscripcion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAlumnos">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/BuscarAlumnos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumInscripciones">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InscripcionExistente">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/InscripcionExistente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="ImplementacionServicio">
     <wsdl:port name="NetTcpBinding_IGestionUsuarios" binding="tns:NetTcpBinding_IGestionUsuarios">
       <soap12:address location="net.tcp://localhost:8000/ServiceImplementation/Service" />
@@ -445,6 +544,12 @@
       <soap12:address location="net.tcp://localhost:8000/ServiceImplementation/ServicioGestionCursos" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8000/ServiceImplementation/ServicioGestionCursos</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGestionAlumnos" binding="tns:NetTcpBinding_IGestionAlumnos">
+      <soap12:address location="net.tcp://localhost:8000/ServiceImplementation/ServicioGestionAlumnos" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8000/ServiceImplementation/ServicioGestionAlumnos</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

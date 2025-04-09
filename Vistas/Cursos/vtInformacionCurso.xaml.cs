@@ -28,8 +28,8 @@ namespace LenguaVivaCliente.Vistas.Cursos
         public vtInformacionCurso(CursoDTO curso, int tipoUsuario)
         {
             InitializeComponent();
-
-            
+            Application.Current.MainWindow.Width = this.MinWidth;
+            Application.Current.MainWindow.Height = this.MinHeight; 
             this.curso = curso;
             this.Loaded += Page_Loaded;
             this.tipoUsuario = tipoUsuario;

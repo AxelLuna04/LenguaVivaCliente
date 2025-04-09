@@ -127,7 +127,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding nombre}" />
                                     <TextBlock Text=" " />
-                                    <TextBlock Text="{Binding apellidos}" />
+                                    <TextBlock Text="{Binding fechaInicio}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -209,7 +209,7 @@
         </StackPanel>
 
         <!-- Botones -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,45">
             <!-- Botón Volver -->
             <Button Content="Volver"
                     Click="Click_Volver"

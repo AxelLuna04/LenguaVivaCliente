@@ -74,6 +74,9 @@
     <Compile Include="VentanasReutilizables\vtVentanaEmergente.xaml.cs">
       <DependentUpon>vtVentanaEmergente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Alumnos\vtInscribirAlumno.xaml.cs">
+      <DependentUpon>vtInscribirAlumno.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Cursos\vtBuscarCurso.xaml.cs">
       <DependentUpon>vtBuscarCurso.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,9 @@
     </Compile>
     <Compile Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml.cs">
       <DependentUpon>vtUsuariosEncontrados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Menu\SubMenuAlumnos.xaml.cs">
+      <DependentUpon>SubMenuAlumnos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Menu\SubMenuCursos.xaml.cs">
       <DependentUpon>SubMenuCursos.xaml</DependentUpon>
@@ -139,6 +145,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vistas\Alumnos\vtInscribirAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\Cursos\vtBuscarCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Menu\MenuUsuarios\vtUsuariosEncontrados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\SubMenuAlumnos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,6 +245,7 @@
     <None Include="Connected Services\ServicioLenguaViva\ServicioContrato.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\ServicioContrato.AlumnoDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.CursoDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.IdiomaDTO.datasource" />
     <None Include="Properties\DataSources\ServicioContrato.ProfesorDTO.datasource" />

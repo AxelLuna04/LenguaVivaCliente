@@ -119,4 +119,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfProfesorDTO" nillable="true" type="tns:ArrayOfProfesorDTO" />
+  <xs:complexType name="InscripcionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fechaInscripcion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="idInscripcion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InscripcionDTO" nillable="true" type="tns:InscripcionDTO" />
+  <xs:complexType name="ArrayOfAlumnoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlumnoDTO" nillable="true" type="tns:AlumnoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlumnoDTO" nillable="true" type="tns:ArrayOfAlumnoDTO" />
 </xs:schema>

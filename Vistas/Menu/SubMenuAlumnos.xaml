@@ -1,0 +1,121 @@
+﻿<Page x:Class="LenguaVivaCliente.Vistas.Menu.SubMenuAlumnos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Menu"
+      mc:Ignorable="d" 
+      Title="SubMenuAlumnos"
+
+    Background="#FF1E1E2E">
+
+    <Grid>
+        <!-- Encabezado del submenú -->
+        <Border Background="#FF8E44AD" Padding="20" VerticalAlignment="Top">
+            <TextBlock Text="Menú de Alumos" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#FFEDEDED" 
+                       FontFamily="Pacifico, cursive"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"/>
+        </Border>
+
+        <!-- Contenedor de botones del submenú -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+            <!-- Botón Registrar Usuarios -->
+            <Border Name="borderBotones"  CornerRadius="20" Background="#FFD7BDE2" Padding="10" Margin="0,10"
+                    BorderBrush="#FF9B59B6" BorderThickness="2">
+                <Button Content="Inscribir Alumno"
+                        Name="btnInscribirAlumno"
+                        Click="Click_InscribirAlumno"
+                        Background="Transparent" 
+                        Foreground="#FF2D3436" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        FontFamily="Segoe UI, sans-serif" 
+                        Padding="20,10" 
+                        BorderThickness="0" 
+                        Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="20"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="#FF2D3436"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFC39BD3"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
+
+        </StackPanel>
+
+        <!-- Botón de Regresar mejorado -->
+        <Button HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="10" 
+                Cursor="Hand"
+                Click="Regresar_Click">
+            <Button.Content>
+                <TextBlock Text="⬅️" 
+                           FontSize="30" 
+                           Foreground="White" 
+                           FontFamily="Segoe UI Symbol"/>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FF8E44AD"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                                        CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF9B59B6"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Page>

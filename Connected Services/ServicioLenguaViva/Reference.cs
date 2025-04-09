@@ -356,4 +356,93 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
             return base.Channel.TieneAlumnosInscritosAsync(idCurso);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionAlumnos")]
+    public interface IGestionAlumnos {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/RegistrarInscripcion", ReplyAction="http://tempuri.org/IGestionAlumnos/RegistrarInscripcionResponse")]
+        bool RegistrarInscripcion(ServicioContrato.InscripcionDTO inscripcionDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/RegistrarInscripcion", ReplyAction="http://tempuri.org/IGestionAlumnos/RegistrarInscripcionResponse")]
+        System.Threading.Tasks.Task<bool> RegistrarInscripcionAsync(ServicioContrato.InscripcionDTO inscripcionDTO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/BuscarAlumnos", ReplyAction="http://tempuri.org/IGestionAlumnos/BuscarAlumnosResponse")]
+        ServicioContrato.AlumnoDTO[] BuscarAlumnos(string criterioBusqueda);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/BuscarAlumnos", ReplyAction="http://tempuri.org/IGestionAlumnos/BuscarAlumnosResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO[]> BuscarAlumnosAsync(string criterioBusqueda);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripciones", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripcionesResponse")]
+        int ObtenerNumInscripciones(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripciones", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerNumInscripcionesResponse")]
+        System.Threading.Tasks.Task<int> ObtenerNumInscripcionesAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/InscripcionExistente", ReplyAction="http://tempuri.org/IGestionAlumnos/InscripcionExistenteResponse")]
+        bool InscripcionExistente(int idCurso, int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/InscripcionExistente", ReplyAction="http://tempuri.org/IGestionAlumnos/InscripcionExistenteResponse")]
+        System.Threading.Tasks.Task<bool> InscripcionExistenteAsync(int idCurso, int idAlumno);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGestionAlumnosChannel : LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GestionAlumnosClient : System.ServiceModel.ClientBase<LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos>, LenguaVivaCliente.ServicioLenguaViva.IGestionAlumnos {
+        
+        public GestionAlumnosClient() {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionAlumnosClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionAlumnosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool RegistrarInscripcion(ServicioContrato.InscripcionDTO inscripcionDTO) {
+            return base.Channel.RegistrarInscripcion(inscripcionDTO);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrarInscripcionAsync(ServicioContrato.InscripcionDTO inscripcionDTO) {
+            return base.Channel.RegistrarInscripcionAsync(inscripcionDTO);
+        }
+        
+        public ServicioContrato.AlumnoDTO[] BuscarAlumnos(string criterioBusqueda) {
+            return base.Channel.BuscarAlumnos(criterioBusqueda);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.AlumnoDTO[]> BuscarAlumnosAsync(string criterioBusqueda) {
+            return base.Channel.BuscarAlumnosAsync(criterioBusqueda);
+        }
+        
+        public int ObtenerNumInscripciones(int idCurso) {
+            return base.Channel.ObtenerNumInscripciones(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerNumInscripcionesAsync(int idCurso) {
+            return base.Channel.ObtenerNumInscripcionesAsync(idCurso);
+        }
+        
+        public bool InscripcionExistente(int idCurso, int idAlumno) {
+            return base.Channel.InscripcionExistente(idCurso, idAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InscripcionExistenteAsync(int idCurso, int idAlumno) {
+            return base.Channel.InscripcionExistenteAsync(idCurso, idAlumno);
+        }
+    }
 }
