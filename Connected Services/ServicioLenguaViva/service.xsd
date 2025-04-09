@@ -188,79 +188,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegistrarPago">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="cantidadPagada" type="xs:int" />
-        <xs:element minOccurs="0" name="idInscripcion" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegistrarPagoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RegistrarPagoResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerReciboPago">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idInscripcion" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerReciboPagoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerReciboPagoResult" nillable="true" type="q17:ReciboPago" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EnviarCorreoReciboPago">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idInscripcion" type="xs:int" />
-        <xs:element minOccurs="0" name="pdfPath" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EnviarCorreoReciboPagoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="EnviarCorreoReciboPagoResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerCursosDeAlumno">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerCursosDeAlumnoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosDeAlumnoResult" nillable="true" type="q16:ArrayOfCursoAlumno" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerIDInscripcionPorAlumnoYCurso">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurso" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerIDInscripcionPorAlumnoYCursoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ObtenerIDInscripcionPorAlumnoYCursoResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ObtenerHorariosCursos">
     <xs:complexType>
       <xs:sequence>
@@ -458,7 +385,7 @@
   <xs:element name="AsignarHorario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="horario" nillable="true" type="q21:HorarioDTO" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="horario" nillable="true" type="q29:HorarioDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -479,7 +406,7 @@
   <xs:element name="ObtenerHorariosPorCursoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerHorariosPorCursoResult" nillable="true" type="q22:ArrayOfHorarioDTO" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerHorariosPorCursoResult" nillable="true" type="q30:ArrayOfHorarioDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -501,7 +428,7 @@
   <xs:element name="RegistrarInscripcion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="inscripcionDTO" nillable="true" type="q23:InscripcionDTO" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="inscripcionDTO" nillable="true" type="q31:InscripcionDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -522,7 +449,7 @@
   <xs:element name="BuscarAlumnosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="BuscarAlumnosResult" nillable="true" type="q24:ArrayOfAlumnoDTO" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="BuscarAlumnosResult" nillable="true" type="q32:ArrayOfAlumnoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -552,6 +479,79 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="InscripcionExistenteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cantidadPagada" type="xs:int" />
+        <xs:element minOccurs="0" name="idInscripcion" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarPagoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerReciboPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idInscripcion" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerReciboPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerReciboPagoResult" nillable="true" type="q33:ReciboPago" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarCorreoReciboPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idInscripcion" type="xs:int" />
+        <xs:element minOccurs="0" name="pdfPath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarCorreoReciboPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EnviarCorreoReciboPagoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerCursosDeAlumno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerCursosDeAlumnoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerCursosDeAlumnoResult" nillable="true" type="q34:ArrayOfCursoAlumno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIDInscripcionPorAlumnoYCurso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAlumno" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIDInscripcionPorAlumnoYCursoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerIDInscripcionPorAlumnoYCursoResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

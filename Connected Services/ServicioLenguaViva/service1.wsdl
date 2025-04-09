@@ -16,22 +16,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IGestionAlumnos_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
-          <wsrm:InactivityTimeout Milliseconds="600000">
-          </wsrm:InactivityTimeout>
-          <wsrm:AcknowledgementInterval Milliseconds="200">
-          </wsrm:AcknowledgementInterval>
-        </wsrm:RMAssertion>
-        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
-        </msb:BinaryEncoding>
-        <wsaw:UsingAddressing>
-        </wsaw:UsingAddressing>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IGestionReportes_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -166,36 +150,6 @@
   <wsdl:message name="IGestionUsuarios_ModificarAlumno_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarAlumnoResponse" />
   </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_RegistrarPago_InputMessage">
-    <wsdl:part name="parameters" element="tns:RegistrarPago" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_RegistrarPago_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegistrarPagoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_ObtenerReciboPago_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerReciboPago" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_ObtenerReciboPago_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerReciboPagoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_EnviarCorreoReciboPago_InputMessage">
-    <wsdl:part name="parameters" element="tns:EnviarCorreoReciboPago" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_EnviarCorreoReciboPago_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EnviarCorreoReciboPagoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_ObtenerCursosDeAlumno_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCursosDeAlumno" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_ObtenerCursosDeAlumno_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerCursosDeAlumnoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorAlumnoYCurso" />
-  </wsdl:message>
-  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorAlumnoYCursoResponse" />
-  </wsdl:message>
   <wsdl:message name="IGestionReportes_ObtenerHorariosCursos_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerHorariosCursos" />
   </wsdl:message>
@@ -322,6 +276,36 @@
   <wsdl:message name="IGestionAlumnos_InscripcionExistente_OutputMessage">
     <wsdl:part name="parameters" element="tns:InscripcionExistenteResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_RegistrarPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarPago" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_RegistrarPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerReciboPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerReciboPago" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerReciboPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerReciboPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_EnviarCorreoReciboPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarCorreoReciboPago" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_EnviarCorreoReciboPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarCorreoReciboPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerCursosDeAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursosDeAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerCursosDeAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursosDeAlumnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorAlumnoYCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorAlumnoYCursoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestionUsuarios">
     <wsdl:operation name="IniciarSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/IniciarSesion" message="tns:IGestionUsuarios_IniciarSesion_InputMessage" />
@@ -374,28 +358,6 @@
     <wsdl:operation name="ModificarAlumno">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionUsuarios/ModificarAlumno" message="tns:IGestionUsuarios_ModificarAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionUsuarios/ModificarAlumnoResponse" message="tns:IGestionUsuarios_ModificarAlumno_OutputMessage" />
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:portType name="IGestionAlumnos">
-    <wsdl:operation name="RegistrarPago">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/RegistrarPago" message="tns:IGestionAlumnos_RegistrarPago_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/RegistrarPagoResponse" message="tns:IGestionAlumnos_RegistrarPago_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerReciboPago">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerReciboPago" message="tns:IGestionAlumnos_ObtenerReciboPago_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerReciboPagoResponse" message="tns:IGestionAlumnos_ObtenerReciboPago_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EnviarCorreoReciboPago">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago" message="tns:IGestionAlumnos_EnviarCorreoReciboPago_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPagoResponse" message="tns:IGestionAlumnos_EnviarCorreoReciboPago_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerCursosDeAlumno">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno" message="tns:IGestionAlumnos_ObtenerCursosDeAlumno_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumnoResponse" message="tns:IGestionAlumnos_ObtenerCursosDeAlumno_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionReportes">
@@ -486,6 +448,26 @@
     <wsdl:operation name="InscripcionExistente">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/InscripcionExistente" message="tns:IGestionAlumnos_InscripcionExistente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/InscripcionExistenteResponse" message="tns:IGestionAlumnos_InscripcionExistente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/RegistrarPago" message="tns:IGestionAlumnos_RegistrarPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/RegistrarPagoResponse" message="tns:IGestionAlumnos_RegistrarPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerReciboPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerReciboPago" message="tns:IGestionAlumnos_ObtenerReciboPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerReciboPagoResponse" message="tns:IGestionAlumnos_ObtenerReciboPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreoReciboPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago" message="tns:IGestionAlumnos_EnviarCorreoReciboPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPagoResponse" message="tns:IGestionAlumnos_EnviarCorreoReciboPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCursosDeAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno" message="tns:IGestionAlumnos_ObtenerCursosDeAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumnoResponse" message="tns:IGestionAlumnos_ObtenerCursosDeAlumno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGestionUsuarios" type="tns:IGestionUsuarios">
@@ -602,56 +584,6 @@
     </wsdl:operation>
     <wsdl:operation name="ModificarAlumno">
       <soap12:operation soapAction="http://tempuri.org/IGestionUsuarios/ModificarAlumno" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:binding name="NetTcpBinding_IGestionAlumnos" type="tns:IGestionAlumnos">
-    <wsp:PolicyReference URI="#NetTcpBinding_IGestionAlumnos_policy">
-    </wsp:PolicyReference>
-    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="RegistrarPago">
-      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/RegistrarPago" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerReciboPago">
-      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerReciboPago" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EnviarCorreoReciboPago">
-      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerCursosDeAlumno">
-      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
-      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -863,15 +795,54 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RegistrarPago">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/RegistrarPago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerReciboPago">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerReciboPago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreoReciboPago">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCursosDeAlumno">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ImplementacionServicio">
     <wsdl:port name="NetTcpBinding_IGestionUsuarios" binding="tns:NetTcpBinding_IGestionUsuarios">
-      <soap12:address location="net.tcp://localhost:8000/ServiceImplementation/Service" />
-      <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8000/ServiceImplementation/Service</wsa10:Address>
-      </wsa10:EndpointReference>
-    </wsdl:port>
-    <wsdl:port name="NetTcpBinding_IGestionAlumnos" binding="tns:NetTcpBinding_IGestionAlumnos">
       <soap12:address location="net.tcp://localhost:8000/ServiceImplementation/Service" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8000/ServiceImplementation/Service</wsa10:Address>

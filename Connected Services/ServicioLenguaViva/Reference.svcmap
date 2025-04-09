@@ -22,10 +22,10 @@
     <MetadataSource Address="net.tcp://localhost:8000/ServiceImplementation/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="1a18c883-c8c4-4292-b644-8e23004882ef" SourceId="1" SourceUrl="net.tcp://localhost:8000/ServiceImplementation/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="3db833a9-ba7e-4208-8ad2-fbfdaa79aec7" SourceId="1" SourceUrl="net.tcp://localhost:8000/ServiceImplementation/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="5cf6f12c-9d0f-4cee-bb77-7baa8d22750c" SourceId="1" SourceUrl="net.tcp://localhost:8000/ServiceImplementation/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4fd2372a-6d56-4a16-b6b1-3593731a888b" SourceId="1" SourceUrl="net.tcp://localhost:8000/ServiceImplementation/mex" />
-    <MetadataFile FileName="ServicioContrato.xsd" MetadataType="Schema" ID="90f2dfe1-66b9-4340-8581-0fc123427122" SourceId="1" SourceUrl="net.tcp://localhost:8000/ServiceImplementation/mex" />
+    <MetadataFile FileName="ServicioContrato1.xsd" MetadataType="Schema" ID="5f2b6da5-2c09-44de-af12-437cda2a7884" SourceId="1" SourceUrl="net.tcp://localhost:8000/ServiceImplementation/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="742fc9c6-b359-4f05-b9df-513e1e3fc7e8" SourceId="1" SourceUrl="net.tcp://localhost:8000/ServiceImplementation/mex" />
   </Metadata>
   <Extensions>

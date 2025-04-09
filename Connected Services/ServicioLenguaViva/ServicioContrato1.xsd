@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicioContrato" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicioContrato" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicioContrato" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicioContrato" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="SesionUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
@@ -95,31 +96,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UsuarioDTO" nillable="true" type="tns:UsuarioDTO" />
-  <xs:complexType name="ReciboPago">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="alumno" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="cantidadPagada" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="curso" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaPago" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ReciboPago" nillable="true" type="tns:ReciboPago" />
-  <xs:complexType name="ArrayOfCursoAlumno">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoAlumno" nillable="true" type="tns:CursoAlumno" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCursoAlumno" nillable="true" type="tns:ArrayOfCursoAlumno" />
-  <xs:complexType name="CursoAlumno">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fechaInicio" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="fechaTermino" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
-      <xs:element minOccurs="0" name="nombreCurso" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="nombreProfesor" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CursoAlumno" nillable="true" type="tns:CursoAlumno" />
   <xs:complexType name="ArrayOfCursoHorario">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoHorario" nillable="true" type="tns:CursoHorario" />
@@ -194,4 +170,29 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAlumnoDTO" nillable="true" type="tns:ArrayOfAlumnoDTO" />
+  <xs:complexType name="ReciboPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alumno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cantidadPagada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="curso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaPago" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReciboPago" nillable="true" type="tns:ReciboPago" />
+  <xs:complexType name="ArrayOfCursoAlumno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoAlumno" nillable="true" type="tns:CursoAlumno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCursoAlumno" nillable="true" type="tns:ArrayOfCursoAlumno" />
+  <xs:complexType name="CursoAlumno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fechaInicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaTermino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreCurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreProfesor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CursoAlumno" nillable="true" type="tns:CursoAlumno" />
 </xs:schema>

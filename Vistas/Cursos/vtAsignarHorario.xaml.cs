@@ -1,5 +1,6 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
 using LenguaVivaCliente.Utilidades;
+using ServicioContrato;
 using System;
 using System.Collections.Generic;
 using System.Linq;

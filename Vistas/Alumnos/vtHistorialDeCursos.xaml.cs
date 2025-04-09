@@ -1,7 +1,7 @@
 ﻿using LenguaVivaCliente.ServicioLenguaViva;
 using LenguaVivaCliente.Utilidades;
 using LenguaVivaCliente.Vistas.Menu.MenuUsuarios;
-//using ServicioContrato;
+using ServicioContrato;
 using System;
 using System.Collections.Generic;
 using System.Linq;
