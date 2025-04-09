@@ -32,6 +32,22 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGestionReportes_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000">
+          </wsrm:InactivityTimeout>
+          <wsrm:AcknowledgementInterval Milliseconds="200">
+          </wsrm:AcknowledgementInterval>
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IGestionCursos_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -151,6 +167,24 @@
   </wsdl:message>
   <wsdl:message name="IGestionAlumnos_EnviarCorreoReciboPago_OutputMessage">
     <wsdl:part name="parameters" element="tns:EnviarCorreoReciboPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerCursosDeAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursosDeAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerCursosDeAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCursosDeAlumnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorAlumnoYCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIDInscripcionPorAlumnoYCursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionReportes_ObtenerHorariosCursos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerHorariosCursos" />
+  </wsdl:message>
+  <wsdl:message name="IGestionReportes_ObtenerHorariosCursos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerHorariosCursosResponse" />
   </wsdl:message>
   <wsdl:message name="IGestionCursos_ObtenerCursosPorNombre_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCursosPorNombre" />
@@ -284,6 +318,20 @@
     <wsdl:operation name="EnviarCorreoReciboPago">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago" message="tns:IGestionAlumnos_EnviarCorreoReciboPago_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPagoResponse" message="tns:IGestionAlumnos_EnviarCorreoReciboPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCursosDeAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno" message="tns:IGestionAlumnos_ObtenerCursosDeAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumnoResponse" message="tns:IGestionAlumnos_ObtenerCursosDeAlumno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse" message="tns:IGestionAlumnos_ObtenerIDInscripcionPorAlumnoYCurso_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGestionReportes">
+    <wsdl:operation name="ObtenerHorariosCursos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionReportes/ObtenerHorariosCursos" message="tns:IGestionReportes_ObtenerHorariosCursos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionReportes/ObtenerHorariosCursosResponse" message="tns:IGestionReportes_ObtenerHorariosCursos_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionCursos">
@@ -485,6 +533,38 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerCursosDeAlumno">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIDInscripcionPorAlumnoYCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGestionReportes" type="tns:IGestionReportes">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGestionReportes_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ObtenerHorariosCursos">
+      <soap12:operation soapAction="http://tempuri.org/IGestionReportes/ObtenerHorariosCursos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IGestionCursos" type="tns:IGestionCursos">
     <wsp:PolicyReference URI="#NetTcpBinding_IGestionCursos_policy">
@@ -598,6 +678,12 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IGestionAlumnos" binding="tns:NetTcpBinding_IGestionAlumnos">
+      <soap12:address location="net.tcp://localhost:8000/ServiceImplementation/Service" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8000/ServiceImplementation/Service</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGestionReportes" binding="tns:NetTcpBinding_IGestionReportes">
       <soap12:address location="net.tcp://localhost:8000/ServiceImplementation/Service" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8000/ServiceImplementation/Service</wsa10:Address>

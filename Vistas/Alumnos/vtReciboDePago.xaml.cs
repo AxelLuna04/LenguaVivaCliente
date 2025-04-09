@@ -21,9 +21,6 @@ using PdfSharp.Drawing;
 
 namespace LenguaVivaCliente.Vistas.Alumnos
 {
-    /// <summary>
-    /// Lógica de interacción para vtReciboDePago.xaml
-    /// </summary>
     public partial class vtReciboDePago : Window
     {
         private string tempImagePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "recibo_temp.png");
@@ -68,20 +65,16 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             btnEnviar.Visibility = Visibility.Collapsed;
             try
             {
-                // Capturar el recibo y guardarlo como imagen
                 BitmapSource imagenRecibo = CapturarReciboComoImagen();
                 GuardarImagenTemporal(imagenRecibo);
 
-                // Convertir la imagen a PDF
                 string pdfPath = ConvertirImagenAPDF();
 
-                // Mostrar mensaje de éxito
                 if (!string.IsNullOrEmpty(pdfPath))
                 {
                     MessageBox.Show("Recibo guardado exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
-                // Limpiar imagen temporal
                 EliminarImagenTemporal();
             }
             catch (Exception ex)
@@ -90,9 +83,6 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             }
         }
 
-        /// <summary>
-        /// Captura el recibo como imagen sin incluir otros elementos de la interfaz.
-        /// </summary>
         private BitmapSource CapturarReciboComoImagen()
         {
             RenderTargetBitmap rtb = new RenderTargetBitmap(
@@ -101,10 +91,6 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             rtb.Render(gridRecibo);
             return rtb;
         }
-
-        /// <summary>
-        /// Guarda la imagen capturada en un archivo temporal.
-        /// </summary>
         private void GuardarImagenTemporal(BitmapSource imagen)
         {
             PngBitmapEncoder encoder = new PngBitmapEncoder();
@@ -150,20 +136,16 @@ namespace LenguaVivaCliente.Vistas.Alumnos
 
             PdfDocument pdf = new PdfDocument();
             PdfPage page = pdf.AddPage();
-
-            // Configurar tamaño de página estándar (A4 vertical)
-            page.Width = XUnit.FromMillimeter(210);  // Ancho A4: 210 mm
-            page.Height = XUnit.FromMillimeter(297); // Alto A4: 297 mm
+            page.Width = XUnit.FromMillimeter(210);
+            page.Height = XUnit.FromMillimeter(297);
 
             XGraphics gfx = XGraphics.FromPdfPage(page);
             XImage image = XImage.FromFile(tempImagePath);
 
-            // Escalar la imagen para que quepa en la página manteniendo proporciones
             double scale = Math.Min(page.Width / image.PixelWidth, page.Height / image.PixelHeight);
             double finalWidth = image.PixelWidth * scale;
             double finalHeight = image.PixelHeight * scale;
 
-            // Centrar la imagen
             double x = (page.Width - finalWidth) / 2;
             double y = (page.Height - finalHeight) / 2;
 
@@ -172,10 +154,6 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             pdf.Save(tempPdfPath);
             return tempPdfPath;
         }
-
-        /// <summary>
-        /// Elimina la imagen temporal generada para el PDF.
-        /// </summary>
         private void EliminarImagenTemporal()
         {
             if (File.Exists(tempImagePath))
@@ -202,7 +180,6 @@ namespace LenguaVivaCliente.Vistas.Alumnos
                 }
                 proxy.EnviarCorreoReciboPago(idInscripcion, pdfPath);
 
-                // Mostrar mensaje de éxito
                 MessageBox.Show("Recibo enviado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)

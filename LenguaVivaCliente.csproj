@@ -135,6 +135,9 @@
     <Compile Include="VentanasReutilizables\vtVentanaEmergente.xaml.cs">
       <DependentUpon>vtVentanaEmergente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Alumnos\vtHistorialDeCursos.xaml.cs">
+      <DependentUpon>vtHistorialDeCursos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Alumnos\vtReciboDePago.xaml.cs">
       <DependentUpon>vtReciboDePago.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,9 @@
     <Compile Include="Vistas\Registros\vtRegistros.xaml.cs">
       <DependentUpon>vtRegistros.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Reportes\vtHorarioProfesor.xaml.cs">
+      <DependentUpon>vtHorarioProfesor.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -208,6 +214,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="VentanasReutilizables\vtVentanaEmergente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Alumnos\vtHistorialDeCursos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,6 +301,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vistas\Reportes\vtHorarioProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -312,6 +326,12 @@
     </EmbeddedResource>
     <None Include="Connected Services\ServicioLenguaViva\Arrays.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.CursoAlumno.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServicioLenguaViva\LenguaVivaCliente.ServicioLenguaViva.CursoHorario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServicioLenguaViva\service.wsdl" />
     <None Include="Connected Services\ServicioLenguaViva\service.xsd">

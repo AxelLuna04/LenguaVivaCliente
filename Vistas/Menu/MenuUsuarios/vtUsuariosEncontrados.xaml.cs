@@ -57,7 +57,6 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
 
         private void BtnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            // Navega de regreso al menú principal
             NavigationService?.GoBack();
         }
 

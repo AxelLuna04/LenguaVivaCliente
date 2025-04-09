@@ -47,7 +47,7 @@ namespace LenguaVivaCliente.Vistas.Alumnos
         private void BtnReciboDePago_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            vtReciboDePago reciboPago = new vtReciboDePago(1);
+            vtReciboDePago reciboPago = new vtReciboDePago(idInscripcion);
             reciboPago.Show();
         }
     }

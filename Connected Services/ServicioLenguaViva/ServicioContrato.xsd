@@ -104,6 +104,37 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReciboPago" nillable="true" type="tns:ReciboPago" />
+  <xs:complexType name="ArrayOfCursoAlumno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoAlumno" nillable="true" type="tns:CursoAlumno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCursoAlumno" nillable="true" type="tns:ArrayOfCursoAlumno" />
+  <xs:complexType name="CursoAlumno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fechaInicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaTermino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreCurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreProfesor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CursoAlumno" nillable="true" type="tns:CursoAlumno" />
+  <xs:complexType name="ArrayOfCursoHorario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoHorario" nillable="true" type="tns:CursoHorario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCursoHorario" nillable="true" type="tns:ArrayOfCursoHorario" />
+  <xs:complexType name="CursoHorario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horaInicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horaSalida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCurso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CursoHorario" nillable="true" type="tns:CursoHorario" />
   <xs:complexType name="ArrayOfCursoDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoDTO" nillable="true" type="tns:CursoDTO" />

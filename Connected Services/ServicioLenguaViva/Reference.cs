@@ -9,7 +9,211 @@
 //------------------------------------------------------------------------------
 
 namespace LenguaVivaCliente.ServicioLenguaViva {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CursoAlumno", Namespace="http://schemas.datacontract.org/2004/07/ServicioContrato")]
+    [System.SerializableAttribute()]
+    public partial class CursoAlumno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaTerminoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idCursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreCursoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreProfesorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaInicio {
+            get {
+                return this.fechaInicioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaInicioField, value) != true)) {
+                    this.fechaInicioField = value;
+                    this.RaisePropertyChanged("fechaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fechaTermino {
+            get {
+                return this.fechaTerminoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaTerminoField, value) != true)) {
+                    this.fechaTerminoField = value;
+                    this.RaisePropertyChanged("fechaTermino");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idCurso {
+            get {
+                return this.idCursoField;
+            }
+            set {
+                if ((this.idCursoField.Equals(value) != true)) {
+                    this.idCursoField = value;
+                    this.RaisePropertyChanged("idCurso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreCurso {
+            get {
+                return this.nombreCursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreCursoField, value) != true)) {
+                    this.nombreCursoField = value;
+                    this.RaisePropertyChanged("nombreCurso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreProfesor {
+            get {
+                return this.nombreProfesorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreProfesorField, value) != true)) {
+                    this.nombreProfesorField = value;
+                    this.RaisePropertyChanged("nombreProfesor");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CursoHorario", Namespace="http://schemas.datacontract.org/2004/07/ServicioContrato")]
+    [System.SerializableAttribute()]
+    public partial class CursoHorario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string diaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string horaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string horaSalidaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nombreCursoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string dia {
+            get {
+                return this.diaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.diaField, value) != true)) {
+                    this.diaField = value;
+                    this.RaisePropertyChanged("dia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string horaInicio {
+            get {
+                return this.horaInicioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.horaInicioField, value) != true)) {
+                    this.horaInicioField = value;
+                    this.RaisePropertyChanged("horaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string horaSalida {
+            get {
+                return this.horaSalidaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.horaSalidaField, value) != true)) {
+                    this.horaSalidaField = value;
+                    this.RaisePropertyChanged("horaSalida");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nombreCurso {
+            get {
+                return this.nombreCursoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nombreCursoField, value) != true)) {
+                    this.nombreCursoField = value;
+                    this.RaisePropertyChanged("nombreCurso");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionUsuarios")]
@@ -247,6 +451,18 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPago", ReplyAction="http://tempuri.org/IGestionAlumnos/EnviarCorreoReciboPagoResponse")]
         System.Threading.Tasks.Task<bool> EnviarCorreoReciboPagoAsync(int idInscripcion, string pdfPath);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumnoResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.CursoAlumno[] ObtenerCursosDeAlumno(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumno", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerCursosDeAlumnoResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoAlumno[]> ObtenerCursosDeAlumnoAsync(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse")]
+        int ObtenerIDInscripcionPorAlumnoYCurso(int idAlumno, int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCurso", ReplyAction="http://tempuri.org/IGestionAlumnos/ObtenerIDInscripcionPorAlumnoYCursoResponse")]
+        System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorAlumnoYCursoAsync(int idAlumno, int idCurso);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -298,6 +514,69 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> EnviarCorreoReciboPagoAsync(int idInscripcion, string pdfPath) {
             return base.Channel.EnviarCorreoReciboPagoAsync(idInscripcion, pdfPath);
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.CursoAlumno[] ObtenerCursosDeAlumno(int idAlumno) {
+            return base.Channel.ObtenerCursosDeAlumno(idAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoAlumno[]> ObtenerCursosDeAlumnoAsync(int idAlumno) {
+            return base.Channel.ObtenerCursosDeAlumnoAsync(idAlumno);
+        }
+        
+        public int ObtenerIDInscripcionPorAlumnoYCurso(int idAlumno, int idCurso) {
+            return base.Channel.ObtenerIDInscripcionPorAlumnoYCurso(idAlumno, idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerIDInscripcionPorAlumnoYCursoAsync(int idAlumno, int idCurso) {
+            return base.Channel.ObtenerIDInscripcionPorAlumnoYCursoAsync(idAlumno, idCurso);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionReportes")]
+    public interface IGestionReportes {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionReportes/ObtenerHorariosCursos", ReplyAction="http://tempuri.org/IGestionReportes/ObtenerHorariosCursosResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.CursoHorario[] ObtenerHorariosCursos(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionReportes/ObtenerHorariosCursos", ReplyAction="http://tempuri.org/IGestionReportes/ObtenerHorariosCursosResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoHorario[]> ObtenerHorariosCursosAsync(string correo);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGestionReportesChannel : LenguaVivaCliente.ServicioLenguaViva.IGestionReportes, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GestionReportesClient : System.ServiceModel.ClientBase<LenguaVivaCliente.ServicioLenguaViva.IGestionReportes>, LenguaVivaCliente.ServicioLenguaViva.IGestionReportes {
+        
+        public GestionReportesClient() {
+        }
+        
+        public GestionReportesClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public GestionReportesClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionReportesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GestionReportesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public LenguaVivaCliente.ServicioLenguaViva.CursoHorario[] ObtenerHorariosCursos(string correo) {
+            return base.Channel.ObtenerHorariosCursos(correo);
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.CursoHorario[]> ObtenerHorariosCursosAsync(string correo) {
+            return base.Channel.ObtenerHorariosCursosAsync(correo);
         }
     }
     

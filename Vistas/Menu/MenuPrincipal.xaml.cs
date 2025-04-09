@@ -48,9 +48,7 @@ namespace LenguaVivaCliente.Vistas.Menu
 
         private void Salir_Click(object sender, RoutedEventArgs e)
         {
-            // Cierra la aplicación o la ventana actual
             Application.Current.Shutdown();
-            // Si estás en una ventana secundaria, puedes usar this.Close();
         }
 
         private void Click_MenuReportes(object sender, RoutedEventArgs e)
