@@ -283,10 +283,38 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AsignarHorario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="horario" nillable="true" type="q21:HorarioDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignarHorarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AsignarHorarioResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerHorariosPorCurso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerHorariosPorCursoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="ObtenerHorariosPorCursoResult" nillable="true" type="q22:ArrayOfHorarioDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RegistrarInscripcion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="inscripcionDTO" nillable="true" type="q21:InscripcionDTO" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="inscripcionDTO" nillable="true" type="q23:InscripcionDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -307,7 +335,7 @@
   <xs:element name="BuscarAlumnosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="BuscarAlumnosResult" nillable="true" type="q22:ArrayOfAlumnoDTO" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ServicioContrato" minOccurs="0" name="BuscarAlumnosResult" nillable="true" type="q24:ArrayOfAlumnoDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

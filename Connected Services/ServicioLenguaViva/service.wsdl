@@ -176,6 +176,18 @@
   <wsdl:message name="IGestionCursos_TieneAlumnosInscritos_OutputMessage">
     <wsdl:part name="parameters" element="tns:TieneAlumnosInscritosResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionCursos_AsignarHorario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarHorario" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_AsignarHorario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerHorariosPorCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerHorariosPorCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerHorariosPorCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerHorariosPorCursoResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionAlumnos_RegistrarInscripcion_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarInscripcion" />
   </wsdl:message>
@@ -282,6 +294,14 @@
     <wsdl:operation name="TieneAlumnosInscritos">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos" message="tns:IGestionCursos_TieneAlumnosInscritos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/TieneAlumnosInscritosResponse" message="tns:IGestionCursos_TieneAlumnosInscritos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignarHorario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/AsignarHorario" message="tns:IGestionCursos_AsignarHorario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/AsignarHorarioResponse" message="tns:IGestionCursos_AsignarHorario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerHorariosPorCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCurso" message="tns:IGestionCursos_ObtenerHorariosPorCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCursoResponse" message="tns:IGestionCursos_ObtenerHorariosPorCurso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionAlumnos">
@@ -484,6 +504,24 @@
     </wsdl:operation>
     <wsdl:operation name="TieneAlumnosInscritos">
       <soap12:operation soapAction="http://tempuri.org/IGestionCursos/TieneAlumnosInscritos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignarHorario">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/AsignarHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerHorariosPorCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerHorariosPorCurso" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

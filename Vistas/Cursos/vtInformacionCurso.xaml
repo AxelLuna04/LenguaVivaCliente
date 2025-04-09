@@ -127,7 +127,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding nombre}" />
                                     <TextBlock Text=" " />
-                                    <TextBlock Text="{Binding fechaInicio}" />
+                                    <TextBlock Text="{Binding apellidos}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
