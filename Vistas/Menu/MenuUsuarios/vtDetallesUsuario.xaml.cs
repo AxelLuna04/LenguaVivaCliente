@@ -113,6 +113,12 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
                             return;
                         }
 
+
+                        if (alumnoReal.idiomasNivel == null || alumnoReal.idiomasNivel.Length == 0)
+                        {
+                            MessageBox.Show("Este alumno no tiene idiomas asignados.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+
                         AlumnoDTO alumnoSeleccionado = new AlumnoDTO
                         {
                             idAlumno = alumnoReal.idAlumno,

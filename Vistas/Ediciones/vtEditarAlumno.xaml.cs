@@ -66,6 +66,10 @@ namespace LenguaVivaCliente.Vistas.Ediciones
                         idiomaNombre = inDto.idiomaNombre
                     });
                 }
+            }else
+            {
+                MessageBox.Show("El alumno no tiene idiomas asignados.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
             dgIdiomas.ItemsSource = IdiomasAgregados;
         }
@@ -125,24 +129,36 @@ namespace LenguaVivaCliente.Vistas.Ediciones
         {
             if (cboIdiomas.SelectedItem is IdiomaDTO idioma && cboNiveles.SelectedItem is string nivelStr)
             {
-                if (IdiomasAgregados.Any(i => i.idIdioma == idioma.idIdioma))
-                {
-                    MessageBox.Show("Este idioma ya ha sido agregado.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
+                var idiomaExistente = IdiomasAgregados.FirstOrDefault(i => i.idIdioma == idioma.idIdioma);
 
-                int nivel = 0;
-                if (nivelStr == "Básico") nivel = 1;
-                else if (nivelStr == "Intermedio") nivel = 2;
-                else if (nivelStr == "Avanzado") nivel = 3;
-                IdiomasAgregados.Add(new IdiomaNivelDTO
+                if (idiomaExistente != null)
                 {
-                    idIdioma = idioma.idIdioma,
-                    nivel = nivel,
-                    idiomaNombre = idioma.nombreIdioma
-                });
+                    int nivel = 0;
+                    if (nivelStr == "Básico") nivel = 1;
+                    else if (nivelStr == "Intermedio") nivel = 2;
+                    else if (nivelStr == "Avanzado") nivel = 3;
+
+                    idiomaExistente.nivel = nivel;
+
+                    dgIdiomas.Items.Refresh();
+                }
+                else
+                {
+                    int nivel = 0;
+                    if (nivelStr == "Básico") nivel = 1;
+                    else if (nivelStr == "Intermedio") nivel = 2;
+                    else if (nivelStr == "Avanzado") nivel = 3;
+
+                    IdiomasAgregados.Add(new IdiomaNivelDTO
+                    {
+                        idIdioma = idioma.idIdioma,
+                        nivel = nivel,
+                        idiomaNombre = idioma.nombreIdioma
+                    });
+                }
             }
         }
+
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
