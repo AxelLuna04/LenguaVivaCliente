@@ -180,6 +180,9 @@
     <Compile Include="Vistas\Menu\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Menu\MenuReportes\MenuReportes.xaml.cs">
+      <DependentUpon>MenuReportes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Menu\MenuUsuarios\vtBuscarUsuarios.xaml.cs">
       <DependentUpon>vtBuscarUsuarios.xaml</DependentUpon>
     </Compile>
@@ -286,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Menu\MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Menu\MenuReportes\MenuReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
