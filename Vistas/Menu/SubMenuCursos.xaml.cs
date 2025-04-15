@@ -51,5 +51,11 @@ namespace LenguaVivaCliente.Vistas.Menu
             vtBuscarCurso vtBuscarCurso = new vtBuscarCurso(tipoUsuario);
             NavigationService.Navigate(vtBuscarCurso);
         }
+
+        private void Click_RegistrarIdioma(object sender, RoutedEventArgs e)
+        {
+            vtRegistrarIdioma vtRegistrarIdioma = new vtRegistrarIdioma();
+            NavigationService.Navigate(vtRegistrarIdioma);
+        }
     }
 }

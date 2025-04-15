@@ -168,6 +168,9 @@
     <Compile Include="Vistas\Cursos\vtRegistrarCurso.xaml.cs">
       <DependentUpon>vtRegistrarCurso.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Cursos\vtRegistrarIdioma.xaml.cs">
+      <DependentUpon>vtRegistrarIdioma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Ediciones\vtEditarAdministrador.xaml.cs">
       <DependentUpon>vtEditarAdministrador.xaml</DependentUpon>
     </Compile>
@@ -276,6 +279,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Cursos\vtRegistrarCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\vtRegistrarIdioma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

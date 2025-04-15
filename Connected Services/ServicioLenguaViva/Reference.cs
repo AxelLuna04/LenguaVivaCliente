@@ -92,6 +92,49 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/ModificarAlumno", ReplyAction="http://tempuri.org/IGestionUsuarios/ModificarAlumnoResponse")]
         System.Threading.Tasks.Task<bool> ModificarAlumnoAsync(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarIdioma", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarIdiomaResponse")]
+        LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaResponse RegistrarIdioma(LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaRequest request);
+        
+        // CODEGEN: Generando contrato de mensaje, ya que la operación tiene múltiples valores de devolución.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionUsuarios/RegistrarIdioma", ReplyAction="http://tempuri.org/IGestionUsuarios/RegistrarIdiomaResponse")]
+        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaResponse> RegistrarIdiomaAsync(LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="RegistrarIdioma", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class RegistrarIdiomaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ServicioContrato.IdiomaDTO idiomaDTO;
+        
+        public RegistrarIdiomaRequest() {
+        }
+        
+        public RegistrarIdiomaRequest(ServicioContrato.IdiomaDTO idiomaDTO) {
+            this.idiomaDTO = idiomaDTO;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="RegistrarIdiomaResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class RegistrarIdiomaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool RegistrarIdiomaResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string mensaje;
+        
+        public RegistrarIdiomaResponse() {
+        }
+        
+        public RegistrarIdiomaResponse(bool RegistrarIdiomaResult, string mensaje) {
+            this.RegistrarIdiomaResult = RegistrarIdiomaResult;
+            this.mensaje = mensaje;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -223,6 +266,23 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> ModificarAlumnoAsync(ServicioContrato.AlumnoDTO alumnoDTO, ServicioContrato.IdiomaNivelDTO[] idiomasNivel) {
             return base.Channel.ModificarAlumnoAsync(alumnoDTO, idiomasNivel);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaResponse LenguaVivaCliente.ServicioLenguaViva.IGestionUsuarios.RegistrarIdioma(LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaRequest request) {
+            return base.Channel.RegistrarIdioma(request);
+        }
+        
+        public bool RegistrarIdioma(ServicioContrato.IdiomaDTO idiomaDTO, out string mensaje) {
+            LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaRequest inValue = new LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaRequest();
+            inValue.idiomaDTO = idiomaDTO;
+            LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaResponse retVal = ((LenguaVivaCliente.ServicioLenguaViva.IGestionUsuarios)(this)).RegistrarIdioma(inValue);
+            mensaje = retVal.mensaje;
+            return retVal.RegistrarIdiomaResult;
+        }
+        
+        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaResponse> RegistrarIdiomaAsync(LenguaVivaCliente.ServicioLenguaViva.RegistrarIdiomaRequest request) {
+            return base.Channel.RegistrarIdiomaAsync(request);
         }
     }
     
