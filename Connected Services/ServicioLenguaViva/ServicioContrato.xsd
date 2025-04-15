@@ -111,6 +111,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CursoHorario" nillable="true" type="tns:CursoHorario" />
+  <xs:complexType name="ArrayOfProfesorReporteDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfesorReporteDTO" nillable="true" type="tns:ProfesorReporteDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfesorReporteDTO" nillable="true" type="tns:ArrayOfProfesorReporteDTO" />
+  <xs:complexType name="ProfesorReporteDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CursosActivos" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreCompleto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfesorReporteDTO" nillable="true" type="tns:ProfesorReporteDTO" />
   <xs:complexType name="ArrayOfCursoDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoDTO" nillable="true" type="tns:CursoDTO" />

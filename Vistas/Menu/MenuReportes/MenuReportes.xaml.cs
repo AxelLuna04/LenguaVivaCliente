@@ -49,7 +49,8 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuReportes
 
         private void Click_ReporteProfesores(object sender, RoutedEventArgs e)
         {
-
+            Vistas.Reportes.vtReporteDeProfesores vtReporteDeProfesor = new Vistas.Reportes.vtReporteDeProfesores();
+            NavigationService.Navigate(vtReporteDeProfesor);
         }
 
         private void Click_ReporteAsistencia(object sender, RoutedEventArgs e)

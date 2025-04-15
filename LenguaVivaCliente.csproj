@@ -222,6 +222,9 @@
     <Compile Include="Vistas\Reportes\vtHorarioProfesor.xaml.cs">
       <DependentUpon>vtHorarioProfesor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Reportes\vtReporteDeProfesores.xaml.cs">
+      <DependentUpon>vtReporteDeProfesores.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -351,6 +354,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Reportes\vtHorarioProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Reportes\vtReporteDeProfesores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
