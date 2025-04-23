@@ -172,11 +172,6 @@ namespace LenguaVivaCliente.Vistas.Cursos
             }
         }
 
-        private void Click_Cancelar(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
-
         private void tbBusqueda_TextChanged(object sender, TextChangedEventArgs e)
         {
             actualizarTabla();
@@ -221,5 +216,37 @@ namespace LenguaVivaCliente.Vistas.Cursos
         {
             actualizarTabla();
         }
+
+        private void Click_Regresar(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
+        }
+
+        private void Click_Reportes(object sender, RoutedEventArgs e)
+        {
+            if (dgCursos.SelectedItem == null)
+            {
+                Utilidades.VentanasEmergentes.CrearVentanaEmergente("Seleccione un curso", "Debe seleccionar un curso para obtener sus reportes");
+                return;
+            }
+            else
+            {
+                ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
+                CursoDTO curso = servicio.ObtenerCursoPorID(((ResumenCurso)dgCursos.SelectedItem).idCurso);
+
+                if (curso != null)
+                {
+                    vtReportesCurso vtReportesCurso = new vtReportesCurso(curso);
+                    NavigationService.Navigate(vtReportesCurso);
+                }
+                else
+                {
+                    Utilidades.VentanasEmergentes.CrearVentanaEmergente("", "Error al obtener la información del curso");
+                }
+
+
+            }
+        }
+
     }
 }

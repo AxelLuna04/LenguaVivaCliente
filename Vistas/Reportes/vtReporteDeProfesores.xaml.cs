@@ -3,12 +3,13 @@
     using System.Windows.Controls;
     using System.Collections.Generic;
     using System;
+    using ServicioContrato;
 
-    namespace LenguaVivaCliente.Vistas.Reportes
+namespace LenguaVivaCliente.Vistas.Reportes
     {
         public partial class vtReporteDeProfesores : Page
         {
-            private IGestionReportes _servicio;
+            private ServicioLenguaViva.IGestionReportes _servicio;
 
             public vtReporteDeProfesores()
             {

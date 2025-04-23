@@ -9,70 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace LenguaVivaCliente.ServicioLenguaViva {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProfesorReporteDTO", Namespace="http://schemas.datacontract.org/2004/07/ServicioContrato")]
-    [System.SerializableAttribute()]
-    public partial class ProfesorReporteDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CursosActivosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreCompletoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CursosActivos {
-            get {
-                return this.CursosActivosField;
-            }
-            set {
-                if ((this.CursosActivosField.Equals(value) != true)) {
-                    this.CursosActivosField = value;
-                    this.RaisePropertyChanged("CursosActivos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreCompleto {
-            get {
-                return this.NombreCompletoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreCompletoField, value) != true)) {
-                    this.NombreCompletoField = value;
-                    this.RaisePropertyChanged("NombreCompleto");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioLenguaViva.IGestionUsuarios")]
@@ -360,10 +297,10 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         System.Threading.Tasks.Task<ServicioContrato.CursoHorario[]> ObtenerHorariosCursosAsync(string correo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivos", ReplyAction="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivosResponse")]
-        LenguaVivaCliente.ServicioLenguaViva.ProfesorReporteDTO[] ObtenerReporteProfesoresActivos();
+        ServicioContrato.ProfesorReporteDTO[] ObtenerReporteProfesoresActivos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivos", ReplyAction="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivosResponse")]
-        System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.ProfesorReporteDTO[]> ObtenerReporteProfesoresActivosAsync();
+        System.Threading.Tasks.Task<ServicioContrato.ProfesorReporteDTO[]> ObtenerReporteProfesoresActivosAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -401,11 +338,11 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
             return base.Channel.ObtenerHorariosCursosAsync(correo);
         }
         
-        public LenguaVivaCliente.ServicioLenguaViva.ProfesorReporteDTO[] ObtenerReporteProfesoresActivos() {
+        public ServicioContrato.ProfesorReporteDTO[] ObtenerReporteProfesoresActivos() {
             return base.Channel.ObtenerReporteProfesoresActivos();
         }
         
-        public System.Threading.Tasks.Task<LenguaVivaCliente.ServicioLenguaViva.ProfesorReporteDTO[]> ObtenerReporteProfesoresActivosAsync() {
+        public System.Threading.Tasks.Task<ServicioContrato.ProfesorReporteDTO[]> ObtenerReporteProfesoresActivosAsync() {
             return base.Channel.ObtenerReporteProfesoresActivosAsync();
         }
     }
@@ -509,6 +446,18 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/SubirListaAlumnos", ReplyAction="http://tempuri.org/IGestionCursos/SubirListaAlumnosResponse")]
         System.Threading.Tasks.Task<bool> SubirListaAlumnosAsync(int idCurso, byte[] archivo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerIngresosDeCurso", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerIngresosDeCursoResponse")]
+        int ObtenerIngresosDeCurso(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerIngresosDeCurso", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerIngresosDeCursoResponse")]
+        System.Threading.Tasks.Task<int> ObtenerIngresosDeCursoAsync(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerNumeroAlumnosInscritosACurso", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerNumeroAlumnosInscritosACursoResponse")]
+        int ObtenerNumeroAlumnosInscritosACurso(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCursos/ObtenerNumeroAlumnosInscritosACurso", ReplyAction="http://tempuri.org/IGestionCursos/ObtenerNumeroAlumnosInscritosACursoResponse")]
+        System.Threading.Tasks.Task<int> ObtenerNumeroAlumnosInscritosACursoAsync(int idCurso);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -664,6 +613,22 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<bool> SubirListaAlumnosAsync(int idCurso, byte[] archivo) {
             return base.Channel.SubirListaAlumnosAsync(idCurso, archivo);
+        }
+        
+        public int ObtenerIngresosDeCurso(int idCurso) {
+            return base.Channel.ObtenerIngresosDeCurso(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerIngresosDeCursoAsync(int idCurso) {
+            return base.Channel.ObtenerIngresosDeCursoAsync(idCurso);
+        }
+        
+        public int ObtenerNumeroAlumnosInscritosACurso(int idCurso) {
+            return base.Channel.ObtenerNumeroAlumnosInscritosACurso(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerNumeroAlumnosInscritosACursoAsync(int idCurso) {
+            return base.Channel.ObtenerNumeroAlumnosInscritosACursoAsync(idCurso);
         }
     }
     

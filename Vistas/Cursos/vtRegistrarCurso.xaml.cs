@@ -1,4 +1,4 @@
-﻿using LenguaVivaCliente.ServicioLenguaViva;
+﻿//using LenguaVivaCliente.ServicioLenguaViva;
 using ServicioContrato;
 using System;
 using System.Collections.Generic;

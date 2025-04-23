@@ -452,6 +452,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerIngresosDeCurso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIngresosDeCursoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerIngresosDeCursoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNumeroAlumnosInscritosACurso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCurso" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNumeroAlumnosInscritosACursoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerNumeroAlumnosInscritosACursoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RegistrarInscripcion">
     <xs:complexType>
       <xs:sequence>

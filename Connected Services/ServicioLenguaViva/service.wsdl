@@ -264,6 +264,18 @@
   <wsdl:message name="IGestionCursos_SubirListaAlumnos_OutputMessage">
     <wsdl:part name="parameters" element="tns:SubirListaAlumnosResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerIngresosDeCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIngresosDeCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerIngresosDeCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerIngresosDeCursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerNumeroAlumnosInscritosACurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroAlumnosInscritosACurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCursos_ObtenerNumeroAlumnosInscritosACurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNumeroAlumnosInscritosACursoResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionAlumnos_RegistrarInscripcion_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarInscripcion" />
   </wsdl:message>
@@ -456,6 +468,14 @@
     <wsdl:operation name="SubirListaAlumnos">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/SubirListaAlumnos" message="tns:IGestionCursos_SubirListaAlumnos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/SubirListaAlumnosResponse" message="tns:IGestionCursos_SubirListaAlumnos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIngresosDeCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerIngresosDeCurso" message="tns:IGestionCursos_ObtenerIngresosDeCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerIngresosDeCursoResponse" message="tns:IGestionCursos_ObtenerIngresosDeCurso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroAlumnosInscritosACurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerNumeroAlumnosInscritosACurso" message="tns:IGestionCursos_ObtenerNumeroAlumnosInscritosACurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCursos/ObtenerNumeroAlumnosInscritosACursoResponse" message="tns:IGestionCursos_ObtenerNumeroAlumnosInscritosACurso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionAlumnos">
@@ -795,6 +815,24 @@
     </wsdl:operation>
     <wsdl:operation name="SubirListaAlumnos">
       <soap12:operation soapAction="http://tempuri.org/IGestionCursos/SubirListaAlumnos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIngresosDeCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerIngresosDeCurso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNumeroAlumnosInscritosACurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCursos/ObtenerNumeroAlumnosInscritosACurso" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

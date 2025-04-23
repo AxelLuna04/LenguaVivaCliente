@@ -101,9 +101,10 @@ FontFamily="Pacifico, cursive"
         <!-- Botones -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
 
-            <!-- Botón Cancelar -->
-            <Button Content="Cancelar"
-                    Click="Click_Cancelar"
+            <!-- Botón Reportes -->
+            <Button Content="Reportes"
+                    Name="BtnReportes"
+                    Click="Click_Reportes"
                     Width="160" Height="50"
                     FontSize="18"
                     Background="#FFD7BDE2"
@@ -188,7 +189,7 @@ FontFamily="Pacifico, cursive"
                 VerticalAlignment="Top" 
                 Margin="10" 
                 Cursor="Hand"
-                Click="Click_Cancelar">
+                Click="Click_Regresar">
             <Button.Content>
                 <TextBlock Text="⬅️" 
                            FontSize="30" 
