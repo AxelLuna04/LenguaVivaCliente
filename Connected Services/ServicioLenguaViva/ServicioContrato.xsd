@@ -124,6 +124,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProfesorReporteDTO" nillable="true" type="tns:ProfesorReporteDTO" />
+  <xs:complexType name="ArrayOfAlumnoReporteDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlumnoReporteDTO" nillable="true" type="tns:AlumnoReporteDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlumnoReporteDTO" nillable="true" type="tns:ArrayOfAlumnoReporteDTO" />
+  <xs:complexType name="AlumnoReporteDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInscripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreCompleto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlumnoReporteDTO" nillable="true" type="tns:AlumnoReporteDTO" />
   <xs:complexType name="ArrayOfCursoDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CursoDTO" nillable="true" type="tns:CursoDTO" />

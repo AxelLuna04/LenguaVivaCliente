@@ -153,6 +153,9 @@
     <Compile Include="Vistas\Alumnos\vtInscribirAlumno.xaml.cs">
       <DependentUpon>vtInscribirAlumno.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Cursos\ReportesCurso\vtReporteAlumnos.xaml.cs">
+      <DependentUpon>vtReporteAlumnos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Cursos\ReportesCurso\vtReporteDeIngresos.xaml.cs">
       <DependentUpon>vtReporteDeIngresos.xaml</DependentUpon>
     </Compile>
@@ -268,6 +271,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Alumnos\vtInscribirAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Cursos\ReportesCurso\vtReporteAlumnos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -301,6 +301,12 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivos", ReplyAction="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivosResponse")]
         System.Threading.Tasks.Task<ServicioContrato.ProfesorReporteDTO[]> ObtenerReporteProfesoresActivosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionReportes/ObtenerReporteAlumnosPorCurso", ReplyAction="http://tempuri.org/IGestionReportes/ObtenerReporteAlumnosPorCursoResponse")]
+        ServicioContrato.AlumnoReporteDTO[] ObtenerReporteAlumnosPorCurso(int idCurso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionReportes/ObtenerReporteAlumnosPorCurso", ReplyAction="http://tempuri.org/IGestionReportes/ObtenerReporteAlumnosPorCursoResponse")]
+        System.Threading.Tasks.Task<ServicioContrato.AlumnoReporteDTO[]> ObtenerReporteAlumnosPorCursoAsync(int idCurso);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -344,6 +350,14 @@ namespace LenguaVivaCliente.ServicioLenguaViva {
         
         public System.Threading.Tasks.Task<ServicioContrato.ProfesorReporteDTO[]> ObtenerReporteProfesoresActivosAsync() {
             return base.Channel.ObtenerReporteProfesoresActivosAsync();
+        }
+        
+        public ServicioContrato.AlumnoReporteDTO[] ObtenerReporteAlumnosPorCurso(int idCurso) {
+            return base.Channel.ObtenerReporteAlumnosPorCurso(idCurso);
+        }
+        
+        public System.Threading.Tasks.Task<ServicioContrato.AlumnoReporteDTO[]> ObtenerReporteAlumnosPorCursoAsync(int idCurso) {
+            return base.Channel.ObtenerReporteAlumnosPorCursoAsync(idCurso);
         }
     }
     

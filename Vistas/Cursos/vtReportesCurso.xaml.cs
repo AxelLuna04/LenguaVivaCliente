@@ -32,7 +32,8 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
         private void Click_ReporteAlumnos(object sender, RoutedEventArgs e)
         {
-            
+            Vistas.Cursos.ReportesCurso.vtReporteAlumnos vtReporteAlumnos = new Vistas.Cursos.ReportesCurso.vtReporteAlumnos(curso.idCurso);
+            NavigationService.Navigate(vtReporteAlumnos);
         }
 
         private void Click_ReporteIngresos(object sender, RoutedEventArgs e)

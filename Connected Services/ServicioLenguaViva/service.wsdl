@@ -168,6 +168,12 @@
   <wsdl:message name="IGestionReportes_ObtenerReporteProfesoresActivos_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerReporteProfesoresActivosResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionReportes_ObtenerReporteAlumnosPorCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerReporteAlumnosPorCurso" />
+  </wsdl:message>
+  <wsdl:message name="IGestionReportes_ObtenerReporteAlumnosPorCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerReporteAlumnosPorCursoResponse" />
+  </wsdl:message>
   <wsdl:message name="IGestionCursos_ObtenerCursosPorNombre_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerCursosPorNombre" />
   </wsdl:message>
@@ -402,6 +408,10 @@
     <wsdl:operation name="ObtenerReporteProfesoresActivos">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivos" message="tns:IGestionReportes_ObtenerReporteProfesoresActivos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivosResponse" message="tns:IGestionReportes_ObtenerReporteProfesoresActivos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerReporteAlumnosPorCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionReportes/ObtenerReporteAlumnosPorCurso" message="tns:IGestionReportes_ObtenerReporteAlumnosPorCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionReportes/ObtenerReporteAlumnosPorCursoResponse" message="tns:IGestionReportes_ObtenerReporteAlumnosPorCurso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGestionCursos">
@@ -666,6 +676,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerReporteProfesoresActivos">
       <soap12:operation soapAction="http://tempuri.org/IGestionReportes/ObtenerReporteProfesoresActivos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerReporteAlumnosPorCurso">
+      <soap12:operation soapAction="http://tempuri.org/IGestionReportes/ObtenerReporteAlumnosPorCurso" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
