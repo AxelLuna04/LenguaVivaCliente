@@ -163,7 +163,8 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
         private void Click_VerHorarios(object sender, RoutedEventArgs e)
         {
-
+            vtHorarioCurso vtHorarioCurso = new vtHorarioCurso(curso.idCurso);
+            NavigationService.Navigate(vtHorarioCurso);
         }
 
         private void Click_AsignarHorario(object sender, RoutedEventArgs e)

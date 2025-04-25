@@ -1,0 +1,93 @@
+﻿<Page x:Class="LenguaVivaCliente.Vistas.Cursos.vtHorarioCurso"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LenguaVivaCliente.Vistas.Cursos"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="vtHorarioCurso">
+
+    <Grid Background="#FF1E1E2E">
+        <Border Background="PaleVioletRed" Padding="20" VerticalAlignment="Top">
+            <TextBlock Text="Horario" 
+       FontSize="28" 
+       FontWeight="Bold" 
+       Foreground="#FFEDEDED" 
+       FontFamily="Pacifico, cursive"
+       HorizontalAlignment="Center"
+       TextAlignment="Center"/>
+        </Border>
+
+        <!-- DataGrid -->
+        <Border CornerRadius="10" 
+BorderBrush="#FF8E44AD" 
+BorderThickness="2" 
+Background="#FFF4ECF7"
+Margin="44,100,44,50"
+Padding="10">
+            <DataGrid x:Name="dgHorario" 
+      AutoGenerateColumns="False"
+      IsReadOnly="True" 
+      SelectionMode="Single"
+      BorderThickness="0"
+      Background="Transparent"
+      Foreground="#FF2D3436"
+      GridLinesVisibility="None"
+      RowBackground="White"
+      AlternatingRowBackground="#FFE8DAEF"
+      VerticalScrollBarVisibility="Auto">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Día" Binding="{Binding diaSemana}" />
+                    <DataGridTextColumn Header="Hora de Inicio" Binding="{Binding horaInicio, StringFormat='{}{0:hh\\:mm}'}" />
+                    <DataGridTextColumn Header="Hora de Término" Binding="{Binding horaTermino, StringFormat='{}{0:hh\\:mm}'}" />
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Border>
+
+        <!-- Botón de regresar -->
+        <Button HorizontalAlignment="Left" 
+VerticalAlignment="Top" 
+Margin="10" 
+Cursor="Hand"
+Click="Click_Regresar">
+            <Button.Content>
+                <TextBlock Text="⬅️" 
+           FontSize="30" 
+           Foreground="White" 
+           FontFamily="Segoe UI Symbol"/>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="PaleVioletRed"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" 
+                        CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF9B59B6"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Page>
