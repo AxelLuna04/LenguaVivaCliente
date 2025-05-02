@@ -28,13 +28,8 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuReportes
             this.sesionUsuario = sesionUsuario;
             if(sesionUsuario.tipoUsuario == 2)
             {
-                BtnReporteAlumnos.Visibility = Visibility.Collapsed;
-                BtnReporteAsistencia.Visibility = Visibility.Collapsed;
-                BtnReporteIngresos.Visibility = Visibility.Collapsed;
+               
                 BtnReporteProfesores.Visibility = Visibility.Collapsed;
-                BorderReportesAlumnos.Visibility = Visibility.Collapsed;
-                BorderReporteAsistencias.Visibility = Visibility.Collapsed;
-                BorderReporteIngresos.Visibility = Visibility.Collapsed;
                 BorderReporteProfesores.Visibility= Visibility.Collapsed;
                 BorderVerHorario.Visibility = Visibility.Visible;
                 BtnVerHorario.Visibility = Visibility.Visible;

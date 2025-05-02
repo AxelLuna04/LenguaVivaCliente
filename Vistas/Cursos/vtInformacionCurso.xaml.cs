@@ -103,8 +103,8 @@ namespace LenguaVivaCliente.Vistas.Cursos
 
             if (servicio.TieneAlumnosInscritos(curso.idCurso) == false)
             {
-                bool confirmado = VentanasEmergentes.CrearVentanaConfirmacion("¿Eliminar archivo?",
-                    "¿Estás seguro de que quieres eliminar el archivo? Esta acción no se puede deshacer.");
+                bool confirmado = VentanasEmergentes.CrearVentanaConfirmacion("¿Eliminar curso?",
+                    "¿Estás seguro de que quieres eliminar el curso? Esta acción no se puede deshacer.");
 
                 if (confirmado)
                 {
