@@ -32,6 +32,11 @@ namespace LenguaVivaCliente.Vistas.Alumnos
 
         private void BtnInscribir_Click(object sender, RoutedEventArgs e)
         {
+            if (cbAlumnos.SelectedItem == null || cbCursos.SelectedItem == null)
+            {
+                VentanasEmergentes.CrearVentanaEmergente("Error", "Por favor, seleccione un alumno y un curso.");
+                return;
+            }
             ServicioLenguaViva.IGestionAlumnos servicio = new ServicioLenguaViva.GestionAlumnosClient();
             
 

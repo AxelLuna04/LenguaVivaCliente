@@ -211,45 +211,6 @@
         <!-- Botones -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,45">
             <!-- Botón Volver -->
-            <Button Content="Volver"
-                    Click="Click_Volver"
-                    Width="100" Height="40"
-                    FontSize="16"
-                    Background="#FFD7BDE2"
-                    Foreground="#FF2D3436"
-                    FontWeight="Bold"
-                    Cursor="Hand"
-                    Margin="0,0,20,0">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}" 
-                                            CornerRadius="20"
-                                            BorderBrush="#FF9B59B6"
-                                            BorderThickness="2">
-                                        <ContentPresenter HorizontalAlignment="Center" 
-                                                          VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFC39BD3"/>
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="RenderTransform">
-                                    <Setter.Value>
-                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
 
             <!-- Botón ver horarios -->
             <Button Content="Ver horarios"
