@@ -26,11 +26,11 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
     {
         private UsuarioDTO usuarioSeleccionado;
         private UsuarioDTO[] usuariosEncontrados;
-        private int filtroTipoUsuario;
+        private int tipoUsuario;
         public vtUsuariosEncontrados(string criterioBusqueda, int tipoUsuario)
         {
             InitializeComponent();
-            this.filtroTipoUsuario = tipoUsuario;
+            this.tipoUsuario = tipoUsuario;
             CargarUsuariosEncontrados(criterioBusqueda, tipoUsuario);
         }
 
@@ -51,7 +51,7 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
 
             if (usuarioSeleccionado != null)
             {
-                NavigationService?.Navigate(new vtDetallesUsuario(usuarioSeleccionado, usuarioSeleccionado.tipoUsuario));
+                NavigationService?.Navigate(new vtDetallesUsuario(usuarioSeleccionado, tipoUsuario));
             }
         }
 

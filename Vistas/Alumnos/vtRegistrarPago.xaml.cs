@@ -21,14 +21,41 @@ namespace LenguaVivaCliente.Vistas.Alumnos
     public partial class vtRegistrarPago : Window
     {
         private int idInscripcion;
+        private bool pagoRegistrado = false;
         public vtRegistrarPago(int idInscripcion)
         {
             InitializeComponent();
             this.idInscripcion = idInscripcion;
         }
 
+        private bool ValidarCantidadIngresada()
+        {
+            string cantidad = tbCantidadPagada.Text;
+            if (int.TryParse(cantidad, out int numero) && numero >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void BtnRegistrarPago_Click(object sender, RoutedEventArgs e)
         {
+            if(tbCantidadPagada.Text == "")
+            {
+                Utilidades.VentanasEmergentes.CrearVentanaEmergente("Campo vacío", "Favor de ingresar la cantidad pagada ");
+                return;
+            }
+
+            if (!ValidarCantidadIngresada())
+            {
+                Utilidades.VentanasEmergentes.CrearVentanaEmergente("Cantidad no valida ", "Favor de ingresar una cantidad entera positiva.");
+                return;
+            }
+
+
             int cantidadPagada = int.Parse(tbCantidadPagada.Text);
             GestionAlumnosClient proxy= new GestionAlumnosClient();
 
@@ -37,7 +64,8 @@ namespace LenguaVivaCliente.Vistas.Alumnos
                 Utilidades.VentanasEmergentes.CrearVentanaEmergente("Pago registrado", "El pago se ha registrado correctamente");
                 BtnRegistrarPago.Visibility = Visibility.Collapsed;
                 BtnReciboDePago.Visibility = Visibility.Visible;
-            }
+                pagoRegistrado = true;
+    }
             else
             {
                 Utilidades.VentanasEmergentes.CrearVentanaEmergente("Pago no registrado","Ocurrio un error al intentar registrar el pago, intente de nuevo mas tarde.");
@@ -49,6 +77,15 @@ namespace LenguaVivaCliente.Vistas.Alumnos
             this.Close();
             vtReciboDePago reciboPago = new vtReciboDePago(idInscripcion);
             reciboPago.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!pagoRegistrado)
+            {
+                Utilidades.VentanasEmergentes.CrearVentanaEmergente("", "Debe ingresar la cantidad y registrar el pago antes de cerrar esta ventana.");
+                e.Cancel = true;
+            }
         }
     }
 }

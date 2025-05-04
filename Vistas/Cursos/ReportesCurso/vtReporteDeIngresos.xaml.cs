@@ -40,6 +40,7 @@ namespace LenguaVivaCliente.Vistas.Cursos.ReportesCurso
             txtFechaInicio.Text = fechaInicioFormateada;
             txtFechaFin.Text = fechaFinFormateada;
             txtAlumnosInscritos.Text = numeroAlumnosFormateado;
+            txtTotalIngresos.Text = "$"+ingresosTotalesFormateado;
         }
 
         private void Regresar_Click(object sender, RoutedEventArgs e)

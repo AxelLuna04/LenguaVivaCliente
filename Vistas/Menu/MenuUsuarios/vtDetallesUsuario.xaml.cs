@@ -24,14 +24,11 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
     public partial class vtDetallesUsuario : Page
     {
         private UsuarioDTO usuarioSeleccionado;
-        private int tipoUsuario;
 
         public vtDetallesUsuario(UsuarioDTO usuarioSeleccionado, int tipoUsuario)
         {
             InitializeComponent();
             this.usuarioSeleccionado = usuarioSeleccionado;
-            this.tipoUsuario = tipoUsuario;
-
             TxtTitulo.Text = $"{usuarioSeleccionado.nombre} {usuarioSeleccionado.apellidos}";
             TxtCorreo.Text = usuarioSeleccionado.correo;
             TxtTelefono.Text = usuarioSeleccionado.telefono;
@@ -41,6 +38,13 @@ namespace LenguaVivaCliente.Vistas.Menu.MenuUsuarios
                 TxtNivelIdioma.Text = usuarioSeleccionado.nivelIdioma;
                 BorderNivelIdioma.Visibility = Visibility.Visible;
             }
+
+            if(tipoUsuario == 2)
+            {
+                BtnEditar.Visibility = Visibility.Collapsed;
+                BtnEliminar.Visibility = Visibility.Collapsed;
+            }
+
         }
 
         private void BtnRegresar_Click(object sender, RoutedEventArgs e)
