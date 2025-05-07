@@ -138,17 +138,21 @@ namespace LenguaVivaCliente.Vistas.Cursos
         private void Click_SubirLista(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.Filter = "Archivos de Excel (*.xls; *.xlsx)|*.xls;*.xlsx";  // Filtra los archivos de Excel
+            openFileDialog.Filter = "Archivos de Excel (*.xls; *.xlsx)|*.xls;*.xlsx";
 
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-
-                // Lee el archivo y lo convierte en un arreglo de bytes
                 byte[] fileBytes = File.ReadAllBytes(filePath);
 
-                // Aquí puedes llamar al método que guardará los datos en la base de datos
-                //GuardarArchivoEnBaseDeDatos(fileBytes);
+                // Validar que el archivo sea menor a 5 MB
+                const int maxFileSizeInBytes = 5 * 1024 * 1024;
+                if (fileBytes.Length > maxFileSizeInBytes)
+                {
+                    VentanasEmergentes.CrearVentanaEmergente("Archivo demasiado grande", "El archivo excede el tamaño máximo permitido de 5 MB.");
+                    return;
+                }
+
                 ServicioLenguaViva.IGestionCursos servicio = new ServicioLenguaViva.GestionCursosClient();
                 if (servicio.SubirListaAlumnos(curso.idCurso, fileBytes))
                 {
@@ -160,6 +164,7 @@ namespace LenguaVivaCliente.Vistas.Cursos
                 }
             }
         }
+
 
         private void Click_VerHorarios(object sender, RoutedEventArgs e)
         {
