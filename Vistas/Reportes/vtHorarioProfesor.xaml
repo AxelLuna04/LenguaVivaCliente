@@ -136,46 +136,6 @@
         </Border>
 
         <!-- Botón Descargar mejorado -->
-        <Button Grid.Row="2"
-                Content="Descargar"
-                HorizontalAlignment="Right"
-                Width="180"
-                Height="40"
-                Margin="0,20,0,0"
-                FontSize="14"
-                FontWeight="Bold"
-                Foreground="White"
-                Click="BtnDescargar_Click">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="#FF8E44AD"/>
-                    <Setter Property="BorderBrush" Value="#FF6C3480"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="Button">
-                                <Border x:Name="border" 
-                                        Background="{TemplateBinding Background}" 
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="4">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FF9B59B6"/>
-                                        <Setter Property="BorderBrush" Value="#FF8E44AD"/>
-                                    </Trigger>
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter Property="Background" Value="#FF6C3480"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Button.Style>
-        </Button>
 
         <!-- Botón de Regresar mejorado -->
         <Button HorizontalAlignment="Left" 
