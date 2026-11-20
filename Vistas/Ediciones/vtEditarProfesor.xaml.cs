@@ -57,7 +57,8 @@ namespace LenguaVivaCliente.Vistas.Ediciones
             txtDireccion.Text = profesorSeleccionado.direccion;
             txtTelefono.Text = profesorSeleccionado.telefono;
             txtUsuario.Text = profesorSeleccionado.nombreUsuario;
-            txtContraseña.Password = profesorSeleccionado.contrasenia; 
+            // La contraseña guardada es un hash: no se muestra. Si el campo se deja vacío, no se cambia.
+            txtContraseña.Password = string.Empty;
         }
 
         private bool ValidarCampos()
@@ -191,8 +192,8 @@ namespace LenguaVivaCliente.Vistas.Ediciones
             profesorSeleccionado.direccion = txtDireccion.Text;
             profesorSeleccionado.telefono = txtTelefono.Text;
 
-            
-            profesorSeleccionado.contrasenia = string.Empty;
+            // Vacío = conservar la contraseña actual; con texto = el servidor la cifra y la guarda.
+            profesorSeleccionado.contrasenia = txtContraseña.Password;
 
             var idiomasSeleccionados = (dataGridIdiomas.ItemsSource as List<IdiomaDTO>)?
                 .Where(i => i.IsSelected)
